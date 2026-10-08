@@ -1,661 +1,368 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>la caja | Frutas y verduras seleccionadas a domicilio en Mendoza</title>
-  
-  <!-- Tipografía moderna y limpia -->
+  <title>Fresh Box | Frutas y Verduras Seleccionadas a Domicilio</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-cream: #FBFBF9;
-      --bg-surface: #FFFFFF;
-      --green-dark: #1E382B;
-      --green-leaf: #2D5A43;
-      --green-soft: #EBF2EC;
-      --accent-citrus: #F4E8D8;
-      --accent-peach: #FAF0E6;
-      --text-main: #1A1F1C;
-      --text-muted: #5B6560;
-      --border-color: #E6E8E3;
-      --kraft: #D4B895;
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: var(--font-family);
-      background-color: var(--bg-cream);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* HEADER & NAV */
-    header {
-      background: rgba(251, 251, 249, 0.9);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 72px;
-    }
-
-    .brand-logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Contenedor del Logo (reemplazar la imagen cuando la tengas) */
-    .brand-logo-placeholder {
-      width: 40px;
-      height: 40px;
-      background-color: var(--green-soft);
-      border: 1px dashed var(--green-leaf);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--green-dark);
-      font-weight: 600;
-    }
-
-    .brand-name {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: var(--green-dark);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--green-dark);
-    }
-
-    .btn-nav-wa {
-      background-color: var(--green-dark);
-      color: #fff !important;
-      padding: 9px 18px;
-      border-radius: 99px;
-      font-weight: 600;
-      font-size: 14px;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-nav-wa:hover {
-      opacity: 0.9;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-
-    .badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: var(--green-soft);
-      color: var(--green-dark);
-      border-radius: 99px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.15;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--green-dark);
-      max-width: 820px;
-      margin: 0 auto 20px;
-    }
-
-    .hero p {
-      font-size: clamp(17px, 2.5vw, 20px);
-      color: var(--text-muted);
-      max-width: 660px;
-      margin: 0 auto 36px;
-      font-weight: 400;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background-color: var(--green-dark);
-      color: #FFFFFF;
-      padding: 14px 32px;
-      border-radius: 99px;
-      font-weight: 600;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 14px rgba(30, 56, 43, 0.15);
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--green-leaf);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background-color: var(--bg-surface);
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      padding: 14px 28px;
-      border-radius: 99px;
-      font-weight: 600;
-      font-size: 16px;
-      transition: background 0.15s ease;
-    }
-
-    .btn-secondary:hover {
-      background-color: #f3f3f0;
-    }
-
-    /* VALUE PROPOSITION BAR */
-    .value-props {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin: 40px auto 70px;
-      padding: 24px;
-      background: var(--bg-surface);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-    }
-
-    .vp-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .vp-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--green-soft);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--green-dark);
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
-    .vp-text h4 {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--green-dark);
-    }
-
-    .vp-text p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* SECCIÓN PRODUCTOS / CAJAS */
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--green-dark);
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      font-size: 16px;
-      margin-top: 8px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      margin-bottom: 80px;
-    }
-
-    .box-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .box-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
-    }
-
-    .box-card.featured {
-      border: 2px solid var(--green-leaf);
-    }
-
-    .tag-featured {
-      position: absolute;
-      top: -14px;
-      left: 32px;
-      background: var(--green-leaf);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 14px;
-      border-radius: 99px;
-    }
-
-    .card-header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 24px;
-    }
-
-    .card-header h3 {
-      font-size: 26px;
-      color: var(--green-dark);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .card-header p {
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
-    .card-features {
-      list-style: none;
-      margin-bottom: 32px;
-      flex-grow: 1;
-    }
-
-    .card-features li {
-      font-size: 14.5px;
-      color: var(--text-main);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-features li::before {
-      content: "✓";
-      color: var(--green-leaf);
-      font-weight: 700;
-    }
-
-    .sizes-pills {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .size-pill {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    /* SECCIÓN QUIÉNES SOMOS */
-    .about-section {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-      padding: 64px 48px;
-      margin-bottom: 80px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    @media (max-width: 850px) {
-      .about-grid {
-        grid-template-columns: 1fr;
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f2f9f4',
+              100: '#e1f2e6',
+              500: '#2b7a4b',
+              800: '#1b4d30',
+              900: '#123521',
+            },
+            accent: {
+              citrus: '#f59e0b',
+              terracotta: '#c85a32',
+              cream: '#faf8f5',
+            }
+          }
+        }
       }
     }
-
-    .about-image-placeholder {
-      background-color: var(--green-soft);
-      border: 2px dashed var(--border-color);
-      border-radius: var(--radius-md);
-      aspect-ratio: 4 / 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 24px;
-    }
-
-    .about-image-placeholder span {
-      font-weight: 600;
-      color: var(--green-dark);
-      margin-bottom: 4px;
-    }
-
-    .about-content h2 {
-      font-size: 32px;
-      color: var(--green-dark);
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .about-content p {
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-size: 15.5px;
-      line-height: 1.7;
-    }
-
-    .highlight-pill {
-      background-color: var(--accent-citrus);
-      color: #6C481A;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    /* CTA FINAL */
-    .cta-banner {
-      background: var(--green-dark);
-      color: #FFFFFF;
-      border-radius: var(--radius-lg);
-      padding: 60px 40px;
-      text-align: center;
-      margin-bottom: 80px;
-    }
-
-    .cta-banner h2 {
-      font-size: 34px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .cta-banner p {
-      font-size: 17px;
-      color: #D3DFD8;
-      max-width: 580px;
-      margin: 0 auto 32px;
-    }
-
-    .btn-wa-cta {
-      background-color: #25D366;
-      color: #0F381E;
-      padding: 16px 36px;
-      border-radius: 99px;
-      font-weight: 700;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.15s ease, filter 0.15s ease;
-    }
-
-    .btn-wa-cta:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.05);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding: 40px 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    footer p {
-      margin-bottom: 6px;
-    }
-  </style>
+  </script>
 </head>
-<body>
+<body class="bg-accent-cream text-stone-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-900">
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav-inner">
-      <div class="brand-logo-area">
-        <!-- Reemplazar este div por tu tag <img src="logo.png" alt="la caja"> cuando tengas el archivo -->
-        <div class="brand-logo-placeholder">LOGO</div>
-        <span class="brand-name">la caja</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#cajas">Nuestras Cajas</a>
-        <a href="#quienes-somos">Nosotros</a>
-        <!-- Reemplazá el número con tu WhatsApp comercial -->
-        <a href="https://wa.me/5492610000000?text=Hola,%20quiero%20conocer%20más%20sobre%20la%20suscripción%20de%20la%20caja" target="_blank" class="btn-nav-wa">Pedir por WhatsApp</a>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <!-- Espacio para el logo -->
+        <div class="h-10 w-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          FB
+        </div>
+        <span class="text-2xl font-bold tracking-tight text-stone-900">Fresh<span class="text-brand-500">Box</span></span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-600">
+        <a href="#propuesta" class="hover:text-brand-500 transition-colors">Propuesta</a>
+        <a href="#cajas" class="hover:text-brand-500 transition-colors">Nuestras Cajas</a>
+        <a href="#nosotros" class="hover:text-brand-500 transition-colors">Quiénes Somos</a>
       </nav>
+
+      <a href="https://wa.me/5492610000000?text=Hola!%20Quiero%20suscribirme%20a%20Fresh%20Box" target="_blank" rel="noopener noreferrer" 
+         class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white text-xs md:text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow">
+        <span>Suscribirme</span>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+      </a>
     </div>
   </header>
 
-  <main class="container">
-    
-    <!-- HERO / PROPUESTA DE VALOR -->
-    <section class="hero">
-      <div class="badge-pill">
-        <span>●</span> Mendoza · Chacras, Vistalba y Palmares
-      </div>
-      <h1>Tu solución semanal de frutas y verduras frescas, con estándar gourmet.</h1>
-      <p>
-        Eliminamos la fricción de ir a la verdulería o renegar con pedidos desorganizados. 
-        Recibí en tu puerta una selección estandarizada, limpia y de la más alta calidad, en un día fijo.
-      </p>
-      <div class="hero-actions">
-        <a href="#cajas" class="btn-primary">Ver Opciones de Cajas</a>
-        <a href="https://wa.me/5492610000000?text=Hola,%20quiero%20consultar%20días%20de%20reparto%20en%20mi%20zona" target="_blank" class="btn-secondary">Consultar zona de reparto</a>
-      </div>
-    </section>
-
-    <!-- PROPUESTAS DE VALOR RÁPIDAS -->
-    <section class="value-props">
-      <div class="vp-item">
-        <div class="vp-icon">🌿</div>
-        <div class="vp-text">
-          <h4>Frescura y Selección</h4>
-          <p>Cajas cosechadas y armadas bajo demanda directa de finca. Calibre y maduración óptimos.</p>
+  <!-- HERO SECTION -->
+  <section id="propuesta" class="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-brand-100 text-brand-800 border border-brand-200">
+          Servicio Exclusivo en Mendoza
+        </span>
+        <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
+          Tu solución de la semana en <span class="font-serif italic font-normal text-brand-500">frutas y verduras</span>, con estándar gourmet.
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-stone-600 font-normal leading-relaxed">
+          Garantizamos la más alta calidad y frescura de huerta directo en la puerta de tu casa. Sin traslados, sin demoras y sin intermediarios desorganizados.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#cajas" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-800 text-white font-semibold transition-all shadow-md hover:shadow-lg">
+            Ver selecciones semanales
+          </a>
+          <a href="https://wa.me/5492610000000?text=Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-white border border-stone-300 text-stone-800 hover:bg-stone-50 font-semibold transition-all">
+            Consultar por WhatsApp
+          </a>
         </div>
       </div>
-      <div class="vp-item">
-        <div class="vp-icon">📦</div>
-        <div class="vp-text">
-          <h4>Empaque Cuidado</h4>
-          <p>Cartón kraft ventilado y protección técnica que conserva tus hojas y frutas intactas.</p>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION PILLARS -->
+  <section class="py-12 bg-white border-y border-stone-200/60">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-brand-50 text-brand-800 rounded-2xl shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-base font-bold text-stone-900">Selección Calibrada</h2>
+          <p class="text-sm text-stone-600 mt-1 leading-snug">Cada pieza es revisada individualmente para garantizar maduración óptima y cero golpes.</p>
         </div>
       </div>
-      <div class="vp-item">
-        <div class="vp-icon">⏱</div>
-        <div class="vp-text">
-          <h4>Cero Fricción</h4>
-          <p>Rutas organizadas por barrio. Entrega programada cada semana sin pérdidas de tiempo.</p>
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-brand-50 text-brand-800 rounded-2xl shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-base font-bold text-stone-900">Tu Tiempo Vale</h2>
+          <p class="text-sm text-stone-600 mt-1 leading-snug">Eliminamos las filas y la incertidumbre de la compra semanal con entrega puntual un día fijo.</p>
         </div>
       </div>
-    </section>
+      <div class="flex items-start gap-4">
+        <div class="p-3 bg-brand-50 text-brand-800 rounded-2xl shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+        </div>
+        <div>
+          <h2 class="text-base font-bold text-stone-900">Cero Desperdicio</h2>
+          <p class="text-sm text-stone-600 mt-1 leading-snug">Gramajes planificados por ingenieros para equilibrar el consumo semanal de tu hogar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- OPCIONES DE PRODUCTO -->
-    <section id="cajas">
-      <div class="section-title">
-        <h2>Elegí tu modelo de suscripción</h2>
-        <p>Dos líneas diseñadas para cubrir tu consumo semanal de forma inteligente y sin desperdicios.</p>
+  <!-- PRODUCT CATALOG SECTION -->
+  <section id="cajas" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-brand-800 uppercase">Catálogo Semanal</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Elegí tu configuración ideal</h2>
+        <p class="text-stone-600 mt-3 text-base">Cajas cerradas preparadas bajo demanda el mismo día de la entrega para mantener la frescura intacta.</p>
       </div>
 
-      <div class="cards-grid">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         
-        <!-- CAJA ESTACIÓN -->
-        <article class="box-card">
-          <div class="card-header">
-            <h3>Línea Estación</h3>
-            <p>Variedad noble, rendidora y fresca para la cocina diaria de tu casa.</p>
+        <!-- CARD 1: CAJA ESTACIÓN -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm flex flex-col justify-between hover:border-brand-500/40 transition-colors">
+          <div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">Línea Noble</span>
+                <h3 class="text-2xl font-bold text-stone-900 mt-1">Caja Estación</h3>
+              </div>
+              <span class="px-3 py-1 bg-brand-50 text-brand-800 text-xs font-semibold rounded-full">Frescura Diaria</span>
+            </div>
+            <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+              La selección completa y equilibrada para resolver las comidas de toda la semana con variedad noble, sabrosa y de primera línea.
+            </p>
+
+            <div class="mt-8 border-t border-stone-100 pt-6">
+              <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Contenido Detallado</h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Papa seleccionada</span>
+                  <span class="font-semibold text-stone-900">1,8 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Cebolla</span>
+                  <span class="font-semibold text-stone-900">1,2 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Tomate Perita</span>
+                  <span class="font-semibold text-stone-900">1,0 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Zanahoria seleccionada</span>
+                  <span class="font-semibold text-stone-900">0,8 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Palta Hass</span>
+                  <span class="font-semibold text-stone-900">~3 u. (0,6 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Banana Ecuador Premium</span>
+                  <span class="font-semibold text-stone-900">0,6 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Pimiento Verde</span>
+                  <span class="font-semibold text-stone-900">~2 u. (0,5 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Lechuga Repollada</span>
+                  <span class="font-semibold text-stone-900">1 planta (0,5 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Manzana estándar</span>
+                  <span class="font-semibold text-stone-900">0,5 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Limón</span>
+                  <span class="font-semibold text-stone-900">~4 u. (0,5 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
+                  <span>Ajo morado</span>
+                  <span class="font-semibold text-stone-900">1 cabeza (0,1 kg)</span>
+                </li>
+              </ul>
+            </div>
           </div>
-          
-          <ul class="card-features">
-            <li>Selección de estación: tubérculos, hojas, tomates y frutas.</li>
-            <li>Productos limpios y calibrados listos para consumo.</li>
-            <li>Equilibrio óptimo entre vegetales de cocción y ensaladas.</li>
-            <li>Entrega semanal o quincenal programada.</li>
-          </ul>
 
-          <div class="sizes-pills">
-            <span class="size-pill">Chica (~3.8 kg)</span>
-            <span class="size-pill">Mediana (~6.8 kg)</span>
-            <span class="size-pill">Grande (~9.5 kg)</span>
+          <div class="mt-10">
+            <a href="https://wa.me/5492610000000?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n" target="_blank" rel="noopener noreferrer" 
+               class="w-full inline-flex justify-center items-center py-3.5 px-6 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all">
+              Pedir Caja Estación por WhatsApp
+            </a>
           </div>
-
-          <a href="https://wa.me/5492610000000?text=Hola,%20quiero%20suscribirme%20a%20la%20Línea%20Estación" target="_blank" class="btn-primary" style="justify-content: center; width: 100%;">
-            Suscribirme a Estación
-          </a>
-        </article>
-
-        <!-- CAJA GOURMET (DESTACADA) -->
-        <article class="box-card featured">
-          <span class="tag-featured">Recomendada</span>
-          <div class="card-header">
-            <h3>Línea Gourmet</h3>
-            <p>Especialidades y frutas selectas para quienes buscan una experiencia culinaria superior.</p>
-          </div>
-          
-          <ul class="card-features">
-            <li>Incluye todo lo esencial de estación más variedades gourmet.</li>
-            <li>Paltas en punto justo, tomates seleccionados, aromáticas y verdeo.</li>
-            <li>Frutas premium seleccionadas por calibre y dulzor.</li>
-            <li>Cuidado extra en envasado microperforado de alta protección.</li>
-          </ul>
-
-          <div class="sizes-pills">
-            <span class="size-pill">Chica (~3.8 kg)</span>
-            <span class="size-pill">Mediana (~6.8 kg)</span>
-            <span class="size-pill">Grande (~9.5 kg)</span>
-          </div>
-
-          <a href="https://wa.me/5492610000000?text=Hola,%20quiero%20suscribirme%20a%20la%20Línea%20Gourmet" target="_blank" class="btn-primary" style="justify-content: center; width: 100%;">
-            Suscribirme a Gourmet
-          </a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- QUIÉNES SOMOS -->
-    <section class="about-section" id="quienes-somos">
-      <div class="about-grid">
-        <div class="about-content">
-          <h2>Ingeniería aplicada a la frescura de tu mesa</h2>
-          <p>
-            Somos dos <strong>ingenieros industriales</strong> mendocinos que nos propusimos rediseñar desde cero una tarea tan cotidiana —y a menudo frustrante— como la compra semanal de frutas y verduras.
-          </p>
-          <p>
-            Vimos que conseguir calidad real implicaba perder tiempo haciendo filas, tolerar mermas o lidiar con envíos informales por mensaje. Aplicamos nuestra formación en 
-            <span class="highlight-pill">gestión de calidad</span> y <span class="highlight-pill">logística de precisión</span> 
-            para crear un sistema cerrado, predecible y eficiente.
-          </p>
-          <p>
-            Con <strong>la caja</strong> no comprás verdura al azar: accedés a un servicio de abastecimiento premium donde cada producto es seleccionado bajo estándares rigurosos de frescura y calibración, entregado en tu puerta con puntualidad exacta.
-          </p>
         </div>
 
-        <!-- Placeholder para la foto de los fundadores -->
-        <div class="about-image-placeholder">
-          <!-- Reemplazar con: <img src="fundadores.jpg" alt="Fundadores de la caja" style="width:100%; border-radius:12px;"> -->
-          <span>[ Foto de los socios / fundadores ]</span>
-          <p style="font-size: 13px;">Guardá tu foto como <code>fundadores.jpg</code> en la misma carpeta</p>
-        </div>
-      </div>
-    </section>
+        <!-- CARD 2: CAJA GOURMET -->
+        <div class="bg-white rounded-3xl p-8 border-2 border-brand-500 shadow-lg flex flex-col justify-between relative">
+          <div class="absolute -top-3.5 right-8 bg-brand-500 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+            Más Elegida
+          </div>
 
-    <!-- CTA FINAL / WHATSAPP -->
-    <section class="cta-banner">
-      <h2>Simplificá tu semana hoy mismo</h2>
-      <p>Escribinos por WhatsApp, contanos en qué barrio estás y te asignamos el día de entrega para que te olvides de las compras.</p>
+          <div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <span class="text-xs font-bold text-accent-citrus uppercase tracking-wider">Línea Selección</span>
+                <h3 class="text-2xl font-bold text-stone-900 mt-1">Caja Gourmet</h3>
+              </div>
+            </div>
+            <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+              Pensada para quienes priorizan jugos naturales matutinos, platos livianos y una cuidada proporción de frescos en cada comida.
+            </p>
+
+            <div class="mt-8 border-t border-stone-100 pt-6">
+              <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Contenido Detallado</h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Naranja de Jugo</span>
+                  <span class="font-semibold text-brand-800">1,0 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Papa seleccionada</span>
+                  <span class="font-semibold text-stone-900">1,0 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Cebolla</span>
+                  <span class="font-semibold text-stone-900">1,0 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Zanahoria seleccionada</span>
+                  <span class="font-semibold text-stone-900">1,0 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Tomate Perita</span>
+                  <span class="font-semibold text-stone-900">0,6 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Lechuga Repollada</span>
+                  <span class="font-semibold text-stone-900">1 planta (0,5 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Limón</span>
+                  <span class="font-semibold text-stone-900">~4 u. (0,5 kg)</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
+                  <span>Banana Ecuador Premium</span>
+                  <span class="font-semibold text-stone-900">0,4 kg</span>
+                </li>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
+                  <span>Zapallo Inglés / Anco</span>
+                  <span class="font-semibold text-stone-500 italic">Rotación estacional</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <a href="https://wa.me/5492610000000?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet" target="_blank" rel="noopener noreferrer" 
+               class="w-full inline-flex justify-center items-center py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-800 text-white font-semibold transition-all shadow">
+              Pedir Caja Gourmet por WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US / QUIÉNES SOMOS SECTION -->
+  <section id="nosotros" class="py-20 md:py-28 bg-white border-t border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- FOTO PLACEHOLDER -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <div class="aspect-[4/5] rounded-3xl bg-stone-100 border-2 border-dashed border-stone-300 flex flex-col items-center justify-center p-8 text-center overflow-hidden">
+              <svg class="w-12 h-12 text-stone-400 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              <span class="text-sm font-semibold text-stone-700">Subir foto de los fundadores aquí</span>
+              <p class="text-xs text-stone-400 mt-1 max-w-xs">Reemplazá este contenedor con &lt;img src="socios.jpg" class="w-full h-full object-cover rounded-3xl" /&gt;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STORY & VALUE COPY -->
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold tracking-widest text-brand-800 uppercase">Detrás de Fresh Box</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">
+            Ingeniería aplicada al estándar más exigente de tu mesa.
+          </h2>
+          
+          <div class="mt-6 space-y-4 text-stone-600 text-base leading-relaxed">
+            <p>
+              Somos dos ingenieros industriales mendocinos que decidimos rediseñar por completo la experiencia de abastecimiento del hogar. Comprendimos que la verdulería tradicional no está a la altura del ritmo y la exigencia de las familias modernas: horas perdidas en traslados, calidad irregular, productos golpeados y canales de compra informales.
+            </p>
+            <p>
+              Aplicamos metodología de optimización de cadena de suministro y control de calidad riguroso en origen. Cada caja se calibra bajo demanda directa para asegurar que recibas frescura real cosechada sin pasos innecesarios, minimizando el desperdicio y devolviéndote lo más valioso que tenés: <strong>tu tiempo</strong>.
+            </p>
+            <p class="font-medium text-stone-900">
+              No vendemos verduras por kilo. Te garantizamos previsibilidad, tranquilidad y la mejor calidad culinaria en tu puerta, todas las semanas.
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-6 border-t border-stone-100 pt-6">
+            <div>
+              <span class="block text-2xl font-bold text-brand-800">100%</span>
+              <span class="text-xs text-stone-500 uppercase tracking-wide">Control de calidad en origen</span>
+            </div>
+            <div>
+              <span class="block text-2xl font-bold text-brand-800">0 min</span>
+              <span class="text-xs text-stone-500 uppercase tracking-wide">Tiempo de espera o traslados</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT SECTION -->
+  <section class="py-20 bg-brand-900 text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <span class="text-xs font-bold tracking-widest text-brand-100 uppercase">Comenzá esta semana</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-3">
+        Simplificá tu rutina con fruta y verdura premium.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-brand-100/90 max-w-2xl mx-auto">
+        Coordinamos las entregas directamente por WhatsApp para asignarte el día de ruta que corresponde a tu zona.
+      </p>
+
+      <div class="mt-8 flex justify-center">
+        <a href="https://wa.me/5492610000000?text=Hola!%20Quiero%20coordinar%20mi%20primera%20entrega%20de%20Fresh%20Box" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-3 bg-brand-500 hover:bg-white hover:text-brand-900 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-base">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+          <span>Escribinos por WhatsApp</span>
+        </a>
+      </div>
       
-      <!-- Reemplazá el número con tu WhatsApp comercial -->
-      <a href="https://wa.me/5492610000000?text=Hola,%20quiero%20coordinar%20mi%20primera%20entrega%20de%20la%20caja" target="_blank" class="btn-wa-cta">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.539 1.776.818 2.791.819 3.18 0 5.767-2.587 5.768-5.766 0-3.181-2.587-5.765-5.768-5.765zm8.969 5.766c0 4.962-4.037 8.999-8.999 8.999-1.573 0-3.048-.41-4.331-1.129l-4.67 1.225 1.248-4.549c-.792-1.332-1.246-2.888-1.246-4.546 0-4.963 4.038-9 9-9 4.962 0 8.998 4.037 8.998 9z"/>
-        </svg>
-        Iniciar suscripción por WhatsApp
-      </a>
-    </section>
+      <p class="text-xs text-brand-100/60 mt-4">
+        Zonas de reparto: Chacras de Coria, Vistalba, Palmares, La Puntilla y alrededores.
+      </p>
+    </div>
+  </section>
 
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><strong>la caja</strong> — Distribución estandarizada de huerta premium a domicilio.</p>
-      <p>Mendoza, Argentina · Zonas de cobertura: Chacras de Coria, Vistalba, Palmares, La Puntilla y alrededores.</p>
+  <!-- FOOTER -->
+  <footer class="bg-stone-900 text-stone-400 py-8 border-t border-stone-800 text-xs">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Fresh Box Mendoza. Todos los derechos reservados.</p>
+      <div class="flex gap-6">
+        <a href="#propuesta" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#cajas" class="hover:text-white transition-colors">Cajas</a>
+        <a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a>
+      </div>
     </div>
   </footer>
 
