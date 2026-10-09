@@ -283,80 +283,75 @@
               Combinación noble de verdulería tradicional de primera calidad y frutas para resolver almuerzos y cenas cotidianas.
             </p>
 
-            <!-- DETALLE DE PRODUCTOS -->
+            <!-- DETALLE DE PRODUCTOS (1 COLUMNA CON EMOJIS) -->
             <div class="mt-8 border-t border-stone-100 pt-6">
               <div class="flex justify-between items-center mb-4">
                 <h4 class="text-xs font-bold text-stone-500 uppercase tracking-wider">Contenido de la Caja</h4>
-                <span class="text-xs font-semibold text-brand-700">Cantidades equivalentes</span>
+                <span class="text-xs font-semibold text-brand-700">Cantidades según formato</span>
               </div>
               
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Papa seleccionada</span>
-                  <span class="font-bold text-stone-900">1,8 kg</span>
+              <ul class="flex flex-col gap-2.5 text-sm text-stone-700">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥔 <span>Papa seleccionada</span></span>
+                  <span class="font-bold text-stone-900" id="est-papa">1,8 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Cebolla</span>
-                  <span class="font-bold text-stone-900">1,2 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🧅 <span>Cebolla</span></span>
+                  <span class="font-bold text-stone-900" id="est-cebolla">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Tomate Perita</span>
-                  <span class="font-bold text-stone-900">1,0 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍅 <span>Tomate Perita</span></span>
+                  <span class="font-bold text-stone-900" id="est-tomate">0,9 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Zanahoria seleccionada</span>
-                  <span class="font-bold text-stone-900">0,8 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥕 <span>Zanahoria seleccionada</span></span>
+                  <span class="font-bold text-stone-900" id="est-zanahoria">0,8 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Palta Hass</span>
-                  <span class="font-bold text-brand-800">~3 u. (0,6 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥑 <span>Palta Hass</span></span>
+                  <span class="font-bold text-brand-800" id="est-palta">~3 u. (0,6 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Banana Ecuador Premium</span>
-                  <span class="font-bold text-stone-900">~3-4 u. (0,6 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍌 <span>Banana Ecuador Premium</span></span>
+                  <span class="font-bold text-stone-900" id="est-banana">~3-4 u. (0,6 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Pimiento Verde</span>
-                  <span class="font-bold text-stone-900">~2 u. (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🫑 <span>Pimiento Verde</span></span>
+                  <span class="font-bold text-stone-900" id="est-pimiento">~2 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Lechuga Repollada</span>
-                  <span class="font-bold text-stone-900">1 planta (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥬 <span>Lechuga Repollada</span></span>
+                  <span class="font-bold text-stone-900" id="est-lechuga">1 planta (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Manzana Seleccionada</span>
-                  <span class="font-bold text-stone-900">~3 u. (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍎 <span>Manzana Seleccionada</span></span>
+                  <span class="font-bold text-stone-900" id="est-manzana">~3 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Limón</span>
-                  <span class="font-bold text-stone-900">~4 u. (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍋 <span>Limón</span></span>
+                  <span class="font-bold text-stone-900" id="est-limon">~4 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
-                  <span>Ajo morado</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🧄 <span>Ajo morado</span></span>
                   <span class="font-bold text-stone-900">1 cabeza (0,1 kg)</span>
                 </li>
               </ul>
             </div>
 
-            <!-- FORMATOS Y PESOS -->
+            <!-- SELECTOR DE 2 FORMATOS -->
             <div class="mt-8 bg-stone-50 p-5 rounded-2xl border border-stone-200">
-              <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Formatos Disponibles por Hogar</h5>
-              <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
-                  <span class="block text-xs text-stone-500 font-medium">Chica</span>
-                  <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
+              <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Elegí el Formato</h5>
+              <div class="grid grid-cols-2 gap-3 text-center">
+                <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="p-3 rounded-xl border transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-brand-400">
+                  <span class="block text-xs font-semibold">Chica</span>
+                  <span class="block text-base font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
                   <span class="block text-[11px] text-stone-400">1 a 2 pers.</span>
-                </div>
-                <div class="p-2.5 rounded-xl bg-brand-50 border border-brand-200">
-                  <span class="block text-xs text-brand-800 font-bold">Mediana</span>
-                  <span class="block text-sm font-extrabold text-brand-900 mt-0.5">~8,0 kg</span>
+                </button>
+                <button type="button" onclick="selectEstacion('mediana')" id="btn-est-mediana" class="p-3 rounded-xl border transition-all text-center bg-brand-50 border-brand-500 ring-2 ring-brand-500/30 text-brand-900 font-bold">
+                  <span class="block text-xs font-bold text-brand-800">Mediana</span>
+                  <span class="block text-base font-extrabold text-brand-900 mt-0.5">~7,5 kg</span>
                   <span class="block text-[11px] text-brand-700">3 a 4 pers.</span>
-                </div>
-                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
-                  <span class="block text-xs text-stone-500 font-medium">Grande</span>
-                  <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~10,0 kg</span>
-                  <span class="block text-[11px] text-stone-400">+4 pers.</span>
-                </div>
+                </button>
               </div>
             </div>
 
@@ -369,7 +364,7 @@
           </div>
 
           <div class="mt-8">
-            <a href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n" target="_blank" rel="noopener noreferrer" 
+            <a id="link-estacion" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Mediana%20(~7,5%20kg)" target="_blank" rel="noopener noreferrer" 
                class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm">
               Pedir Caja Estación por WhatsApp
             </a>
@@ -393,72 +388,67 @@
               Enfocada en cítricos dulces para jugos de desayuno, frescos livianos y acompañamientos seleccionados para cocina diaria.
             </p>
 
-            <!-- DETALLE DE PRODUCTOS -->
+            <!-- DETALLE DE PRODUCTOS (1 COLUMNA CON EMOJIS) -->
             <div class="mt-8 border-t border-stone-100 pt-6">
               <div class="flex justify-between items-center mb-4">
                 <h4 class="text-xs font-bold text-stone-500 uppercase tracking-wider">Contenido de la Caja</h4>
-                <span class="text-xs font-semibold text-brand-700">Cantidades equivalentes</span>
+                <span class="text-xs font-semibold text-brand-700">Cantidades según formato</span>
               </div>
 
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Naranja para Jugo</span>
-                  <span class="font-bold text-brand-800">~5-6 u. (1,0 kg)</span>
+              <ul class="flex flex-col gap-2.5 text-sm text-stone-700">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍊 <span>Naranja para Jugo</span></span>
+                  <span class="font-bold text-brand-800" id="gour-naranja">~7-8 u. (1,4 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Papa seleccionada</span>
-                  <span class="font-bold text-stone-900">1,0 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥔 <span>Papa seleccionada</span></span>
+                  <span class="font-bold text-stone-900" id="gour-papa">1,2 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Cebolla</span>
-                  <span class="font-bold text-stone-900">1,0 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🧅 <span>Cebolla</span></span>
+                  <span class="font-bold text-stone-900" id="gour-cebolla">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Zanahoria seleccionada</span>
-                  <span class="font-bold text-stone-900">1,0 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥕 <span>Zanahoria seleccionada</span></span>
+                  <span class="font-bold text-stone-900" id="gour-zanahoria">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Tomate Perita</span>
-                  <span class="font-bold text-stone-900">0,6 kg</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍅 <span>Tomate Perita</span></span>
+                  <span class="font-bold text-stone-900" id="gour-tomate">0,8 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Lechuga Repollada</span>
-                  <span class="font-bold text-stone-900">1 planta (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🥬 <span>Lechuga Repollada</span></span>
+                  <span class="font-bold text-stone-900" id="gour-lechuga">1 planta (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Limón</span>
-                  <span class="font-bold text-stone-900">~4 u. (0,5 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍋 <span>Limón</span></span>
+                  <span class="font-bold text-stone-900" id="gour-limon">~5 u. (0,6 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
-                  <span>Banana Ecuador Premium</span>
-                  <span class="font-bold text-stone-900">~2-3 u. (0,4 kg)</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🍌 <span>Banana Ecuador Premium</span></span>
+                  <span class="font-bold text-stone-900" id="gour-banana">~3-4 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
-                  <span>Zapallo Inglés / Anco</span>
+                <li class="flex items-center justify-between border-b border-stone-100 pb-2">
+                  <span class="flex items-center gap-2">🎃 <span>Zapallo Inglés / Anco</span></span>
                   <span class="font-bold text-stone-600 italic">Rotación estacional</span>
                 </li>
               </ul>
             </div>
 
-            <!-- FORMATOS Y PESOS -->
+            <!-- SELECTOR DE 2 FORMATOS -->
             <div class="mt-8 bg-stone-50 p-5 rounded-2xl border border-stone-200">
-              <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Formatos Disponibles por Hogar</h5>
-              <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
-                  <span class="block text-xs text-stone-500 font-medium">Chica</span>
-                  <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
+              <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Elegí el Formato</h5>
+              <div class="grid grid-cols-2 gap-3 text-center">
+                <button type="button" onclick="selectGourmet('chica')" id="btn-gour-chica" class="p-3 rounded-xl border transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-brand-400">
+                  <span class="block text-xs font-semibold">Chica</span>
+                  <span class="block text-base font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
                   <span class="block text-[11px] text-stone-400">1 a 2 pers.</span>
-                </div>
-                <div class="p-2.5 rounded-xl bg-brand-100 border border-brand-300">
-                  <span class="block text-xs text-brand-900 font-bold">Mediana</span>
-                  <span class="block text-sm font-extrabold text-brand-900 mt-0.5">~8,0 kg</span>
-                  <span class="block text-[11px] text-brand-800">3 a 4 pers.</span>
-                </div>
-                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
-                  <span class="block text-xs text-stone-500 font-medium">Grande</span>
-                  <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~10,0 kg</span>
-                  <span class="block text-[11px] text-stone-400">+4 pers.</span>
-                </div>
+                </button>
+                <button type="button" onclick="selectGourmet('mediana')" id="btn-gour-mediana" class="p-3 rounded-xl border transition-all text-center bg-brand-50 border-brand-500 ring-2 ring-brand-500/30 text-brand-900 font-bold">
+                  <span class="block text-xs font-bold text-brand-800">Mediana</span>
+                  <span class="block text-base font-extrabold text-brand-900 mt-0.5">~7,5 kg</span>
+                  <span class="block text-[11px] text-brand-700">3 a 4 pers.</span>
+                </button>
               </div>
             </div>
 
@@ -471,7 +461,7 @@
           </div>
 
           <div class="mt-8">
-            <a href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet" target="_blank" rel="noopener noreferrer" 
+            <a id="link-gourmet" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Mediana%20(~7,5%20kg)" target="_blank" rel="noopener noreferrer" 
                class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
               Pedir Caja Gourmet por WhatsApp
             </a>
@@ -499,6 +489,82 @@
     </div>
   </section>
 
+  <!-- SCRIPT PARA INTERACTIVIDAD DE TAMAÑOS -->
+  <script>
+    const activeClasses = ['bg-brand-50', 'border-brand-500', 'ring-2', 'ring-brand-500/30', 'text-brand-900', 'font-bold'];
+    const inactiveClasses = ['bg-white', 'border-stone-200', 'text-stone-600'];
+
+    function setBtnState(btnActive, btnInactive) {
+      btnActive.classList.add(...activeClasses);
+      btnActive.classList.remove(...inactiveClasses);
+      btnInactive.classList.add(...inactiveClasses);
+      btnInactive.classList.remove(...activeClasses);
+    }
+
+    function selectEstacion(tipo) {
+      const btnChica = document.getElementById('btn-est-chica');
+      const btnMediana = document.getElementById('btn-est-mediana');
+      const link = document.getElementById('link-estacion');
+
+      if (tipo === 'chica') {
+        setBtnState(btnChica, btnMediana);
+        document.getElementById('est-papa').innerText = '1,0 kg';
+        document.getElementById('est-cebolla').innerText = '0,6 kg';
+        document.getElementById('est-tomate').innerText = '0,5 kg';
+        document.getElementById('est-zanahoria').innerText = '0,5 kg';
+        document.getElementById('est-palta').innerText = '~2 u. (0,4 kg)';
+        document.getElementById('est-banana').innerText = '~2-3 u. (0,4 kg)';
+        document.getElementById('est-pimiento').innerText = '1 u. (0,3 kg)';
+        document.getElementById('est-lechuga').innerText = '1 planta (0,4 kg)';
+        document.getElementById('est-manzana').innerText = '~2 u. (0,3 kg)';
+        document.getElementById('est-limon').innerText = '~2-3 u. (0,3 kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)';
+      } else {
+        setBtnState(btnMediana, btnChica);
+        document.getElementById('est-papa').innerText = '1,8 kg';
+        document.getElementById('est-cebolla').innerText = '1,0 kg';
+        document.getElementById('est-tomate').innerText = '0,9 kg';
+        document.getElementById('est-zanahoria').innerText = '0,8 kg';
+        document.getElementById('est-palta').innerText = '~3 u. (0,6 kg)';
+        document.getElementById('est-banana').innerText = '~3-4 u. (0,6 kg)';
+        document.getElementById('est-pimiento').innerText = '~2 u. (0,5 kg)';
+        document.getElementById('est-lechuga').innerText = '1 planta (0,5 kg)';
+        document.getElementById('est-manzana').innerText = '~3 u. (0,5 kg)';
+        document.getElementById('est-limon').innerText = '~4 u. (0,5 kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Mediana%20(~7,5%20kg)';
+      }
+    }
+
+    function selectGourmet(tipo) {
+      const btnChica = document.getElementById('btn-gour-chica');
+      const btnMediana = document.getElementById('btn-gour-mediana');
+      const link = document.getElementById('link-gourmet');
+
+      if (tipo === 'chica') {
+        setBtnState(btnChica, btnMediana);
+        document.getElementById('gour-naranja').innerText = '~4-5 u. (0,8 kg)';
+        document.getElementById('gour-papa').innerText = '0,8 kg';
+        document.getElementById('gour-cebolla').innerText = '0,6 kg';
+        document.getElementById('gour-zanahoria').innerText = '0,6 kg';
+        document.getElementById('gour-tomate').innerText = '0,5 kg';
+        document.getElementById('gour-lechuga').innerText = '1 planta (0,4 kg)';
+        document.getElementById('gour-limon').innerText = '~3 u. (0,4 kg)';
+        document.getElementById('gour-banana').innerText = '~2 u. (0,3 kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Chica%20(~4,5%20kg)';
+      } else {
+        setBtnState(btnMediana, btnChica);
+        document.getElementById('gour-naranja').innerText = '~7-8 u. (1,4 kg)';
+        document.getElementById('gour-papa').innerText = '1,2 kg';
+        document.getElementById('gour-cebolla').innerText = '1,0 kg';
+        document.getElementById('gour-zanahoria').innerText = '1,0 kg';
+        document.getElementById('gour-tomate').innerText = '0,8 kg';
+        document.getElementById('gour-lechuga').innerText = '1 planta (0,5 kg)';
+        document.getElementById('gour-limon').innerText = '~5 u. (0,6 kg)';
+        document.getElementById('gour-banana').innerText = '~3-4 u. (0,5 kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Mediana%20(~7,5%20kg)';
+      }
+    }
+  </script>
   <!-- SECCIÓN 4: QUIÉNES SOMOS (Fondo: Huerta / Campo al atardecer HD) -->
   <section id="nosotros" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center bg-stone-900" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000&q=90');">
     <div class="absolute inset-0 bg-stone-900/50 backdrop-blur-[2px]"></div>
