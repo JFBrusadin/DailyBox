@@ -67,14 +67,22 @@
   </div>
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80">
-    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-4">
-        <img src="logo.jpeg" alt="Daily Box" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1a4b2e/ffffff?text=FB'" class="h-14 w-14 rounded-2xl object-cover border border-stone-200 shadow-md" />
-        <span class="text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900">Daily<span class="text-brand-600">Box</span></span>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-3 min-h-[105px] flex items-center justify-between">
+      
+      <!-- LOGO Y NOMBRE BIEN GRANDES -->
+      <a href="#" class="flex items-center gap-4 group">
+        <img src="logo.jpeg" 
+             alt="Daily Box" 
+             onerror="this.onerror=null; this.src='https://placehold.co/150x150/1a4b2e/ffffff?text=Daily+Box'" 
+             class="h-20 w-20 md:h-24 md:w-24 rounded-2xl object-cover border-2 border-stone-200 shadow-md group-hover:scale-105 transition-transform duration-200" />
+        <span class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-900 leading-none">
+          Daily<span class="text-brand-600">Box</span>
+        </span>
       </a>
       
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-700">
+      <!-- NAVEGACIÓN -->
+      <nav class="hidden lg:flex items-center gap-8 text-base font-semibold text-stone-700">
         <a href="#propuesta" class="hover:text-brand-600 transition-colors">Propuesta</a>
         <a href="#como-funciona" class="hover:text-brand-600 transition-colors">Cómo Funciona</a>
         <a href="#cajas" class="hover:text-brand-600 transition-colors">Nuestras Cajas</a>
@@ -82,11 +90,13 @@
         <a href="#faq" class="hover:text-brand-600 transition-colors">Preguntas Frecuentes</a>
       </nav>
 
+      <!-- BOTÓN CONTACTAR -->
       <a href="https://wa.me/5492614167191?text=Hola!%20Quiero%20conocer%20m%C3%A1s%20sobre%20Daily%20Box" target="_blank" rel="noopener noreferrer" 
-         class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white text-xs md:text-sm font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-sm hover:shadow">
+         class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white text-sm md:text-base font-semibold px-6 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg">
         <span>Contactar</span>
         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
       </a>
+
     </div>
   </header>
 
