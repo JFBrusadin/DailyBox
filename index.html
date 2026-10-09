@@ -52,17 +52,14 @@
     details[open] summary svg { transform: rotate(180deg); }
 
     /* Control de capas de fondo dinámicas */
-    .bg-layer {
+   .bg-tint-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: -2;
-      opacity: 0;
+      background: linear-gradient(to bottom, rgba(251, 250, 248, 0.55) 0%, rgba(251, 250, 248, 0.65) 100%);
+      backdrop-filter: blur(2px);
+      z-index: -1;
       pointer-events: none;
     }
     .bg-layer.active {
