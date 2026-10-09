@@ -8,7 +8,7 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
@@ -31,12 +31,6 @@
               800: '#1a4b2e',
               900: '#11331f',
             },
-            sand: {
-              50: '#fbfaf8',
-              100: '#f4f1eb',
-              200: '#e7e2d7',
-              300: '#d3cabc',
-            },
             accent: {
               citrus: '#e07a2c',
               gold: '#c29236',
@@ -47,57 +41,26 @@
     }
   </script>
   <style>
-    /* Estilos para el acordeón FAQ */
     details summary::-webkit-details-marker { display: none; }
     details[open] summary svg { transform: rotate(180deg); }
-
-    /* Control de capas de fondo dinámicas */
-   .bg-tint-overlay {
-      display: none;
-    }
-    }
-    .bg-layer.active {
-      opacity: 1;
-    }
-    .bg-tint-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: linear-gradient(to bottom, rgba(251, 250, 248, 0.92) 0%, rgba(251, 250, 248, 0.95) 100%);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-      pointer-events: none;
-    }
   </style>
 </head>
-<body class="text-stone-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-900 relative">
-
-  <!-- FONDOS CAMBIANTES FIJOS SEGÚN EL SCROLL -->
-  <!-- Fondo 1: Huerta orgánica / Campo fresco -->
-  <div id="bg-1" class="bg-layer active" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80');"></div>
-  <!-- Fondo 2: Verdulería boutique / Selección gourmet de vegetales -->
-  <div id="bg-2" class="bg-layer" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80');"></div>
-  <!-- Fondo 3: Cosecha, frescura y proceso prolijo -->
-  <div id="bg-3" class="bg-layer" style="background-image: url('https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1920&q=80');"></div>
-
-  <!-- Capa protectora de contraste para asegurar legibilidad ejecutiva -->
-  <div class="bg-tint-overlay"></div>
+<body class="bg-stone-100 text-stone-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-900">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-brand-900 text-brand-100 text-xs py-2 px-6 text-center font-medium tracking-wide">
+  <div class="bg-brand-900 text-brand-100 text-xs py-2 px-6 text-center font-medium tracking-wide z-50 relative">
     🌿 Repartos programados en Chacras de Coria, Palmares, Dalvian, Vistalba y La Puntilla.
   </div>
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-sand-200">
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
         <img src="logo.jpeg" alt="Fresh Box" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1a4b2e/ffffff?text=FB'" class="h-11 w-11 rounded-xl object-cover border border-stone-200 shadow-sm" />
         <span class="text-2xl font-bold tracking-tight text-stone-900">Fresh<span class="text-brand-600">Box</span></span>
       </a>
       
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-600">
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-700">
         <a href="#propuesta" class="hover:text-brand-600 transition-colors">Propuesta</a>
         <a href="#como-funciona" class="hover:text-brand-600 transition-colors">Cómo Funciona</a>
         <a href="#cajas" class="hover:text-brand-600 transition-colors">Nuestras Cajas</a>
@@ -113,51 +76,56 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Trigger de fondo 1) -->
-  <section id="propuesta" data-bg="bg-1" class="scroll-trigger relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- SECCIÓN 1: HERO (Fondo: Huerta orgánica soleada HD) -->
+  <section id="propuesta" class="relative pt-16 pb-20 md:pt-28 md:pb-36 bg-fixed bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6910985c?auto=format&fit=crop&w=2000&q=90');">
+    <!-- Overlay degradado para contraste y nitidez -->
+    <div class="absolute inset-0 bg-stone-900/40 backdrop-brightness-95"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <div class="lg:col-span-7">
+        <!-- Tarjeta de cristal para texto principal -->
+        <div class="lg:col-span-7 bg-white/90 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/60 shadow-2xl">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase bg-brand-100 text-brand-900 border border-brand-200">
             Estándar de Calibración Premium
           </div>
           <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
             Tu solución de la semana en <span class="font-serif italic font-normal text-brand-600">frutas y verduras</span>, con máxima calidad garantizada.
           </h1>
-          <p class="mt-6 text-lg sm:text-xl text-stone-700 font-normal leading-relaxed max-w-2xl">
+          <p class="mt-6 text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
             Llevamos a tu mesa productos de primera selección, calibrados y envasados con cuidado riguroso. Eliminamos traslados, compras apresuradas y mermas en tu hogar.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
             <a href="#cajas" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md hover:shadow-lg">
               Explorar Cajas y Formatos
             </a>
-            <a href="#como-funciona" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-white/90 backdrop-blur-sm border border-stone-300 text-stone-800 hover:bg-white font-semibold transition-all">
+            <a href="#como-funciona" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-stone-100 border border-stone-300 text-stone-800 hover:bg-white font-semibold transition-all">
               Cómo trabajamos
             </a>
           </div>
 
-          <div class="mt-10 flex items-center gap-8 text-xs text-stone-600 font-medium">
+          <div class="mt-10 flex flex-wrap items-center gap-6 text-xs text-stone-600 font-semibold border-t border-stone-200/80 pt-6">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-brand-600"></span>
-              Suscripción mensual, semanal o pedido único
+              Suscripción semanal, mensual o pedido único
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-brand-600"></span>
-              Personalizable hasta 2 cambios
+              Hasta 2 reemplazos por caja
             </div>
           </div>
         </div>
 
+        <!-- Imagen destacada de la caja -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 aspect-[4/3] sm:aspect-square">
-            <img src="caja-abierta.jpeg" alt="Caja abierta Fresh Box con frutas y verduras seleccionadas" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1000&q=80'" class="w-full h-full object-cover object-center" />
-            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-white/60 shadow-sm text-xs flex justify-between items-center">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-stone-100 aspect-[4/3] sm:aspect-square">
+            <img src="caja-abierta.jpeg" alt="Caja abierta Fresh Box con frutas y verduras seleccionadas" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1200&q=90'" class="w-full h-full object-cover object-center" />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-stone-200/80 shadow-md text-xs flex justify-between items-center">
               <div>
-                <p class="font-bold text-stone-900">Selección sin mermas</p>
-                <p class="text-stone-500">Cosechado y entregado en ciclo corto</p>
+                <p class="font-bold text-stone-900 text-sm">Selección sin mermas</p>
+                <p class="text-stone-500">Cosechado y calibrado bajo demanda</p>
               </div>
-              <span class="font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-lg">100% Fresco</span>
+              <span class="font-bold text-brand-800 bg-brand-100 px-3 py-1 rounded-xl">100% Fresco</span>
             </div>
           </div>
         </div>
@@ -166,81 +134,83 @@
     </div>
   </section>
 
-  <!-- VALUE PROPOSITION PILLARS -->
-  <section class="py-16 bg-white/80 backdrop-blur-sm border-y border-sand-200">
+  <!-- PILARES DE VALOR -->
+  <section class="py-14 bg-white/95 border-y border-stone-200">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         
-        <div class="p-6 rounded-2xl bg-white/90 border border-sand-200 shadow-sm">
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">01</div>
           <h3 class="text-base font-bold text-stone-900">Control Unitario</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Cada fruta y verdura pasa por control de madurez y calibración. No ingresan piezas golpeadas.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Cada fruta y verdura pasa por control de madurez y calibración. Cero piezas golpeadas.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white/90 border border-sand-200 shadow-sm">
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">02</div>
           <h3 class="text-base font-bold text-stone-900">Ahorro de Tiempo</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Resolvé las compras semanales sin desplazarte a verdulerías ni hacer filas innecesarias.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Resolvé las compras semanales sin desplazarte ni hacer filas en verdulerías.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white/90 border border-sand-200 shadow-sm">
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">03</div>
           <h3 class="text-base font-bold text-stone-900">Personalización</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">¿No consumís algún producto de la lista? Podés reemplazar hasta 2 ítems por otros de tu preferencia.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">¿No consumís algún producto? Reemplazamos hasta 2 ítems por otros de tu preferencia.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white/90 border border-sand-200 shadow-sm">
+        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">04</div>
-          <h3 class="text-base font-bold text-stone-900">Garantía de Reposición</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Si una unidad no cumple con tu estándar de frescura, la reemplazamos de inmediato sin costo.</p>
+          <h3 class="text-base font-bold text-stone-900">Garantía Inmediata</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Si una unidad no cumple con tu estándar, la reponemos sin costo en tu próxima entrega.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS SECTION -->
-  <section id="como-funciona" class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- SECCIÓN 2: CÓMO FUNCIONA (Fondo: Verdulería Boutique / Mercado Gourmet HD) -->
+  <section id="como-funciona" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=90');">
+    <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-16 bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/60">
         <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Logística & Proceso</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Cómo funciona Fresh Box</h2>
-        <p class="text-stone-600 mt-3 text-base">Un circuito pensado para asegurar previsibilidad y orden en tu cocina.</p>
+        <p class="text-stone-600 mt-3 text-base">Un circuito ordenado para garantizar previsibilidad y frescura en tu cocina.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         
-        <div class="flex flex-col items-start bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-sand-200 shadow-sm">
-          <span class="text-3xl font-extrabold text-brand-600">Paso 1</span>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+          <span class="text-3xl font-extrabold text-brand-700">Paso 1</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Elegís tu Caja</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Seleccionás Línea Estación o Gourmet, y el tamaño acorde a las personas en tu hogar (Chica, Mediana o Grande).</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Seleccionás Línea Estación o Gourmet, y el tamaño acorde a tu hogar (Chica, Mediana o Grande).</p>
         </div>
 
-        <div class="flex flex-col items-start bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-sand-200 shadow-sm">
-          <span class="text-3xl font-extrabold text-brand-600">Paso 2</span>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+          <span class="text-3xl font-extrabold text-brand-700">Paso 2</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Definís la Modalidad</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Elegí compra puntual esporádica o programá suscripción recurrente semanal o mensual sin contratos forzados.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Optá por compra única o suscripción recurrente semanal/mensual sin contratos forzados.</p>
         </div>
 
-        <div class="flex flex-col items-start bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-sand-200 shadow-sm">
-          <span class="text-3xl font-extrabold text-brand-600">Paso 3</span>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+          <span class="text-3xl font-extrabold text-brand-700">Paso 3</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Calibración en Origen</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Armamos y cerramos las cajas bajo demanda exclusiva para asegurar que no queden almacenadas previamente.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Armamos y cerramos las cajas bajo demanda exclusiva para asegurar frescura de huerta.</p>
         </div>
 
-        <div class="flex flex-col items-start bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-sand-200 shadow-sm">
-          <span class="text-3xl font-extrabold text-brand-600">Paso 4</span>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+          <span class="text-3xl font-extrabold text-brand-700">Paso 4</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Entrega en tu Puerta</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Llega a tu domicilio o a la guardia de tu barrio privado en empaque kraft higiénico y cerrado.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Llega a tu domicilio o a la guardia de tu barrio cerrado en empaque kraft higiénico.</p>
         </div>
 
       </div>
 
-      <!-- VISUAL SPOTLIGHT -->
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-sand-200 shadow-sm">
-        <div class="rounded-2xl overflow-hidden aspect-[16/9] border border-stone-200 bg-stone-100">
-          <img src="packaging.jpeg" alt="Empaque kraft exterior Fresh Box" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover" />
+      <!-- SPOTLIGHT PACKAGING -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/70 shadow-xl">
+        <div class="rounded-2xl overflow-hidden aspect-[16/10] border border-stone-200 bg-stone-100">
+          <img src="packaging.jpeg" alt="Empaque kraft exterior Fresh Box" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=90'" class="w-full h-full object-cover" />
         </div>
         <div class="space-y-4">
           <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">Higiene & Presentación</span>
@@ -248,7 +218,7 @@
           <p class="text-sm text-stone-600 leading-relaxed">
             Nuestras cajas de cartón corrugado kraft protegen los productos durante el traslado y evitan la condensación interna. Las hojas y productos delicados van acondicionados en bolsas microperforadas para mantener textura crocante y frescura.
           </p>
-          <div class="text-xs font-semibold text-stone-500 flex gap-4 pt-2">
+          <div class="text-xs font-semibold text-stone-500 flex flex-wrap gap-4 pt-2">
             <span>✓ 100% Reciclable</span>
             <span>✓ Apto ingreso en guardias</span>
             <span>✓ Sin contacto con el exterior</span>
@@ -259,8 +229,8 @@
     </div>
   </section>
 
-  <!-- PRODUCT CATALOG SECTION (Trigger de fondo 2) -->
-  <section id="cajas" data-bg="bg-2" class="scroll-trigger py-20 md:py-28 border-t border-sand-200">
+  <!-- SECCIÓN 3: CATÁLOGO DE CAJAS -->
+  <section id="cajas" class="py-24 md:py-32 bg-stone-100">
     <div class="max-w-7xl mx-auto px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
@@ -272,79 +242,79 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         
         <!-- CARD 1: CAJA ESTACIÓN -->
-        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-sand-200 flex flex-col justify-between hover:border-brand-600 transition-all shadow-md">
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-stone-200/90 flex flex-col justify-between hover:border-brand-600 transition-all shadow-md">
           <div>
             <div class="flex justify-between items-start gap-4">
               <div>
                 <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">Línea Clásica Balanceada</span>
                 <h3 class="text-3xl font-bold text-stone-900 mt-1">Caja Estación</h3>
               </div>
-              <span class="px-3.5 py-1 bg-stone-100 border border-sand-200 text-stone-800 text-xs font-bold rounded-full">Esencial</span>
+              <span class="px-3.5 py-1 bg-stone-100 border border-stone-200 text-stone-800 text-xs font-bold rounded-full">Esencial</span>
             </div>
             <p class="text-sm text-stone-600 mt-3 leading-relaxed">
               Combinación noble de verdulería tradicional de primera calidad y frutas para resolver almuerzos y cenas cotidianas.
             </p>
 
-            <!-- CONTENIDO DETALLADO CON UNIDADES Y KG -->
-            <div class="mt-8 border-t border-sand-200 pt-6">
+            <!-- DETALLE DE PRODUCTOS -->
+            <div class="mt-8 border-t border-stone-100 pt-6">
               <div class="flex justify-between items-center mb-4">
                 <h4 class="text-xs font-bold text-stone-500 uppercase tracking-wider">Contenido de la Caja</h4>
                 <span class="text-xs font-semibold text-brand-700">Cantidades equivalentes</span>
               </div>
               
               <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Papa seleccionada</span>
                   <span class="font-bold text-stone-900">1,8 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Cebolla</span>
                   <span class="font-bold text-stone-900">1,2 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Tomate Perita</span>
                   <span class="font-bold text-stone-900">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Zanahoria seleccionada</span>
                   <span class="font-bold text-stone-900">0,8 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Palta Hass</span>
                   <span class="font-bold text-brand-800">~3 u. (0,6 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Banana Ecuador Premium</span>
                   <span class="font-bold text-stone-900">~3-4 u. (0,6 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Pimiento Verde</span>
                   <span class="font-bold text-stone-900">~2 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Lechuga Repollada</span>
                   <span class="font-bold text-stone-900">1 planta (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Manzana Seleccionada</span>
                   <span class="font-bold text-stone-900">~3 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Limón</span>
                   <span class="font-bold text-stone-900">~4 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5 sm:col-span-2">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
                   <span>Ajo morado</span>
                   <span class="font-bold text-stone-900">1 cabeza (0,1 kg)</span>
                 </li>
               </ul>
             </div>
 
-            <!-- PESOS Y TAMAÑOS -->
-            <div class="mt-8 bg-sand-50/90 p-5 rounded-2xl border border-sand-200">
+            <!-- FORMATOS Y PESOS -->
+            <div class="mt-8 bg-stone-50 p-5 rounded-2xl border border-stone-200">
               <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Formatos Disponibles por Hogar</h5>
               <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="p-2.5 rounded-xl bg-white border border-sand-200">
+                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
                   <span class="block text-xs text-stone-500 font-medium">Chica</span>
                   <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
                   <span class="block text-[11px] text-stone-400">1 a 2 pers.</span>
@@ -354,7 +324,7 @@
                   <span class="block text-sm font-extrabold text-brand-900 mt-0.5">~8,0 kg</span>
                   <span class="block text-[11px] text-brand-700">3 a 4 pers.</span>
                 </div>
-                <div class="p-2.5 rounded-xl bg-white border border-sand-200">
+                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
                   <span class="block text-xs text-stone-500 font-medium">Grande</span>
                   <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~10,0 kg</span>
                   <span class="block text-[11px] text-stone-400">+4 pers.</span>
@@ -363,9 +333,9 @@
             </div>
 
             <!-- POLÍTICA DE CAMBIO -->
-            <div class="mt-4 p-3 bg-brand-50/70 border border-brand-200/80 rounded-xl text-xs text-brand-900 flex items-center gap-2">
+            <div class="mt-4 p-3 bg-brand-50 border border-brand-200/80 rounded-xl text-xs text-brand-900 flex items-center gap-2">
               <svg class="w-4 h-4 text-brand-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong>Flexibilidad:</strong> Podés solicitar el reemplazo de hasta 2 productos de la lista por otros de tu agrado.</span>
+              <span><strong>Flexibilidad:</strong> Podés solicitar el reemplazo de hasta 2 productos de la lista por otros de tu preferencia.</span>
             </div>
 
           </div>
@@ -379,7 +349,7 @@
         </div>
 
         <!-- CARD 2: CAJA GOURMET -->
-        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border-2 border-brand-600 flex flex-col justify-between relative shadow-xl">
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border-2 border-brand-600 flex flex-col justify-between relative shadow-xl">
           <div class="absolute -top-3.5 right-8 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
             Línea Recomendada
           </div>
@@ -395,58 +365,58 @@
               Enfocada en cítricos dulces para jugos de desayuno, frescos livianos y acompañamientos seleccionados para cocina diaria.
             </p>
 
-            <!-- CONTENIDO DETALLADO CON UNIDADES Y KG -->
-            <div class="mt-8 border-t border-sand-200 pt-6">
+            <!-- DETALLE DE PRODUCTOS -->
+            <div class="mt-8 border-t border-stone-100 pt-6">
               <div class="flex justify-between items-center mb-4">
                 <h4 class="text-xs font-bold text-stone-500 uppercase tracking-wider">Contenido de la Caja</h4>
                 <span class="text-xs font-semibold text-brand-700">Cantidades equivalentes</span>
               </div>
 
               <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4 text-sm text-stone-700">
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Naranja para Jugo</span>
                   <span class="font-bold text-brand-800">~5-6 u. (1,0 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Papa seleccionada</span>
                   <span class="font-bold text-stone-900">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Cebolla</span>
                   <span class="font-bold text-stone-900">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Zanahoria seleccionada</span>
                   <span class="font-bold text-stone-900">1,0 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Tomate Perita</span>
                   <span class="font-bold text-stone-900">0,6 kg</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Lechuga Repollada</span>
                   <span class="font-bold text-stone-900">1 planta (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Limón</span>
                   <span class="font-bold text-stone-900">~4 u. (0,5 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5">
                   <span>Banana Ecuador Premium</span>
                   <span class="font-bold text-stone-900">~2-3 u. (0,4 kg)</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-sand-200/60 pb-1.5 sm:col-span-2">
+                <li class="flex items-center justify-between border-b border-stone-100 pb-1.5 sm:col-span-2">
                   <span>Zapallo Inglés / Anco</span>
                   <span class="font-bold text-stone-600 italic">Rotación estacional</span>
                 </li>
               </ul>
             </div>
 
-            <!-- PESOS Y TAMAÑOS -->
-            <div class="mt-8 bg-sand-50/90 p-5 rounded-2xl border border-sand-200">
+            <!-- FORMATOS Y PESOS -->
+            <div class="mt-8 bg-stone-50 p-5 rounded-2xl border border-stone-200">
               <h5 class="text-xs font-bold text-stone-500 uppercase tracking-wider mb-3">Formatos Disponibles por Hogar</h5>
               <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="p-2.5 rounded-xl bg-white border border-sand-200">
+                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
                   <span class="block text-xs text-stone-500 font-medium">Chica</span>
                   <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~4,5 kg</span>
                   <span class="block text-[11px] text-stone-400">1 a 2 pers.</span>
@@ -456,7 +426,7 @@
                   <span class="block text-sm font-extrabold text-brand-900 mt-0.5">~8,0 kg</span>
                   <span class="block text-[11px] text-brand-800">3 a 4 pers.</span>
                 </div>
-                <div class="p-2.5 rounded-xl bg-white border border-sand-200">
+                <div class="p-2.5 rounded-xl bg-white border border-stone-200">
                   <span class="block text-xs text-stone-500 font-medium">Grande</span>
                   <span class="block text-sm font-extrabold text-stone-900 mt-0.5">~10,0 kg</span>
                   <span class="block text-[11px] text-stone-400">+4 pers.</span>
@@ -467,7 +437,7 @@
             <!-- POLÍTICA DE CAMBIO -->
             <div class="mt-4 p-3 bg-brand-50 border border-brand-200/80 rounded-xl text-xs text-brand-900 flex items-center gap-2">
               <svg class="w-4 h-4 text-brand-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong>Flexibilidad:</strong> Podés solicitar el reemplazo de hasta 2 productos de la lista por otros de tu agrado.</span>
+              <span><strong>Flexibilidad:</strong> Podés solicitar el reemplazo de hasta 2 productos de la lista por otros de tu preferencia.</span>
             </div>
 
           </div>
@@ -483,7 +453,7 @@
       </div>
 
       <!-- BANNER DE GARANTÍA -->
-      <div class="mt-12 bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-sand-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+      <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-2xl bg-brand-700 text-white flex items-center justify-center shrink-0">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -493,7 +463,7 @@
             <p class="text-sm text-stone-600">Si un producto llega con algún defecto de maduración o traslado, te lo reponemos sin preguntas en la siguiente entrega.</p>
           </div>
         </div>
-        <div class="text-xs font-bold uppercase tracking-wider text-brand-800 whitespace-nowrap bg-sand-50 px-4 py-2 rounded-xl border border-sand-200">
+        <div class="text-xs font-bold uppercase tracking-wider text-brand-800 whitespace-nowrap bg-brand-50 px-4 py-2 rounded-xl border border-brand-200">
           Cero Riesgo
         </div>
       </div>
@@ -501,15 +471,17 @@
     </div>
   </section>
 
-  <!-- ABOUT US / QUIÉNES SOMOS SECTION (Trigger de fondo 3) -->
-  <section id="nosotros" data-bg="bg-3" class="scroll-trigger py-20 md:py-28 border-t border-sand-200">
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- SECCIÓN 4: QUIÉNES SOMOS (Fondo: Huerta / Campo verde al atardecer HD) -->
+  <section id="nosotros" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000&q=90');">
+    <div class="absolute inset-0 bg-stone-900/50 backdrop-blur-[2px]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <!-- FOTO DE LOS SOCIOS -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-stone-200 bg-stone-100 aspect-[4/5]">
-            <img src="socios.jpeg" alt="Fundadores de Fresh Box" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover object-center" />
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-stone-100 aspect-[4/5]">
+            <img src="socios.jpeg" alt="Fundadores de Fresh Box" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=90'" class="w-full h-full object-cover object-center" />
             <div class="absolute bottom-4 left-4 right-4 bg-stone-900/85 backdrop-blur-md rounded-2xl p-4 text-white text-xs">
               <p class="font-bold text-sm">Ingeniería & Cadena de Suministro</p>
               <p class="text-stone-300 mt-0.5">Control de procesos directo desde Mendoza.</p>
@@ -517,8 +489,8 @@
           </div>
         </div>
 
-        <!-- COPY PROFESIONAL INSTITUCIONAL -->
-        <div class="lg:col-span-7 bg-white/90 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-sand-200 shadow-sm">
+        <!-- TARJETA CRISTAL: HISTORIA Y VALOR -->
+        <div class="lg:col-span-7 bg-white/95 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/80 shadow-2xl">
           <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Detrás de Fresh Box</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">
             Ingeniería aplicada a la calidad y previsibilidad de tu mesa.
@@ -536,14 +508,14 @@
             </p>
           </div>
 
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-sand-200 pt-6">
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-stone-200 pt-6">
             <div>
               <span class="block text-2xl font-extrabold text-brand-800">100%</span>
               <span class="text-xs text-stone-500 uppercase tracking-wide">Inspección de origen</span>
             </div>
             <div>
               <span class="block text-2xl font-extrabold text-brand-800">0 h</span>
-              <span class="text-xs text-stone-500 uppercase tracking-wide">Filas y compras apresuradas</span>
+              <span class="text-xs text-stone-500 uppercase tracking-wide">Filas y traslados</span>
             </div>
             <div>
               <span class="block text-2xl font-extrabold text-brand-800">2 cambios</span>
@@ -556,8 +528,8 @@
     </div>
   </section>
 
-  <!-- FAQ SECTION (ACORDEÓN INTERACTIVO) -->
-  <section id="faq" class="py-20 md:py-28 bg-white/90 backdrop-blur-sm border-t border-sand-200">
+  <!-- SECCIÓN 5: FAQ (ACORDEÓN INTERACTIVO) -->
+  <section id="faq" class="py-24 md:py-32 bg-white border-t border-stone-200">
     <div class="max-w-4xl mx-auto px-6">
       
       <div class="text-center mb-16">
@@ -569,67 +541,67 @@
       <div class="space-y-4">
         
         <!-- FAQ 1 -->
-        <details class="group bg-white rounded-2xl border border-sand-200 p-6 shadow-sm [&_summary::-webkit-details-marker]:none">
+        <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
             <span>¿Tengo que suscribirme obligatoriamente o puedo pedir de forma esporádica?</span>
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-sand-200/80 pt-3">
+          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
             Podés realizar un <strong>pedido único esporádico</strong> cuando desees probar el servicio, o bien suscribirte con frecuencia <strong>semanal o mensual</strong> para asegurar tu día de entrega automático. No hay permanencia mínima: podés pausar o cancelar cuando lo necesites.
           </p>
         </details>
 
         <!-- FAQ 2 -->
-        <details class="group bg-white rounded-2xl border border-sand-200 p-6 shadow-sm [&_summary::-webkit-details-marker]:none">
+        <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
             <span>¿Puedo cambiar algún producto si en mi casa no lo consumimos?</span>
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-sand-200/80 pt-3">
+          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
             <strong>Sí.</strong> Entendemos que cada cocina tiene preferencias particulares. En cualquiera de las cajas tenés la posibilidad de reemplazar <strong>hasta 2 productos</strong> de la lista por otros de igual valor de rotación (por ejemplo, reemplazar cebollas por más zanahorias o lechuga).
           </p>
         </details>
 
         <!-- FAQ 3 -->
-        <details class="group bg-white rounded-2xl border border-sand-200 p-6 shadow-sm [&_summary::-webkit-details-marker]:none">
+        <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
             <span>¿Cuáles son los medios de pago disponibles?</span>
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-sand-200/80 pt-3">
-            Aceptamos <strong>transferencia bancaria inmediata</strong> (con envío de comprobante) o <strong>links de pago</strong> con tarjeta de crédito/débito configurables para cobro semanal o mensual, según tu preferencia.
+          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+            Aceptamos <strong>transferencia bancaria inmediata</strong> (con comprobante) o <strong>links de pago</strong> con tarjeta de crédito/débito configurables para cobro semanal o mensual, según tu preferencia.
           </p>
         </details>
 
         <!-- FAQ 4 -->
-        <details class="group bg-white rounded-2xl border border-sand-200 p-6 shadow-sm [&_summary::-webkit-details-marker]:none">
+        <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
             <span>¿Cómo se realiza la entrega en barrios privados si no estoy en casa?</span>
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-sand-200/80 pt-3">
-            El empaque es completamente cerrado y rotulado. Si no te encontrás en el domicilio en la franja horaria programada, el chofer puede dejar la caja en la guardia del barrio con previa autorización vía WhatsApp.
+          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+            El empaque es completamente cerrado y rotulado. Si no te encontrás en el domicilio en la franja horaria programada, el chofer puede dejar la caja en la guardia del barrio con tu previa autorización vía WhatsApp.
           </p>
         </details>
 
         <!-- FAQ 5 -->
-        <details class="group bg-white rounded-2xl border border-sand-200 p-6 shadow-sm [&_summary::-webkit-details-marker]:none">
+        <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
             <span>¿Cómo funciona la garantía de reposición si un producto no llega bien?</span>
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-sand-200/80 pt-3">
-            Si encontrás alguna unidad con defecto, nos enviás una foto por WhatsApp dentro de las 24 horas y te reponemos el producto sin cargo en la siguiente entrega o te realizamos la nota de crédito correspondiente.
+          <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+            Si encontrás alguna unidad con defecto, nos enviás una foto por WhatsApp dentro de las 24 horas y te reponemos el producto sin cargo en la siguiente entrega o te realizamos la bonificación correspondiente.
           </p>
         </details>
 
@@ -637,33 +609,37 @@
     </div>
   </section>
 
-  <!-- CTA / CONTACT SECTION -->
-  <section class="py-20 bg-brand-900 text-white relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-      <span class="text-xs font-bold tracking-widest text-brand-100 uppercase">Coordinación Inmediata</span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-3">
-        Comenzá a recibir fruta y verdura de selección en tu puerta.
-      </h2>
-      <p class="mt-4 text-base sm:text-lg text-brand-100/90 max-w-2xl mx-auto">
-        Escribinos por WhatsApp para asignarte el día de entrega que corresponde a tu zona y definir tu primera caja.
-      </p>
+  <!-- SECCIÓN 6: CTA FINAL (Fondo: Selección de cítricos y verduras premium HD) -->
+  <section class="relative py-28 bg-fixed bg-cover bg-center text-white" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=2000&q=90');">
+    <div class="absolute inset-0 bg-stone-950/75 backdrop-blur-[3px]"></div>
 
-      <div class="mt-8 flex justify-center">
-        <a href="https://wa.me/5492614167191?text=Hola!%20Quiero%20coordinar%20mi%20primera%20entrega%20de%20Fresh%20Box" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-3 bg-brand-600 hover:bg-white hover:text-brand-900 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-xl text-base">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
-          <span>Escribinos al WhatsApp (+54 9 261 416-7191)</span>
-        </a>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="bg-stone-900/80 backdrop-blur-md p-10 sm:p-14 rounded-3xl border border-white/10 shadow-2xl">
+        <span class="text-xs font-bold tracking-widest text-brand-200 uppercase">Coordinación Inmediata</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-3 text-white">
+          Comenzá a recibir fruta y verdura de selección en tu puerta.
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-stone-300 max-w-2xl mx-auto">
+          Escribinos por WhatsApp para asignarte el día de entrega que corresponde a tu zona y coordinar tu primera caja.
+        </p>
+
+        <div class="mt-8 flex justify-center">
+          <a href="https://wa.me/5492614167191?text=Hola!%20Quiero%20coordinar%20mi%20primera%20entrega%20de%20Fresh%20Box" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-3 bg-brand-600 hover:bg-white hover:text-brand-900 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-xl text-base">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+            <span>Escribinos al WhatsApp (+54 9 261 416-7191)</span>
+          </a>
+        </div>
+        
+        <p class="text-xs text-stone-400 mt-5">
+          Cobertura regular: Chacras de Coria, Palmares, Dalvian, Vistalba, La Puntilla y Gran Mendoza.
+        </p>
       </div>
-      
-      <p class="text-xs text-brand-100/60 mt-5">
-        Cobertura regular: Chacras de Coria, Palmares, Dalvian, Vistalba, La Puntilla y Gran Mendoza.
-      </p>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-stone-900 text-stone-400 py-10 border-t border-stone-800 text-xs">
+  <footer class="bg-stone-950 text-stone-400 py-10 border-t border-stone-800 text-xs">
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-3">
         <span class="text-base font-bold text-white tracking-tight">Fresh<span class="text-brand-600">Box</span></span>
@@ -671,7 +647,7 @@
         <p>© 2026 Fresh Box Mendoza. Estándar de Selección y Logística de Frescos.</p>
       </div>
       <div class="flex gap-6">
-        <a href="#propuesta" class="hover:text-white transition-colors">Propuesta</a>
+        <a href="#propuesta" class="hover:text-white transition-colors">Inicio</a>
         <a href="#como-funciona" class="hover:text-white transition-colors">Cómo Funciona</a>
         <a href="#cajas" class="hover:text-white transition-colors">Cajas</a>
         <a href="#nosotros" class="hover:text-white transition-colors">Socios</a>
@@ -679,33 +655,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- SCRIPT PARA CAMBIO DINÁMICO DE FONDOS POR SCROLL -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const triggers = document.querySelectorAll(".scroll-trigger");
-      const layers = document.querySelectorAll(".bg-layer");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const targetBgId = entry.target.getAttribute("data-bg");
-            layers.forEach((layer) => {
-              if (layer.id === targetBgId) {
-                layer.classList.add("active");
-              } else {
-                layer.classList.remove("active");
-              }
-            });
-          }
-        });
-      }, {
-        threshold: 0.35 // Activa el cambio cuando el 35% de la sección entra en pantalla
-      });
-
-      triggers.forEach((trigger) => observer.observe(trigger));
-    });
-  </script>
 
 </body>
 </html>
