@@ -256,7 +256,7 @@
             <!-- POLÍTICA DE CAMBIO -->
             <div class="mt-6 p-4 bg-teal-50/60 border border-teal-200/70 rounded-2xl text-xs text-teal-950 flex items-center gap-3">
               <svg class="w-4 h-4 text-teal-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong>¿Querés cambiar algo?</strong> Podés reemplazar hasta 3 productos de la lista por otros de tu preferencia.</span>
+              <span><strong> ¿Querés cambiar algo? </strong> Podés cambiar hasta 3 productos de la lista por artículos de tu caja o por cualquiera de las opciones disponibles abajo.</span>
             </div>
 
             <!-- OPCIONES DE CAMBIO -->
@@ -297,7 +297,7 @@
         </div>
         <!-- FIN CARD 1: CAJA ESTACIÓN -->
 
-        <!-- CARD 2: CAJA GOURMET -->
+        <!-- CARD 2: CAJA Premium -->
         <div class="bg-white rounded-[2.5rem] p-8 sm:p-10 border-2 border-brand-600 flex flex-col justify-between relative shadow-xl">
           <div class="absolute -top-3.5 right-8 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
             Línea Recomendada
@@ -308,23 +308,23 @@
             <div class="flex justify-between items-start gap-4">
               <div>
                 <span class="text-xs font-bold text-accent-citrus uppercase tracking-wider">Línea Selección Especial</span>
-                <h3 class="text-3xl font-extrabold text-stone-900 mt-1">Caja Gourmet</h3>
+                <h3 class="text-3xl font-extrabold text-stone-900 mt-1">Caja Premium</h3>
               </div>
             </div>
             <p class="text-sm text-stone-600 mt-3 leading-relaxed">
-              Enfocada en cítricos dulces para jugos de desayuno, frescos livianos y acompañamientos seleccionados para cocina diaria.
+              El toque distintivo de la palta Hass, combinado con frescos de huerta y frutas seleccionadas para llenar tus platos de color y llevar tu cocina diaria a otro nivel.
             </p>
 
             <!-- ELEGÍ EL FORMATO -->
             <div class="mt-8">
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3">Elegí el formato</span>
               <div class="grid grid-cols-2 gap-3.5">
-                <button type="button" onclick="selectGourmet('chica')" id="btn-gour-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
+                <button type="button" onclick="selectPremium('chica')" id="btn-gour-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
                   <span class="block text-xs font-semibold text-stone-700">Chica</span>
                   <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
                   <span class="block text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectGourmet('mediana')" id="btn-gour-mediana" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                <button type="button" onclick="selectPremium('mediana')" id="btn-gour-mediana" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
                   <span class="block text-xs font-semibold text-stone-700">Mediana</span>
                   <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
                   <span class="block text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
@@ -402,10 +402,10 @@
             <!-- POLÍTICA DE CAMBIO -->
             <div class="mt-6 p-4 bg-teal-50/60 border border-teal-200/70 rounded-2xl text-xs text-teal-950 flex items-center gap-3">
               <svg class="w-4 h-4 text-teal-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong>¿Querés cambiar algo?</strong> Podés reemplazar hasta 3 productos de la lista por otros de tu preferencia.</span>
+              <span><strong>¿Querés cambiar algo?</strong> Podés cambiar hasta 3 productos de la lista por artículos de tu caja o por cualquiera de las opciones disponibles abajo.</span>
             </div>
 
-            <!-- OPCIONES DE CAMBIO GOURMET -->
+            <!-- OPCIONES DE CAMBIO Premium -->
             <div class="mt-3 grid grid-cols-5 gap-1.5 sm:gap-2">
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
                 <span class="text-sm sm:text-base mb-0.5">🧄</span>
@@ -437,9 +437,9 @@
           </div> <!-- FIN DEL CONTENEDOR PRINCIPAL DE LA TARJETA -->
 
           <div class="mt-8">
-            <a id="link-gourmet" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
+            <a id="link-Premium" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
                class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
-              Pedir Caja Gourmet por WhatsApp
+              Pedir Caja Premium por WhatsApp
             </a>
           </div>
         </div>
@@ -454,7 +454,7 @@
           </div>
           <div>
             <h4 class="text-base font-bold text-stone-900">Garantía de Satisfacción Total</h4>
-            <p class="text-sm text-stone-600">Si un producto llega con algún defecto de maduración o traslado, te lo reponemos sin preguntas en la siguiente entrega.</p>
+            <p class="text-sm text-stone-600">Si un producto llega con algún defecto de maduración o traslado, te lo reponemos en la siguiente entrega.</p>
           </div>
         </div>
         <div class="text-xs font-bold uppercase tracking-wider text-brand-800 whitespace-nowrap bg-brand-50 px-4 py-2 rounded-xl border border-brand-200">
@@ -507,10 +507,10 @@
       }
     }
 
-    function selectGourmet(tipo) {
+    function selectPremium(tipo) {
       const btnChica = document.getElementById('btn-gour-chica');
       const btnMediana = document.getElementById('btn-gour-mediana');
-      const link = document.getElementById('link-gourmet');
+      const link = document.getElementById('link-Premium');
 
       if (tipo === 'chica') {
         toggleButtons(btnChica, btnMediana);
@@ -525,7 +525,7 @@
         document.getElementById('gour-limon').innerText = ' 0,2 kg (~1-2 u.)';
         document.getElementById('gour-manzana').innerText = ' 0,3 kg (~2 u.) ';
         document.getElementById('gour-banana').innerText = ' 0,4 kg (~2-3 u.)';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Chica%20(~4,5%20kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)';
       } else {
         toggleButtons(btnMediana, btnChica);
         document.getElementById('gour-papa').innerText = '1,2 kg';
@@ -539,7 +539,7 @@
         document.getElementById('gour-limon').innerText = '0,4 kg (~2-3 u.)';
         document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-4 u.)';
         document.getElementById('gour-banana').innerText = ' 0,6 kg (~4-5 u.)';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Gourmet%20Mediana%20(~7,5%20kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Mediana%20(~7,5%20kg)';
       }
     }
   </script>
@@ -549,7 +549,7 @@
     <div class="max-w-7xl mx-auto px-6">
       
      
-  <!-- SECCIÓN 3: CÓMO FUNCIONA (Fondo: Mercado Gourmet Boutique HD) -->
+  <!-- SECCIÓN 3: CÓMO FUNCIONA (Fondo: Mercado Premium Boutique HD) -->
   <section id="como-funciona" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center bg-stone-900" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=90');">
     <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px]"></div>
 
@@ -566,7 +566,7 @@
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
           <span class="text-3xl font-extrabold text-brand-700">Paso 1</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Elegís tu Caja</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Seleccionás Línea Estación o Gourmet, y el tamaño acorde a tu hogar (Chica, Mediana o Grande). Nos decís vía Wpp la que mas te guste! </p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Seleccionás Línea Estación o Premium, y el tamaño acorde a tu hogar (Chica o Mediana). Nos decís vía Wpp la que mas te guste! </p>
         </div>
 
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
@@ -629,7 +629,7 @@
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">01</div>
           <h3 class="text-base font-bold text-stone-900">Calidad garantizada</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Las frutas y verduras son seleccionadas individualmente, pero si alguna unidad no cumple con tu estándar, nos mandás una foto y la reponemos sin costo en tu próxima entrega.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Las frutas y verduras son seleccionadas individualmente, pero si alguna unidad no cumple con tu estándar de calidad, nos avisas y la reponemos sin costo en tu próxima entrega.</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
@@ -683,13 +683,13 @@
           
           <div class="mt-6 space-y-4 text-stone-600 text-base leading-relaxed">
             <p>
-              Somos dos <strong>ingenieros industriales</strong> mendocinos que analizamos la cadena de valor de las verdulerías convencionales: traslados desgastantes, calidad heterogénea según el día de la semana, productos golpeados y canales informales de pedido.
+              Somos dos <strong>jovenes ingenieros industriales</strong> de Mendoza que analizamos la cadena de valor de las verdulerías convencionales: traslados desgastantes, calidad heterogénea según el día de la semana, productos golpeados y canales informales de pedido.
             </p>
             <p>
-              Diseñamos <strong>Daily Box</strong> como un modelo de logística ajustada y aseguramiento de la calidad en origen. Compramos y seleccionamos bajo demanda estricta, lo que garantiza que las cajas se empaqueten horas antes de su destino final, sin mermas ni productos almacenados durante días.
+              Diseñamos <strong>Daily Box</strong> como un modelo de logística ajustada y aseguramiento de la calidad en origen. Compramos y seleccionamos bajo demanda la misma mañana de la entrega, lo que garantiza que las cajas se empaqueten horas antes de su destino final, sin mermas ni productos almacenados durante días.
             </p>
             <p class="font-medium text-stone-900">
-              No vendemos verduras por peso al azar: entregamos una solución estandarizada de abastecimiento semanal, para que disfrutes de tu hogar con la tranquilidad de contar con alimentos impecables.
+              Más que una caja de verdura, entregamos tranquilidad: un sistema predecible y estandarizado para que te olvides de la compra semanal de frutas y verduras. Vos disfrutás de tu tiempo; nosotros garantizamos la frescura de tu mesa.
             </p>
           </div>
 
