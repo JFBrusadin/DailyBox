@@ -126,7 +126,7 @@
             Tu solución de la semana en <span class="font-serif italic font-normal text-brand-600">frutas y verduras</span>, con máxima calidad garantizada.
           </h1>
           <p class="mt-6 text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
-            Llevamos a la puerta de tu casa productos de primera selección, frescos y envasados con cuidado riguroso. Eliminamos traslados, compras apresuradas y mermas en tu hogar.
+            Llevamos a la puerta de tu casa productos de primera selección, frescos y envasados con cuidado riguroso. Eliminamos traslados y compras apresuradas en tu hogar.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
             <a href="#cajas" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md hover:shadow-lg">
@@ -453,35 +453,86 @@
         </div>
 
       </div>
-<!-- ADD-ON: HUEVOS (Horizontal) -->
-      <div class="mt-10 bg-white rounded-[2rem] p-6 sm:p-8 border-2 border-amber-100 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md relative overflow-hidden group">
-        <!-- Fondo decorativo sutil -->
-        <div class="absolute -right-10 -top-10 text-amber-500/10 rotate-12 transition-transform duration-500 group-hover:scale-110">
-          <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.686 2 6 5.582 6 10c0 4.418 2.686 12 6 12s6-7.582 6-12c0-4.418-2.686-8-6-8z"/></svg>
-        </div>
-        
-        <!-- Contenido Izquierda -->
-        <div class="flex items-center gap-5 sm:gap-6 relative z-10 w-full sm:w-auto">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center shrink-0 text-3xl sm:text-4xl shadow-inner">
-            🥚
-          </div>
-          <div>
-            <span class="text-xs font-bold tracking-widest text-amber-600 uppercase">Extra Opcional</span>
-            <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Agregá huevos a tu compra</h4>
-            <p class="text-sm text-stone-600 mt-1.5 font-medium leading-relaxed">
-              Tenemos huevos frescos por <strong class="text-stone-800">maple (30u)</strong>, <strong class="text-stone-800">medio maple (15u)</strong> o <strong class="text-stone-800">media docena (6u)</strong>.
-            </p>
-          </div>
-        </div>
-        
-        <!-- Botón Derecha -->
-        <div class="relative z-10 w-full sm:w-auto shrink-0">
-           <a href="https://wa.me/5492612745891?text=Hola!%20Me%20interesa%20agregar%20huevos%20a%20mi%20caja" target="_blank" rel="noopener noreferrer" 
-              class="w-full sm:w-auto inline-flex justify-center items-center py-4 px-8 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white font-bold transition-all shadow-sm text-sm">
-             Sumar al pedido
-           </a>
-        </div>
+<!-- ADD-ON: HUEVOS (Interactivo) -->
+<div class="mt-10 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-amber-200/80 shadow-md relative overflow-hidden">
+  
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+    
+    <!-- Info Izquierda -->
+    <div class="flex items-center gap-5 w-full lg:w-auto">
+      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-amber-100 border border-amber-300 text-amber-800 flex items-center justify-center shrink-0 text-3xl sm:text-4xl shadow-sm">
+        🥚
       </div>
+      <div>
+        <span class="text-xs font-bold tracking-widest text-amber-700 uppercase">Adicional Opcional</span>
+        <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá huevos frescos tamaño grande</h4>
+        <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed">
+          Seleccioná el formato que prefieras para complementar tu pedido semanal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Opciones y Botón Derecha -->
+    <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
+      
+      <!-- Selector de formato -->
+      <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
+        <button type="button" onclick="selectHuevos('docena')" id="btn-huevos-docena" class="py-2.5 px-4 rounded-xl border-2 transition-all text-center bg-amber-500 border-amber-600 text-white font-semibold text-xs shadow-sm">
+          <span class="block text-[10px] opacity-90">Docena</span>
+          <span class="block text-sm font-extrabold">12 unidades</span>
+        </button>
+        <button type="button" onclick="selectHuevos('media')" id="btn-huevos-media" class="py-2.5 px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300 text-xs font-semibold">
+          <span class="block text-[10px] text-stone-500">Media docena</span>
+          <span class="block text-sm font-extrabold text-stone-900">6 unidades</span>
+        </button>
+      </div>
+
+      <!-- Botón de WhatsApp dinámico -->
+      <a id="link-huevos" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20una%20docena%20de%20huevos%20a%20mi%20pedido" target="_blank" rel="noopener noreferrer" 
+         class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
+        Agregar al pedido
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- SCRIPT PARA LA INTERACTIVIDAD DE LOS HUEVOS -->
+<script>
+  function selectHuevos(tipo) {
+    const btnDocena = document.getElementById('btn-huevos-docena');
+    const btnMedia = document.getElementById('btn-huevos-media');
+    const linkHuevos = document.getElementById('link-huevos');
+
+    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white'];
+    const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
+
+    if (tipo === 'docena') {
+      btnDocena.classList.add(...activeClasses);
+      btnDocena.classList.remove(...inactiveClasses);
+      btnDocena.querySelector('span:first-child').className = 'block text-[10px] opacity-90';
+      
+      btnMedia.classList.add(...inactiveClasses);
+      btnMedia.classList.remove(...activeClasses);
+      btnMedia.querySelector('span:first-child').className = 'block text-[10px] text-stone-500';
+      btnMedia.querySelector('span:last-child').className = 'block text-sm font-extrabold text-stone-900';
+
+      linkHuevos.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20una%20docena%20de%20huevos%20a%20mi%20pedido';
+    } else {
+      btnMedia.classList.add(...activeClasses);
+      btnMedia.classList.remove(...inactiveClasses);
+      btnMedia.querySelector('span:first-child').className = 'block text-[10px] opacity-90';
+
+      btnDocena.classList.add(...inactiveClasses);
+      btnDocena.classList.remove(...activeClasses);
+      btnDocena.querySelector('span:first-child').className = 'block text-[10px] text-stone-500';
+      btnDocena.querySelector('span:last-child').className = 'block text-sm font-extrabold text-stone-900';
+
+      linkHuevos.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20media%20docena%20de%20huevos%20a%20mi%20pedido';
+    }
+  }
+</script>
       <!-- BANNER DE GARANTÍA -->
       <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
         <div class="flex items-center gap-4">
