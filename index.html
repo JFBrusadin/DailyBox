@@ -8,20 +8,20 @@
   <meta name="description" content="Servicio de entrega programada de frutas y verduras seleccionadas en Mendoza, Argentina." />
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Waffle Soft"', 'sans-serif'], // <--- Ahora es la fuente por defecto
-            serif: ['"Playfair Display"', 'serif'],
-          },
+   tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Fredoka"', 'sans-serif'], // <--- Nueva fuente por defecto
+        serif: ['"Playfair Display"', 'serif'],
+      },
           colors: {
             brand: {
               50: '#f0f7f3',
@@ -43,14 +43,7 @@
   </script>
   <style>
     /* Carga el archivo de fuente local descargado */
-    @font-face {
-      font-family: 'Waffle Soft';
-      src: url('WaffleSoft.otf') format('opentype'),
-           url('WaffleSoft.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
+    
     details summary::-webkit-details-marker { display: none; }
     details[open] summary svg { transform: rotate(180deg); }
   </style>
