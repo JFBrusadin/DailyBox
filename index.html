@@ -467,8 +467,8 @@
     <!-- Info Izquierda -->
     <div class="flex items-center gap-5 w-full lg:w-auto">
       <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-amber-300 overflow-hidden shrink-0 shadow-sm">
-  <img src="huevo-blanco.jpg" alt="Huevos frescos seleccionados" class="w-full h-full object-cover" />
-</div>
+        <img src="huevo-blanco.jpg" alt="Huevos frescos seleccionados" class="w-full h-full object-cover" />
+      </div>
       <div>
         <span class="text-xs font-bold tracking-widest text-amber-700 uppercase">Adicional Opcional</span>
         <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá huevos grandes</h4>
@@ -481,15 +481,24 @@
     <!-- Opciones y Botón Derecha -->
     <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
       
-      <!-- Selector de formato -->
-      <div class="grid grid-cols-2 gap-3 w-full sm:w-auto">
-        <button type="button" onclick="selectHuevos('docena')" id="btn-huevos-docena" class="py-3.5 px-5 rounded-xl border-2 transition-all text-center bg-amber-500 border-amber-600 text-white shadow-sm">
-          <span class="block text-xs font-semibold opacity-90 mb-0.5">Docena (12u)</span>
-          <span class="block text-lg font-extrabold">$3.500</span>
+      <!-- Selector de formato (3 columnas) -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
+        <!-- Maple -->
+        <button type="button" onclick="selectHuevos('maple')" id="btn-huevos-maple" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+          <span class="block text-xs font-semibold text-stone-500 mb-0.5">Maple (30u)</span>
+          <span class="block text-base sm:text-lg font-extrabold text-stone-900">$8.500</span>
         </button>
-        <button type="button" onclick="selectHuevos('media')" id="btn-huevos-media" class="py-3.5 px-5 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+
+        <!-- Docena (activo por defecto) -->
+        <button type="button" onclick="selectHuevos('docena')" id="btn-huevos-docena" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-amber-500 border-amber-600 text-white shadow-sm">
+          <span class="block text-xs font-semibold opacity-90 mb-0.5">Docena (12u)</span>
+          <span class="block text-base sm:text-lg font-extrabold">$3.500</span>
+        </button>
+
+        <!-- Media docena -->
+        <button type="button" onclick="selectHuevos('media')" id="btn-huevos-media" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
           <span class="block text-xs font-semibold text-stone-500 mb-0.5">Media (6u)</span>
-          <span class="block text-lg font-extrabold text-stone-900">$1.800</span>
+          <span class="block text-base sm:text-lg font-extrabold text-stone-900">$1.800</span>
         </button>
       </div>
 
@@ -506,39 +515,44 @@
 
 <!-- SCRIPT PARA LA INTERACTIVIDAD DE LOS HUEVOS -->
 <script>
-  function selectHuevos(tipo) {
-    const btnDocena = document.getElementById('btn-huevos-docena');
-    const btnMedia = document.getElementById('btn-huevos-media');
-    const linkHuevos = document.getElementById('link-huevos');
+  const opcionesHuevos = {
+    maple: {
+      btnId: 'btn-huevos-maple',
+      textoMsg: 'un%20maple%20de%20huevos'
+    },
+    docena: {
+      btnId: 'btn-huevos-docena',
+      textoMsg: 'una%20docena%20de%20huevos'
+    },
+    media: {
+      btnId: 'btn-huevos-media',
+      textoMsg: 'media%20docena%20de%20huevos'
+    }
+  };
 
-    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white'];
+  function selectHuevos(tipoSeleccionado) {
+    const linkHuevos = document.getElementById('link-huevos');
+    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
     const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
 
-    if (tipo === 'docena') {
-      btnDocena.classList.add(...activeClasses);
-      btnDocena.classList.remove(...inactiveClasses);
-      btnDocena.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btnDocena.querySelector('span:last-child').className = 'block text-lg font-extrabold';
-      
-      btnMedia.classList.add(...inactiveClasses);
-      btnMedia.classList.remove(...activeClasses);
-      btnMedia.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btnMedia.querySelector('span:last-child').className = 'block text-lg font-extrabold text-stone-900';
+    Object.keys(opcionesHuevos).forEach((tipo) => {
+      const btn = document.getElementById(opcionesHuevos[tipo].btnId);
+      const spanTitulo = btn.querySelector('span:first-child');
+      const spanPrecio = btn.querySelector('span:last-child');
 
-      linkHuevos.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20una%20docena%20de%20huevos%20a%20mi%20pedido';
-    } else {
-      btnMedia.classList.add(...activeClasses);
-      btnMedia.classList.remove(...inactiveClasses);
-      btnMedia.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btnMedia.querySelector('span:last-child').className = 'block text-lg font-extrabold';
-
-      btnDocena.classList.add(...inactiveClasses);
-      btnDocena.classList.remove(...activeClasses);
-      btnDocena.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btnDocena.querySelector('span:last-child').className = 'block text-lg font-extrabold text-stone-900';
-
-      linkHuevos.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20media%20docena%20de%20huevos%20a%20mi%20pedido';
-    }
+      if (tipo === tipoSeleccionado) {
+        btn.classList.add(...activeClasses);
+        btn.classList.remove(...inactiveClasses);
+        spanTitulo.className = 'block text-xs font-semibold opacity-90 mb-0.5';
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold';
+        linkHuevos.href = `https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20${opcionesHuevos[tipo].textoMsg}%20a%20mi%20pedido`;
+      } else {
+        btn.classList.add(...inactiveClasses);
+        btn.classList.remove(...activeClasses);
+        spanTitulo.className = 'block text-xs font-semibold text-stone-500 mb-0.5';
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold text-stone-900';
+      }
+    });
   }
 </script>
       
