@@ -525,21 +525,21 @@
       <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
         <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
           <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">Maple (30u)</span>
-            <span class="block text-base sm:text-lg font-extrabold" id="precio-huevos-maple"></span>
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
           </button>
           <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">Docena (12u)</span>
-            <span class="block text-base sm:text-lg font-extrabold" id="precio-huevos-docena"></span>
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
           </button>
           <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">Media (6u)</span>
-            <span class="block text-base sm:text-lg font-extrabold" id="precio-huevos-media"></span>
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
           </button>
         </div>
 
         <a id="link-huevos" href="#" target="_blank" rel="noopener noreferrer"
-           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
+           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
           Agregar al pedido
         </a>
       </div>
@@ -553,73 +553,74 @@
       <p class="text-sm sm:text-base text-stone-600 mt-1 font-medium">Elegí el mix que más te guste</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <!-- mt-16 / gap-y-16: dejan lugar para que la imagen sobresalga por arriba de cada tarjeta -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-16 mt-16">
 
       <!-- Mix tradicional -->
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="tradicional">
-        <div class="w-20 h-20 mx-auto rounded-2xl bg-white border border-green-300 shadow-sm flex items-center justify-center text-4xl">🥜</div>
-        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-4 tracking-tight">Mix de frutas secas</h5>
+        <img src="mix-frutas-secas.png" alt="Mix de frutas secas" class="w-48 h-36 object-contain mx-auto -mt-20 drop-shadow-md" />
+        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix de frutas secas</h5>
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
           Almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.
         </p>
         <div class="grid grid-cols-2 gap-2 mt-5">
-          <button type="button" data-size="250" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">250g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-250"></span>
+          <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
           </button>
-          <button type="button" data-size="500" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">500g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-500"></span>
+          <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
         <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-sm">
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
           Agregar al pedido
         </a>
       </div>
 
       <!-- Mix cervecero -->
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="cervecero">
-        <div class="w-20 h-20 mx-auto rounded-2xl bg-white border border-green-300 shadow-sm flex items-center justify-center text-4xl">🌽</div>
-        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-4 tracking-tight">Mix cervecero</h5>
+        <img src="mix-cervecero.png" alt="Mix cervecero" class="w-48 h-36 object-contain mx-auto -mt-20 drop-shadow-md" />
+        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix cervecero</h5>
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
           Maíz frito, maní tostado y maní japonés.
         </p>
         <div class="grid grid-cols-2 gap-2 mt-5">
-          <button type="button" data-size="250" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">250g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-250"></span>
+          <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
           </button>
-          <button type="button" data-size="500" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">500g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-500"></span>
+          <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
         <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-sm">
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
           Agregar al pedido
         </a>
       </div>
 
       <!-- Mix sin pasas -->
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="sin_pasas">
-        <div class="w-20 h-20 mx-auto rounded-2xl bg-white border border-green-300 shadow-sm flex items-center justify-center text-4xl">🌰</div>
-        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-4 tracking-tight">Mix de frutas secas (sin pasas)</h5>
+        <img src="mix-sin-pasas.png" alt="Mix de frutas secas sin pasas" class="w-48 h-36 object-contain mx-auto -mt-20 drop-shadow-md" />
+        <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix de frutas secas (sin pasas)</h5>
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
           Almendras, nueces, castañas de cajú y maní tostado.
         </p>
         <div class="grid grid-cols-2 gap-2 mt-5">
-          <button type="button" data-size="250" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">250g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-250"></span>
+          <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
           </button>
-          <button type="button" data-size="500" class="btn-size py-2 px-3 rounded-xl border-2 transition-all text-center">
-            <span class="block text-xs font-semibold opacity-80 mb-0.5">500g</span>
-            <span class="block text-sm sm:text-base font-extrabold precio-500"></span>
+          <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+            <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+            <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
         <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-sm">
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
           Agregar al pedido
         </a>
       </div>
@@ -693,9 +694,6 @@
     render();
   });
 </script>
-
-
-
   
   <!-- 3. BANNER DE GARANTÍA -->
   <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
