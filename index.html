@@ -548,47 +548,59 @@
 
   <!-- 2. BLOQUE DE FRUTOS SECOS -->
   <div class="bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-green-200/80 shadow-md relative overflow-hidden">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
       
-      <!-- Info Izquierda -->
-      <div class="flex items-center gap-5 w-full lg:w-auto">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-green-300 overflow-hidden shrink-0 shadow-sm flex items-center justify-center p-2 text-3xl">
-          🥜
+      <!-- Info Izquierda (Imagen y Dropdown) -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full lg:w-auto">
+        
+        <!-- Imagen Dinámica -->
+        <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-white border border-green-300 overflow-hidden shrink-0 shadow-sm flex items-center justify-center relative">
+          <img id="img-mix" src="mix-tradicional.jpg" alt="Mix seleccionado" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="hidden absolute inset-0 bg-green-50 flex items-center justify-center text-3xl" title="Imagen no encontrada">🥜</div>
         </div>
-        <div>
+        
+        <!-- Textos y Selector -->
+        <div class="flex-1 w-full">
           <span class="text-xs font-bold tracking-widest text-green-700 uppercase">Adicional Opcional</span>
           <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá frutos secos</h4>
-          <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed max-w-md" id="desc-frutos">
-            Contiene: almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.
-          </p>
-        </div>
-      </div>
-
-      <!-- Opciones y Botón Derecha -->
-      <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-        <div class="flex flex-col gap-2 w-full sm:w-auto">
-          <!-- Selector de Mix -->
-          <select id="select-mix" onchange="actualizarMix()" class="py-2.5 px-3 rounded-xl border-2 border-green-200 bg-white text-sm font-semibold text-stone-700 outline-none focus:border-green-400 w-full cursor-pointer">
+          
+          <label for="select-mix" class="block text-sm font-bold text-stone-800 mt-3 mb-1.5">
+            Elegí el mix que más te guste:
+          </label>
+          <select id="select-mix" onchange="actualizarMix()" class="w-full sm:w-72 py-2.5 px-3 rounded-xl border-2 border-green-200 bg-white text-sm font-semibold text-stone-700 outline-none focus:border-green-400 focus:ring-2 focus:ring-green-100 cursor-pointer shadow-sm transition-all">
             <option value="tradicional">Mix de frutas secas</option>
             <option value="cervecero">Mix cervecero</option>
             <option value="sin_pasas">Mix frutas secas (sin pasas)</option>
           </select>
-          
-          <!-- Selector de Tamaño -->
-          <div class="grid grid-cols-2 gap-2">
-            <button type="button" onclick="selectTamano('250')" id="btn-fs-250" class="py-2 px-3 rounded-xl border-2 transition-all text-center bg-green-500 border-green-600 text-white shadow-sm">
-              <span class="block text-xs font-semibold opacity-90 mb-0.5">250g</span>
-              <span class="block text-sm sm:text-base font-extrabold" id="precio-250">$3.800</span>
-            </button>
-            <button type="button" onclick="selectTamano('500')" id="btn-fs-500" class="py-2 px-3 rounded-xl border-2 transition-all text-center bg-white border-green-200 text-stone-700 hover:border-green-300">
-              <span class="block text-xs font-semibold text-stone-500 mb-0.5">500g</span>
-              <span class="block text-sm sm:text-base font-extrabold text-stone-900" id="precio-500">$7.500</span>
-            </button>
-          </div>
         </div>
 
+      </div>
+
+      <!-- Opciones, Descripción y Botón Derecha -->
+      <div class="flex flex-col w-full lg:w-[340px] shrink-0 gap-3 mt-2 lg:mt-0">
+        
+        <!-- Descripción Dinámica -->
+        <div class="bg-white/70 p-3 rounded-xl border border-green-100">
+          <p class="text-[11px] sm:text-xs text-stone-600 font-medium leading-relaxed" id="desc-frutos">
+            Contiene: almendras, nueces, castañas de caju, pasas de uva negras sin semilla y maní tostado.
+          </p>
+        </div>
+
+        <!-- Selector de Tamaño Integrado -->
+        <div class="flex bg-white rounded-xl border-2 border-green-200 p-1 w-full">
+          <button type="button" onclick="selectTamano('250')" id="btn-fs-250" class="flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all bg-green-500 text-white shadow-sm">
+            <span class="text-[10px] font-semibold opacity-90 uppercase tracking-wide">250g</span>
+            <span class="text-sm sm:text-base font-extrabold" id="precio-250">$3.800</span>
+          </button>
+          <button type="button" onclick="selectTamano('500')" id="btn-fs-500" class="flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all bg-transparent text-stone-700 hover:text-stone-900">
+            <span class="text-[10px] font-semibold opacity-90 uppercase tracking-wide">500g</span>
+            <span class="text-sm sm:text-base font-extrabold" id="precio-500">$7.500</span>
+          </button>
+        </div>
+
+        <!-- Botón Agregar -->
         <a id="link-frutos" href="#" target="_blank" rel="noopener noreferrer"
-           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap h-[72px]">
+           class="w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-sm whitespace-nowrap">
           Agregar al pedido
         </a>
       </div>
@@ -614,141 +626,115 @@
 </div>
 </section>
 
-<!-- SECCIÓN DE ADICIONALES -->
-<div class="flex flex-col gap-6">
+<!-- 4. SCRIPT UNIFICADO (HUEVOS Y FRUTOS SECOS) -->
+<script>
+  // --- LÓGICA DE HUEVOS ---
+  const opcionesHuevos = {
+    maple: { btnId: 'btn-huevos-maple', textoMsg: 'un%20maple%20de%20huevos' },
+    docena: { btnId: 'btn-huevos-docena', textoMsg: 'una%20docena%20de%20huevos' },
+    media: { btnId: 'btn-huevos-media', textoMsg: 'media%20docena%20de%20huevos' }
+  };
 
-  <!-- 1. BLOQUE DE HUEVOS -->
-  <div class="mt-10 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-amber-200/80 shadow-md relative overflow-hidden">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
-      
-      <!-- Info Izquierda -->
-      <div class="flex items-center gap-5 w-full lg:w-auto">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-amber-300 overflow-hidden shrink-0 shadow-sm">
-          <img src="huevo-blanco.jpg" alt="Huevos frescos seleccionados" class="w-full h-full object-cover" />
-        </div>
-        <div>
-          <span class="text-xs font-bold tracking-widest text-amber-700 uppercase">Adicional Opcional</span>
-          <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá huevos grandes</h4>
-          <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed">
-            Seleccioná el formato que prefieras para complementar tu pedido semanal. 
-          </p>
-        </div>
-      </div>
+  function selectHuevos(tipoSeleccionado) {
+    const linkHuevos = document.getElementById('link-huevos');
+    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
+    const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
 
-      <!-- Opciones y Botón Derecha -->
-      <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-        <!-- Selector de formato -->
-        <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
-          <button type="button" onclick="selectHuevos('maple')" id="btn-huevos-maple" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
-            <span class="block text-xs font-semibold text-stone-500 mb-0.5">Maple (30u)</span>
-            <span class="block text-base sm:text-lg font-extrabold text-stone-900">$7.500</span>
-          </button>
-          <button type="button" onclick="selectHuevos('docena')" id="btn-huevos-docena" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-amber-500 border-amber-600 text-white shadow-sm">
-            <span class="block text-xs font-semibold opacity-90 mb-0.5">Docena (12u)</span>
-            <span class="block text-base sm:text-lg font-extrabold">$3.500</span>
-          </button>
-          <button type="button" onclick="selectHuevos('media')" id="btn-huevos-media" class="py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
-            <span class="block text-xs font-semibold text-stone-500 mb-0.5">Media (6u)</span>
-            <span class="block text-base sm:text-lg font-extrabold text-stone-900">$1.800</span>
-          </button>
-        </div>
+    Object.keys(opcionesHuevos).forEach((tipo) => {
+      const btn = document.getElementById(opcionesHuevos[tipo].btnId);
+      const spanTitulo = btn.querySelector('span:first-child');
+      const spanPrecio = btn.querySelector('span:last-child');
 
-        <a id="link-huevos" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20una%20docena%20de%20huevos%20a%20mi%20pedido" target="_blank" rel="noopener noreferrer" 
-           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
-          Agregar al pedido
-        </a>
-      </div>
-    </div>
-  </div>
+      if (tipo === tipoSeleccionado) {
+        btn.classList.add(...activeClasses);
+        btn.classList.remove(...inactiveClasses);
+        spanTitulo.className = 'block text-xs font-semibold opacity-90 mb-0.5';
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold';
+        linkHuevos.href = `https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20${opcionesHuevos[tipo].textoMsg}%20a%20mi%20pedido`;
+      } else {
+        btn.classList.add(...inactiveClasses);
+        btn.classList.remove(...activeClasses);
+        spanTitulo.className = 'block text-xs font-semibold text-stone-500 mb-0.5';
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold text-stone-900';
+      }
+    });
+  }
 
-  <!-- 2. BLOQUE DE FRUTOS SECOS -->
-  <div class="bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-green-200/80 shadow-md relative overflow-hidden">
-    <div class="flex flex-col lg:flex-row gap-6 relative z-10">
-      
-      <!-- Info Izquierda -->
-      <div class="flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:w-1/4 shrink-0">
-        <div class="w-16 h-16 rounded-2xl bg-white border border-green-300 overflow-hidden shrink-0 shadow-sm flex items-center justify-center text-3xl">
-          🥜
-        </div>
-        <div>
-          <span class="text-xs font-bold tracking-widest text-green-700 uppercase">Adicional Opcional</span>
-          <h4 class="text-xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá frutos secos</h4>
-          <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed hidden lg:block">
-            Elegí el mix y el tamaño para agregarlo a tu caja semanal.
-          </p>
-        </div>
-      </div>
+  // --- LÓGICA DE FRUTOS SECOS ---
+  const opcionesMix = {
+    tradicional: {
+      nombre: 'Mix de frutas secas',
+      desc: 'Contiene: almendras, nueces, castañas de caju, pasas de uva negras sin semilla y maní tostado.',
+      precio250: '$3.800',
+      precio500: '$7.500',
+      img: 'mix-tradicional.jpg'
+    },
+    cervecero: {
+      nombre: 'Mix cervecero',
+      desc: 'Contiene: maíz frito salado, maní tostado salado y maní japonés saborizado.',
+      precio250: '$2.000',
+      precio500: '$3.900',
+      img: 'mix-cervecero.jpg'
+    },
+    sin_pasas: {
+      nombre: 'Mix de frutas secas sin pasas',
+      desc: 'Contiene: almendras, nueces, castañas de caju y maní tostado.',
+      precio250: '$4.300',
+      precio500: '$8.500',
+      img: 'mix-sin-pasas.jpg'
+    }
+  };
 
-      <!-- Opciones y Botón Derecha -->
-      <div class="flex flex-col gap-4 w-full lg:w-3/4">
-        
-        <!-- Cuadrícula de Mixes Visibles -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          
-          <!-- Mix Tradicional -->
-          <button type="button" onclick="selectMix('tradicional')" id="btn-mix-tradicional" class="flex flex-col text-left p-3.5 rounded-xl border-2 transition-all bg-green-50 border-green-600 shadow-sm relative">
-            <span class="block text-sm font-bold text-stone-900 leading-tight">Mix de frutas secas</span>
-            <span class="block text-[10px] text-stone-600 mt-1 mb-2 leading-snug h-8">almendras, nueces, castañas, pasas negras, maní.</span>
-            <div class="flex flex-col gap-0.5 mt-auto">
-              <div class="flex justify-between text-[11px] font-semibold bg-white/60 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">250g</span><span class="text-stone-900">$3.800</span>
-              </div>
-              <div class="flex justify-between text-[11px] font-semibold bg-white/60 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">500g</span><span class="text-stone-900">$7.500</span>
-              </div>
-            </div>
-          </button>
+  let mixSeleccionado = 'tradicional';
+  let tamanoSeleccionado = '250';
 
-          <!-- Mix Cervecero -->
-          <button type="button" onclick="selectMix('cervecero')" id="btn-mix-cervecero" class="flex flex-col text-left p-3.5 rounded-xl border-2 transition-all bg-white border-green-200 hover:border-green-300 relative">
-            <span class="block text-sm font-bold text-stone-900 leading-tight">Mix cervecero</span>
-            <span class="block text-[10px] text-stone-600 mt-1 mb-2 leading-snug h-8">maíz frito salado, maní tostado salado, maní japonés.</span>
-            <div class="flex flex-col gap-0.5 mt-auto">
-              <div class="flex justify-between text-[11px] font-semibold bg-stone-50 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">250g</span><span class="text-stone-900">$2.000</span>
-              </div>
-              <div class="flex justify-between text-[11px] font-semibold bg-stone-50 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">500g</span><span class="text-stone-900">$3.900</span>
-              </div>
-            </div>
-          </button>
+  function actualizarMix() {
+    mixSeleccionado = document.getElementById('select-mix').value;
+    const data = opcionesMix[mixSeleccionado];
+    
+    // Actualizar imagen
+    const imgElement = document.getElementById('img-mix');
+    imgElement.style.display = 'block'; 
+    imgElement.nextElementSibling.style.display = 'none'; 
+    imgElement.src = data.img;
+    imgElement.alt = data.nombre;
 
-          <!-- Mix Sin Pasas -->
-          <button type="button" onclick="selectMix('sin_pasas')" id="btn-mix-sin-pasas" class="flex flex-col text-left p-3.5 rounded-xl border-2 transition-all bg-white border-green-200 hover:border-green-300 relative">
-            <span class="block text-sm font-bold text-stone-900 leading-tight">Mix frutas secas (sin pasas)</span>
-            <span class="block text-[10px] text-stone-600 mt-1 mb-2 leading-snug h-8">almendras, nueces, castañas de cajú, maní tostado.</span>
-            <div class="flex flex-col gap-0.5 mt-auto">
-              <div class="flex justify-between text-[11px] font-semibold bg-stone-50 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">250g</span><span class="text-stone-900">$4.300</span>
-              </div>
-              <div class="flex justify-between text-[11px] font-semibold bg-stone-50 px-1.5 py-0.5 rounded">
-                <span class="text-stone-500">500g</span><span class="text-stone-900">$8.500</span>
-              </div>
-            </div>
-          </button>
-        </div>
+    // Actualizar textos y precios en la UI
+    document.getElementById('desc-frutos').innerText = data.desc;
+    document.getElementById('precio-250').innerText = data.precio250;
+    document.getElementById('precio-500').innerText = data.precio500;
+    
+    actualizarBotonFrutos();
+  }
 
-        <!-- Selector de Tamaño y Botón Final -->
-        <div class="flex flex-col sm:flex-row items-center justify-end gap-3 mt-1">
-          <div class="flex bg-white rounded-xl border-2 border-green-200 p-1 w-full sm:w-auto">
-            <button type="button" onclick="selectTamano('250')" id="btn-fs-250" class="flex-1 sm:flex-none py-2 px-6 rounded-lg font-bold text-sm bg-green-500 text-white shadow-sm transition-all">
-              250g
-            </button>
-            <button type="button" onclick="selectTamano('500')" id="btn-fs-500" class="flex-1 sm:flex-none py-2 px-6 rounded-lg font-bold text-sm bg-transparent text-stone-600 hover:text-stone-900 transition-all">
-              500g
-            </button>
-          </div>
-          <a id="link-frutos" href="#" target="_blank" rel="noopener noreferrer"
-             class="w-full sm:w-auto inline-flex justify-center items-center py-3 px-6 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold transition-all shadow-sm text-sm whitespace-nowrap">
-            Agregar al pedido
-          </a>
-        </div>
+  function selectTamano(tamano) {
+    tamanoSeleccionado = tamano;
+    const btn250 = document.getElementById('btn-fs-250');
+    const btn500 = document.getElementById('btn-fs-500');
+    
+    const activeClasses = ['bg-green-500', 'text-white', 'shadow-sm'];
+    const inactiveClasses = ['bg-transparent', 'text-stone-700', 'hover:text-stone-900'];
 
-      </div>
-    </div>
-  </div>
+    if (tamano === '250') {
+      btn250.className = `flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all ${activeClasses.join(' ')}`;
+      btn500.className = `flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all ${inactiveClasses.join(' ')}`;
+    } else {
+      btn500.className = `flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all ${activeClasses.join(' ')}`;
+      btn250.className = `flex-1 flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all ${inactiveClasses.join(' ')}`;
+    }
+    actualizarBotonFrutos();
+  }
 
-  <!-- 3. BANNER DE GARANTÍA -->
+  function actualizarBotonFrutos() {
+    const link = document.getElementById('link-frutos');
+    const nombreMix = opcionesMix[mixSeleccionado].nombre;
+    const msg = `Hola! Quiero agregar un ${nombreMix} de ${tamanoSeleccionado}g a mi pedido`;
+    link.href = `https://wa.me/5492612745891?text=${encodeURIComponent(msg)}`;
+  }
+
+  // Inicialización
+  actualizarBotonFrutos();
+</script>  <!-- 3. BANNER DE GARANTÍA -->
   <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
     <div class="flex items-center gap-4">
       <div class="w-12 h-12 rounded-2xl bg-brand-700 text-white flex items-
