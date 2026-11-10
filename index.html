@@ -727,119 +727,28 @@
 </div>
 </section>
 
-<!-- 4. SCRIPT UNIFICADO (HUEVOS Y FRUTOS SECOS) -->
-<script>
-  // --- LÓGICA DE HUEVOS ---
-  const opcionesHuevos = {
-    maple: { btnId: 'btn-huevos-maple', textoMsg: 'un%20maple%20de%20huevos' },
-    docena: { btnId: 'btn-huevos-docena', textoMsg: 'una%20docena%20de%20huevos' },
-    media: { btnId: 'btn-huevos-media', textoMsg: 'media%20docena%20de%20huevos' }
-  };
+<!-- Formatos + botón derecha -->
+<div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
+  <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
+    <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
+    </button>
+    <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
+    </button>
+    <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
+    </button>
+  </div>
 
-  function selectHuevos(tipoSeleccionado) {
-    const linkHuevos = document.getElementById('link-huevos');
-    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
-    const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
-
-    Object.keys(opcionesHuevos).forEach((tipo) => {
-      const btn = document.getElementById(opcionesHuevos[tipo].btnId);
-      const spanTitulo = btn.querySelector('span:first-child');
-      const spanPrecio = btn.querySelector('span:last-child');
-
-      if (tipo === tipoSeleccionado) {
-        btn.classList.add(...activeClasses);
-        btn.classList.remove(...inactiveClasses);
-        spanTitulo.className = 'block text-xs font-semibold opacity-90 mb-0.5';
-        spanPrecio.className = 'block text-base sm:text-lg font-extrabold';
-        linkHuevos.href = `https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20${opcionesHuevos[tipo].textoMsg}%20a%20mi%20pedido`;
-      } else {
-        btn.classList.add(...inactiveClasses);
-        btn.classList.remove(...activeClasses);
-        spanTitulo.className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-        spanPrecio.className = 'block text-base sm:text-lg font-extrabold text-stone-900';
-      }
-    });
-  }
-
-  // --- LÓGICA DE FRUTOS SECOS ---
-  const opcionesMix = {
-    tradicional: {
-      nombre: 'Mix de frutas secas',
-      desc: 'Contiene: almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.',
-      precio250: '$3.800',
-      precio500: '$7.500'
-    },
-    cervecero: {
-      nombre: 'Mix cervecero',
-      desc: 'Contiene: maíz frito salado, maní tostado salado y maní japonés saborizado.',
-      precio250: '$2.000',
-      precio500: '$3.900'
-    },
-    sin_pasas: {
-      nombre: 'Mix de frutas secas sin pasas',
-      desc: 'Contiene: almendras, nueces, castañas de cajú y maní tostado.',
-      precio250: '$4.300',
-      precio500: '$8.500'
-    }
-  };
-
-  let mixSeleccionado = 'tradicional';
-  let tamanoSeleccionado = '250';
-
-  function actualizarMix() {
-    mixSeleccionado = document.getElementById('select-mix').value;
-    const data = opcionesMix[mixSeleccionado];
-    
-    // Actualizar textos y precios en la UI
-    document.getElementById('desc-frutos').innerText = data.desc;
-    document.getElementById('precio-250').innerText = data.precio250;
-    document.getElementById('precio-500').innerText = data.precio500;
-    
-    actualizarBotonFrutos();
-  }
-
-  function selectTamano(tamano) {
-    tamanoSeleccionado = tamano;
-    const btn250 = document.getElementById('btn-fs-250');
-    const btn500 = document.getElementById('btn-fs-500');
-    
-    const activeClasses = ['bg-green-500', 'border-green-600', 'text-white', 'shadow-sm'];
-    const inactiveClasses = ['bg-white', 'border-green-200', 'text-stone-700'];
-
-    if (tamano === '250') {
-      btn250.classList.add(...activeClasses);
-      btn250.classList.remove(...inactiveClasses);
-      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
-      
-      btn500.classList.add(...inactiveClasses);
-      btn500.classList.remove(...activeClasses);
-      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
-    } else {
-      btn500.classList.add(...activeClasses);
-      btn500.classList.remove(...inactiveClasses);
-      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
-      
-      btn250.classList.add(...inactiveClasses);
-      btn250.classList.remove(...activeClasses);
-      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
-    }
-    actualizarBotonFrutos();
-  }
-
-  function actualizarBotonFrutos() {
-    const link = document.getElementById('link-frutos');
-    const nombreMix = opcionesMix[mixSeleccionado].nombre;
-    const msg = `Hola! Quiero agregar un ${nombreMix} de ${tamanoSeleccionado}g a mi pedido`;
-    link.href = `https://wa.me/5492612745891?text=${encodeURIComponent(msg)}`;
-  }
-
-  // Inicializar el botón de frutos secos al cargar
-  actualizarBotonFrutos();
-</script>
+  <a id="link-huevos" href="#" target="_blank" rel="noopener noreferrer"
+     class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
+    Agregar al pedido
+  </a>
+</div>
   <!-- SCRIPT PARA INTERACTIVIDAD DE FORMATOS -->
   <script>
     const activeBtnClasses = ['bg-teal-50/50', 'border-teal-600/70', 'shadow-sm'];
