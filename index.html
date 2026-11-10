@@ -214,19 +214,25 @@
               Combinación noble de verdulería tradicional de primera calidad y frutas para resolver almuerzos y cenas cotidianas.
             </p>
 
+            <!-- REEMPLAZAR POR ESTO: -->
             <!-- ELEGÍ EL FORMATO -->
             <div class="mt-8">
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3">Elegí el formato</span>
-              <div class="grid grid-cols-2 gap-3.5">
-                <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
-                  <span class="block text-base font-semibold text-stone-700">Chica</span>
-                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
-                  <span class="block text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+              <div class="grid grid-cols-3 gap-2 sm:gap-3.5">
+                <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Chica</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectEstacion('Familiar')" id="btn-est-Familiar" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-base font-semibold text-stone-700">Familiar</span>
-                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
-                  <span class="block text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+                <button type="button" onclick="selectEstacion('Mediana')" id="btn-est-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+                </button>
+                <button type="button" onclick="selectEstacion('grande')" id="btn-est-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Grande</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">5+ pers.</span>
                 </button>
               </div>
             </div>
@@ -318,7 +324,7 @@
             </div>
             <!-- ACLARACIÓN DE CANTIDADES -->
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
             </p>
           </div> <!-- ESTE DIV ES EL QUE MANTIENE LA ESTRUCTURA INTACTA -->
           
@@ -330,10 +336,7 @@
           </div>
 
           <div class="mt-8">
-            <a id="link-estacion" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
-   class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
-  Pedir Caja Estación por WhatsApp
-</a>
+            <button type="button" onclick="addCaja('estacion', this)" class="btn-add w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">🛒 Agregar Caja Estación al carrito</button>
           </div>
         </div>
         <!-- FIN CARD 1: CAJA ESTACIÓN -->
@@ -357,18 +360,25 @@
             </p>
 
             <!-- ELEGÍ EL FORMATO -->
+            <!-- REEMPLAZAR POR ESTO: -->
+            <!-- ELEGÍ EL FORMATO -->
             <div class="mt-8">
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3">Elegí el formato</span>
-              <div class="grid grid-cols-2 gap-3.5">
-                <button type="button" onclick="selectPremium('chica')" id="btn-gour-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
-                  <span class="block text-base font-semibold text-stone-700">Chica</span>
-                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
-                  <span class="block text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+              <div class="grid grid-cols-3 gap-2 sm:gap-3.5">
+                <button type="button" onclick="selectPremium('chica')" id="btn-gour-chica" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Chica</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectPremium('Familiar')" id="btn-gour-Familiar" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-base font-semibold text-stone-700">Familiar</span>
-                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
-                  <span class="block text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+                <button type="button" onclick="selectPremium('Mediana')" id="btn-gour-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+                </button>
+                <button type="button" onclick="selectPremium('grande')" id="btn-gour-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Grande</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14,5 kg</span>
+                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">5+ pers.</span>
                 </button>
               </div>
             </div>
@@ -479,7 +489,7 @@
 </div>
             <!-- ACLARACIÓN DE CANTIDADES -->
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
             </p>
 
           </div> <!-- FIN DEL CONTENEDOR PRINCIPAL DE LA TARJETA -->
@@ -491,10 +501,7 @@
           </div>
 
           <div class="mt-8">
-            <a id="link-Premium" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
-               class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
-              Pedir Caja Premium por WhatsApp
-            </a>
+            <button type="button" onclick="addCaja('premium', this)" class="btn-add w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">🛒 Agregar Caja Premium al carrito</button>
           </div>
         </div>
 
@@ -522,27 +529,24 @@
       </div>
 
       <!-- Formatos + botón derecha -->
-      <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-        <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
-          <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
-            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
-          </button>
-          <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
-            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
-          </button>
-          <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
-            <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
-            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
-          </button>
-        </div>
+<div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
+  <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
+    <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
+    </button>
+    <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
+    </button>
+    <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
+      <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
+      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
+    </button>
+  </div>
 
-        <a id="link-huevos" href="#" target="_blank" rel="noopener noreferrer"
-           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
-          Agregar al pedido
-        </a>
-      </div>
+  <button type="button" id="btn-add-huevos" class="btn-add w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">🛒 Agregar al carrito</button>
+</div>
     </div>
   </div>
 
@@ -573,10 +577,7 @@
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
-          Agregar al pedido
-        </a>
+        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
       </div>
 
       <!-- Mix cervecero -->
@@ -596,10 +597,7 @@
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
-          Agregar al pedido
-        </a>
+        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
       </div>
 
       <!-- Mix sin pasas -->
@@ -619,10 +617,7 @@
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
           </button>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer"
-           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
-          Agregar al pedido
-        </a>
+        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
       </div>
 
     </div>
@@ -634,9 +629,9 @@
   const WA_NUMERO = '5492612745891';
 
   const HUEVOS = {
-    maple:  { precio: 7500, texto: 'un maple de huevos (30 unidades)' },
-    docena: { precio: 3500, texto: 'una docena de huevos' },
-    media:  { precio: 1800, texto: 'media docena de huevos' }
+    maple:  { precio: 7500, nombre: 'Maple de huevos (30 u.)' },
+    docena: { precio: 3500, nombre: 'Docena de huevos (12 u.)' },
+    media:  { precio: 1800, nombre: 'Media docena de huevos (6 u.)' }
   };
 
   const MIXES = {
@@ -660,11 +655,11 @@
   }
 
   // ---- Huevos ----
+  let huevosSel = 'docena';
   function selectHuevos(key) {
+    huevosSel = key;
     document.querySelectorAll('.btn-huevos').forEach(b =>
       pintar(b, b.dataset.huevos === key, ACTIVO_HUEVOS, INACTIVO_HUEVOS));
-    document.getElementById('link-huevos').href =
-      wa(`Hola! Quiero agregar ${HUEVOS[key].texto} a mi pedido`);
   }
 
   Object.keys(HUEVOS).forEach(k => {
@@ -673,6 +668,9 @@
   document.querySelectorAll('.btn-huevos').forEach(b =>
     b.addEventListener('click', () => selectHuevos(b.dataset.huevos)));
   selectHuevos('docena');
+
+  document.getElementById('btn-add-huevos').addEventListener('click', e =>
+    addToCart({ id: 'huevos-' + huevosSel, nombre: HUEVOS[huevosSel].nombre, precio: HUEVOS[huevosSel].precio }, e.currentTarget));
 
   // ---- Frutos secos (cada tarjeta guarda su propio tamaño) ----
   document.querySelectorAll('.card-mix').forEach(card => {
@@ -685,12 +683,12 @@
     function render() {
       card.querySelectorAll('.btn-size').forEach(b =>
         pintar(b, b.dataset.size === tamano, ACTIVO_MIX, INACTIVO_MIX));
-      card.querySelector('.link-mix').href =
-        wa(`Hola! Quiero agregar ${mix.nombre} de ${tamano}g a mi pedido`);
     }
 
     card.querySelectorAll('.btn-size').forEach(b =>
       b.addEventListener('click', () => { tamano = b.dataset.size; render(); }));
+    card.querySelector('.link-mix').addEventListener('click', e =>
+      addToCart({ id: 'mix-' + card.dataset.mix + '-' + tamano, nombre: `${mix.nombre} ${tamano}g`, precio: mix[tamano] }, e.currentTarget));
     render();
   });
 </script>
@@ -714,150 +712,41 @@
 </div>
 </section>
 
-<!-- 4. SCRIPT UNIFICADO (HUEVOS Y FRUTOS SECOS) -->
-<script>
-  // --- LÓGICA DE HUEVOS ---
-  const opcionesHuevos = {
-    maple: { btnId: 'btn-huevos-maple', textoMsg: 'un%20maple%20de%20huevos' },
-    docena: { btnId: 'btn-huevos-docena', textoMsg: 'una%20docena%20de%20huevos' },
-    media: { btnId: 'btn-huevos-media', textoMsg: 'media%20docena%20de%20huevos' }
-  };
 
-  function selectHuevos(tipoSeleccionado) {
-    const linkHuevos = document.getElementById('link-huevos');
-    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
-    const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
-
-    Object.keys(opcionesHuevos).forEach((tipo) => {
-      const btn = document.getElementById(opcionesHuevos[tipo].btnId);
-      const spanTitulo = btn.querySelector('span:first-child');
-      const spanPrecio = btn.querySelector('span:last-child');
-
-      if (tipo === tipoSeleccionado) {
-        btn.classList.add(...activeClasses);
-        btn.classList.remove(...inactiveClasses);
-        spanTitulo.className = 'block text-xs font-semibold opacity-90 mb-0.5';
-        spanPrecio.className = 'block text-base sm:text-lg font-extrabold';
-        linkHuevos.href = `https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20${opcionesHuevos[tipo].textoMsg}%20a%20mi%20pedido`;
-      } else {
-        btn.classList.add(...inactiveClasses);
-        btn.classList.remove(...activeClasses);
-        spanTitulo.className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-        spanPrecio.className = 'block text-base sm:text-lg font-extrabold text-stone-900';
-      }
-    });
-  }
-
-  // --- LÓGICA DE FRUTOS SECOS ---
-  const opcionesMix = {
-    tradicional: {
-      nombre: 'Mix de frutas secas',
-      desc: 'Contiene: almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.',
-      precio250: '$3.800',
-      precio500: '$7.500'
-    },
-    cervecero: {
-      nombre: 'Mix cervecero',
-      desc: 'Contiene: maíz frito salado, maní tostado salado y maní japonés saborizado.',
-      precio250: '$2.000',
-      precio500: '$3.900'
-    },
-    sin_pasas: {
-      nombre: 'Mix de frutas secas sin pasas',
-      desc: 'Contiene: almendras, nueces, castañas de cajú y maní tostado.',
-      precio250: '$4.300',
-      precio500: '$8.500'
-    }
-  };
-
-  let mixSeleccionado = 'tradicional';
-  let tamanoSeleccionado = '250';
-
-  function actualizarMix() {
-    mixSeleccionado = document.getElementById('select-mix').value;
-    const data = opcionesMix[mixSeleccionado];
-    
-    // Actualizar textos y precios en la UI
-    document.getElementById('desc-frutos').innerText = data.desc;
-    document.getElementById('precio-250').innerText = data.precio250;
-    document.getElementById('precio-500').innerText = data.precio500;
-    
-    actualizarBotonFrutos();
-  }
-
-  function selectTamano(tamano) {
-    tamanoSeleccionado = tamano;
-    const btn250 = document.getElementById('btn-fs-250');
-    const btn500 = document.getElementById('btn-fs-500');
-    
-    const activeClasses = ['bg-green-500', 'border-green-600', 'text-white', 'shadow-sm'];
-    const inactiveClasses = ['bg-white', 'border-green-200', 'text-stone-700'];
-
-    if (tamano === '250') {
-      btn250.classList.add(...activeClasses);
-      btn250.classList.remove(...inactiveClasses);
-      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
-      
-      btn500.classList.add(...inactiveClasses);
-      btn500.classList.remove(...activeClasses);
-      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
-    } else {
-      btn500.classList.add(...activeClasses);
-      btn500.classList.remove(...inactiveClasses);
-      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
-      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
-      
-      btn250.classList.add(...inactiveClasses);
-      btn250.classList.remove(...activeClasses);
-      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
-      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
-    }
-    actualizarBotonFrutos();
-  }
-
-  function actualizarBotonFrutos() {
-    const link = document.getElementById('link-frutos');
-    const nombreMix = opcionesMix[mixSeleccionado].nombre;
-    const msg = `Hola! Quiero agregar un ${nombreMix} de ${tamanoSeleccionado}g a mi pedido`;
-    link.href = `https://wa.me/5492612745891?text=${encodeURIComponent(msg)}`;
-  }
-
-  // Inicializar el botón de frutos secos al cargar
-  actualizarBotonFrutos();
-</script>
   <!-- SCRIPT PARA INTERACTIVIDAD DE FORMATOS -->
   <script>
     const activeBtnClasses = ['bg-teal-50/50', 'border-teal-600/70', 'shadow-sm'];
     const inactiveBtnClasses = ['bg-white', 'border-stone-200', 'text-stone-600'];
 
-    function toggleButtons(activeBtn, inactiveBtn) {
+    // Ahora acepta el botón activo y una lista con los otros dos botones inactivos
+    function setActiveButton(activeBtn, inactiveBtns) {
       activeBtn.classList.add(...activeBtnClasses);
       activeBtn.classList.remove(...inactiveBtnClasses);
-      inactiveBtn.classList.add(...inactiveBtnClasses);
-      inactiveBtn.classList.remove(...activeBtnClasses);
+      inactiveBtns.forEach(btn => {
+        btn.classList.add(...inactiveBtnClasses);
+        btn.classList.remove(...activeBtnClasses);
+      });
     }
 
     function selectEstacion(tipo) {
+      estSel = tipo;
       const btnChica = document.getElementById('btn-est-chica');
-      const btnFamiliar = document.getElementById('btn-est-Familiar');
-      const link = document.getElementById('link-estacion');
+      const btnMediana = document.getElementById('btn-est-Mediana');
+      const btnGrande = document.getElementById('btn-est-grande');
 
       if (tipo === 'chica') {
-        toggleButtons(btnChica, btnFamiliar);
+        setActiveButton(btnChica, [btnMediana, btnGrande]);
         document.getElementById('est-papa').innerText = '0,8 kg';
         document.getElementById('est-cebolla').innerText = '0,7 kg';
         document.getElementById('est-zanahoria').innerText = '0,6 kg';
-         document.getElementById('est-tomate').innerText = '0,6 kg';
+        document.getElementById('est-tomate').innerText = '0,6 kg';
         document.getElementById('est-lechuga').innerText = ' 0,5 kg (1 pl.)';
         document.getElementById('est-banana').innerText = ' 0,5 kg ~2-3 u. ';
         document.getElementById('est-naranja').innerText = ' 0,6 kg (~3-4 u.) ';
         document.getElementById('est-limon').innerText = ' 0,2 kg (~1-2 u.) ';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)';
         document.getElementById('precio-estacion').innerText = '$15.000';
-      } else {
-        toggleButtons(btnFamiliar, btnChica);
+      } else if (tipo === 'Mediana') {
+        setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('est-papa').innerText = '1,5 kg';
         document.getElementById('est-cebolla').innerText = '1 kg';
         document.getElementById('est-zanahoria').innerText = '1 kg';
@@ -866,33 +755,44 @@
         document.getElementById('est-banana').innerText = ' 0,8 kg (~4-5 u.)';
         document.getElementById('est-naranja').innerText = ' 1 kg (~5-6 u.)';
         document.getElementById('est-limon').innerText = '~ 0,4 kg (3 u.) ';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Familiar%20(~7,5%20kg)';
         document.getElementById('precio-estacion').innerText = '$23.000';
+      } else if (tipo === 'grande') {
+        setActiveButton(btnGrande, [btnChica, btnMediana]);
+        // EDITÁ ACÁ TUS CANTIDADES PARA ESTACIÓN GRANDE:
+        document.getElementById('est-papa').innerText = '3 kg';
+        document.getElementById('est-cebolla').innerText = '2 kg';
+        document.getElementById('est-zanahoria').innerText = '2 kg';
+        document.getElementById('est-tomate').innerText = '2 kg';
+        document.getElementById('est-lechuga').innerText = '1,5 kg (3 pl.)';
+        document.getElementById('est-banana').innerText = '1,5 kg (~9-12 u.)';
+        document.getElementById('est-naranja').innerText = '2 kg';
+        document.getElementById('est-limon').innerText = '0,6 kg (~3 u.)';
+        document.getElementById('precio-estacion').innerText = '$42.000'; // Editá acá el precio
       }
     }
 
     function selectPremium(tipo) {
+      premSel = tipo;
       const btnChica = document.getElementById('btn-gour-chica');
-      const btnFamiliar = document.getElementById('btn-gour-Familiar');
-      const link = document.getElementById('link-Premium');
+      const btnMediana = document.getElementById('btn-gour-Mediana');
+      const btnGrande = document.getElementById('btn-gour-grande');
 
       if (tipo === 'chica') {
-        toggleButtons(btnChica, btnFamiliar);
+        setActiveButton(btnChica, [btnMediana, btnGrande]);
         document.getElementById('gour-papa').innerText = '0,8 kg';
         document.getElementById('gour-cebolla').innerText = '0,6 kg';
         document.getElementById('gour-zanahoria').innerText = '0,5 kg';
         document.getElementById('gour-tomate').innerText = '0,6 kg';
-        document.getElementById('gour-lechuga').innerText = '0,4 kg (1 pl.) '
-        document.getElementById('gour-pimiento').innerText = '0,2 kg ~1 u. ';
+        document.getElementById('gour-lechuga').innerText = '0,4 kg (1 pl.) ';
+        document.getElementById('gour-pimiento').innerText = '0,2 kg ~1-2 u. ';
         document.getElementById('gour-verdeo').innerText = '0,2 kg (1 atado)';
         document.getElementById('gour-palta').innerText = '0,4 kg (~2-3 u.) ';
-        document.getElementById('gour-limon').innerText = ' 0,2 kg (~1-2 u.)';
+        document.getElementById('gour-limon').innerText = ' 0,2 kg (~1 u.)';
         document.getElementById('gour-manzana').innerText = ' 0,3 kg (~2 u.) ';
         document.getElementById('gour-banana').innerText = ' 0,4 kg (~2-3 u.)';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)';
         document.getElementById('precio-premium').innerText = '$19.000';
-      } else {
-        toggleButtons(btnFamiliar, btnChica);
+      } else if (tipo === 'Mediana') {
+        setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('gour-papa').innerText = '1,2 kg';
         document.getElementById('gour-cebolla').innerText = '1 kg';
         document.getElementById('gour-zanahoria').innerText = '0,8 kg';
@@ -901,11 +801,25 @@
         document.getElementById('gour-pimiento').innerText = ' 0,4 kg (~2 u.)';
         document.getElementById('gour-verdeo').innerText = '0,2 kg (1 atado)';
         document.getElementById('gour-palta').innerText = '0,6 kg (~4-5 u.)'; 
-        document.getElementById('gour-limon').innerText = '0,4 kg (~2-3 u.)';
-        document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-4 u.)';
-        document.getElementById('gour-banana').innerText = ' 0,6 kg (~3-4 u.)';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Familiar%20(~7,5%20kg)';
+        document.getElementById('gour-limon').innerText = '0,4 kg (~2 u.)';
+        document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-5 u.)';
+        document.getElementById('gour-banana').innerText = ' 0,6 kg (~4-5 u.)';
         document.getElementById('precio-premium').innerText = '$28.000';
+      } else if (tipo === 'grande') {
+        setActiveButton(btnGrande, [btnChica, btnMediana]);
+        // EDITÁ ACÁ TUS CANTIDADES PARA PREMIUM GRANDE:
+        document.getElementById('gour-papa').innerText = '2,5 kg';
+        document.getElementById('gour-cebolla').innerText = '2 kg';
+        document.getElementById('gour-zanahoria').innerText = '2 kg';
+        document.getElementById('gour-tomate').innerText = '2 kg';
+        document.getElementById('gour-lechuga').innerText = '1,5 kg (3 pl.)';
+        document.getElementById('gour-pimiento').innerText = '0,6 kg (~4 u.)';
+        document.getElementById('gour-verdeo').innerText = '0,4 kg (2 atados)';
+        document.getElementById('gour-palta').innerText = '0.8 kg (~8-10 u.)';
+        document.getElementById('gour-limon').innerText = '0,6 kg (~3 u.)';
+        document.getElementById('gour-manzana').innerText = '1 kg (~6-8 u.)';
+        document.getElementById('gour-banana').innerText = '1,2 kg (~8-10 u.)';
+        document.getElementById('precio-premium').innerText = '$52.000'; // Editá acá el precio
       }
     }
   </script>
@@ -932,7 +846,7 @@
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
           <span class="text-3xl font-extrabold text-brand-700">Paso 1</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Elegís tu Caja</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica o Familiar). Recibilo martes o viernes </p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica, Mediana o Grande). Recibilo martes o viernes </p>
         </div>
 
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
@@ -1237,6 +1151,215 @@
       </div>
     </div>
   </footer>
+
+
+  <!-- ============ CARRITO ============ -->
+  <button id="cart-fab" type="button" onclick="openCart()" aria-label="Ver mi pedido"
+    class="hidden fixed bottom-5 right-5 z-[60] items-center gap-2.5 bg-brand-700 hover:bg-brand-800 text-white font-bold pl-5 pr-4 py-3.5 rounded-full shadow-2xl transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    <span>Mi pedido</span>
+    <span id="cart-count" class="bg-white text-brand-800 text-xs font-extrabold min-w-[1.5rem] h-6 px-1.5 rounded-full flex items-center justify-center">0</span>
+  </button>
+
+  <div id="cart-overlay" onclick="closeCart()" class="hidden fixed inset-0 z-[70] bg-stone-900/50 backdrop-blur-[2px]"></div>
+
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[430px] z-[80] bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-hidden="true">
+    <div class="flex items-center justify-between px-6 py-5 border-b border-stone-200">
+      <h3 class="text-xl font-extrabold text-stone-900">🛒 Tu pedido</h3>
+      <button type="button" onclick="closeCart()" class="text-stone-500 hover:text-stone-900 text-3xl leading-none" aria-label="Cerrar">&times;</button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-3"></div>
+
+    <div id="cart-footer" class="border-t border-stone-200 px-6 py-5 space-y-3 bg-stone-50">
+      <div>
+        <div class="flex gap-2">
+          <input type="text" id="cupon-input" placeholder="¿Tenés un cupón?" autocomplete="off" autocapitalize="characters"
+            class="flex-1 min-w-0 text-sm uppercase rounded-xl border border-stone-300 px-3 py-2.5 focus:outline-none focus:border-brand-600"
+            onkeydown="if(event.key==='Enter'){event.preventDefault();aplicarCupon();}">
+          <button type="button" id="cupon-btn" onclick="aplicarCupon()"
+            class="px-4 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-900 text-white text-sm font-semibold transition-all">Aplicar</button>
+        </div>
+        <p id="cupon-msg" class="text-xs mt-1.5 min-h-[1rem]"></p>
+      </div>
+      <textarea id="cart-notas" rows="2" placeholder="Aclaraciones: cambios de productos, barrio, día de entrega (martes/viernes)…"
+        class="w-full text-sm rounded-xl border border-stone-300 px-3 py-2 focus:outline-none focus:border-brand-600"></textarea>
+      <div id="cart-totales" class="space-y-1"></div>
+      <button type="button" onclick="enviarPedido()"
+        class="w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold transition-all shadow-md">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+        Enviar pedido por WhatsApp
+      </button>
+      <button type="button" onclick="vaciarCarrito()" class="w-full text-xs text-stone-500 hover:text-red-600 underline">Vaciar pedido</button>
+    </div>
+  </aside>
+
+  <script>
+    // ====== CARRITO (precios de cajas: editalos acá) ======
+    const CAJAS = {
+      estacion: { nombre: 'Caja Estación', tam: {
+        chica:   { label: 'Chica (~4,5 kg)',    precio: 15000 },
+        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 23000 },
+        grande:  { label: 'Grande (~14,5 kg)',  precio: 42000 } } },
+      premium:  { nombre: 'Caja Premium', tam: {
+        chica:   { label: 'Chica (~4,5 kg)',    precio: 19000 },
+        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 28000 },
+        grande:  { label: 'Grande (~14,5 kg)',  precio: 52000 } } }
+    };
+    // ====== CUPONES (editá acá: código en MAYÚSCULAS) ======
+    // tipo 'fijo' = monto en pesos | tipo 'porcentaje' = % sobre el subtotal
+    const CUPONES = {
+      'VEROBOX': { tipo: 'fijo', valor: 5000 }
+      // 'OTROCUPON': { tipo: 'porcentaje', valor: 10 },
+    };
+    let cupon = null; // código aplicado
+    try { cupon = localStorage.getItem('dailybox_cupon') || null; if (cupon && !CUPONES[cupon]) cupon = null; } catch (e) {}
+
+    let estSel = 'chica', premSel = 'chica';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem('dailybox_cart') || '[]'); } catch (e) { cart = []; }
+
+    function saveCart() { try { localStorage.setItem('dailybox_cart', JSON.stringify(cart)); } catch (e) {} }
+
+    function addCaja(linea, btn) {
+      const t = CAJAS[linea].tam[linea === 'estacion' ? estSel : premSel];
+      addToCart({ id: linea + '-' + (linea === 'estacion' ? estSel : premSel),
+                  nombre: CAJAS[linea].nombre + ' ' + t.label, precio: t.precio }, btn);
+    }
+
+    function addToCart(item, btn) {
+      const ex = cart.find(i => i.id === item.id);
+      if (ex) ex.qty += 1; else cart.push({ ...item, qty: 1 });
+      saveCart(); renderCart();
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✓ Agregado';
+        btn.disabled = true;
+        setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 1100);
+      }
+      const fab = document.getElementById('cart-fab');
+      fab.classList.add('scale-110'); setTimeout(() => fab.classList.remove('scale-110'), 250);
+    }
+
+    function cambiarQty(id, delta) {
+      const it = cart.find(i => i.id === id); if (!it) return;
+      it.qty += delta;
+      if (it.qty <= 0) cart = cart.filter(i => i.id !== id);
+      saveCart(); renderCart();
+    }
+
+    function vaciarCarrito() { cart = []; saveCart(); quitarCupon(); closeCart(); }
+
+    function totalCarrito() {
+      const sub = cart.reduce((s, i) => s + i.precio * i.qty, 0);
+      let desc = 0;
+      if (cupon && CUPONES[cupon] && sub > 0) {
+        const c = CUPONES[cupon];
+        desc = c.tipo === 'porcentaje' ? Math.round(sub * c.valor / 100) : c.valor;
+        desc = Math.min(desc, sub);
+      }
+      return { sub, desc, total: sub - desc };
+    }
+
+    function aplicarCupon() {
+      const input = document.getElementById('cupon-input');
+      const msg = document.getElementById('cupon-msg');
+      const code = input.value.trim().toUpperCase();
+      if (!code) { msg.className = 'text-xs mt-1.5 text-stone-500'; msg.textContent = 'Escribí tu cupón primero.'; return; }
+      if (CUPONES[code]) {
+        cupon = code;
+        try { localStorage.setItem('dailybox_cupon', code); } catch (e) {}
+        renderCart();
+      } else {
+        msg.className = 'text-xs mt-1.5 text-red-600 font-semibold';
+        msg.textContent = 'Ese cupón no es válido.';
+      }
+    }
+
+    function quitarCupon() {
+      cupon = null;
+      try { localStorage.removeItem('dailybox_cupon'); } catch (e) {}
+      document.getElementById('cupon-input').value = '';
+      renderCart();
+    }
+
+    function pintarCupon() {
+      const msg = document.getElementById('cupon-msg');
+      const input = document.getElementById('cupon-input');
+      if (cupon) {
+        input.value = cupon;
+        msg.className = 'text-xs mt-1.5 text-brand-700 font-semibold';
+        msg.innerHTML = `✓ Cupón ${cupon} aplicado · <button type="button" onclick="quitarCupon()" class="underline text-stone-500 font-normal">quitar</button>`;
+      } else if (!msg.textContent.startsWith('Ese cupón') && !msg.textContent.startsWith('Escribí')) {
+        msg.textContent = '';
+      }
+    }
+
+    function renderCart() {
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      const fab = document.getElementById('cart-fab');
+      document.getElementById('cart-count').textContent = count;
+      pintarCupon();
+      if (count > 0) { fab.classList.remove('hidden'); fab.classList.add('inline-flex'); }
+      else { fab.classList.add('hidden'); fab.classList.remove('inline-flex'); }
+
+      const list = document.getElementById('cart-items');
+      const footer = document.getElementById('cart-footer');
+      if (count === 0) {
+        list.innerHTML = '<p class="text-center text-stone-500 text-sm py-16">Todavía no agregaste nada.<br>Elegí una caja, huevos o frutos secos 🥕</p>';
+        footer.classList.add('hidden');
+        return;
+      }
+      footer.classList.remove('hidden');
+      list.innerHTML = cart.map(i => `
+        <div class="flex items-center justify-between gap-3 bg-stone-100/80 rounded-2xl px-4 py-3">
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-stone-900 leading-snug">${i.nombre}</p>
+            <p class="text-xs text-stone-500 mt-0.5">${fmt(i.precio)} c/u</p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button type="button" onclick="cambiarQty('${i.id}', -1)" class="w-8 h-8 rounded-full bg-white border border-stone-300 font-bold hover:bg-stone-200" aria-label="Menos">−</button>
+            <span class="w-5 text-center font-bold text-sm">${i.qty}</span>
+            <button type="button" onclick="cambiarQty('${i.id}', 1)" class="w-8 h-8 rounded-full bg-white border border-stone-300 font-bold hover:bg-stone-200" aria-label="Más">+</button>
+          </div>
+        </div>`).join('');
+
+      const { sub, desc, total } = totalCarrito();
+      document.getElementById('cart-totales').innerHTML =
+        `<div class="flex justify-between text-sm text-stone-600"><span>Subtotal</span><span>${fmt(sub)}</span></div>` +
+        (desc ? `<div class="flex justify-between text-sm text-brand-700 font-semibold"><span>Cupón ${cupon}</span><span>−${fmt(desc)}</span></div>` : '') +
+        `<div class="flex justify-between text-lg font-extrabold text-stone-900 pt-1"><span>Total estimado</span><span>${fmt(total)}</span></div>`;
+    }
+
+    function openCart() {
+      document.getElementById('cart-overlay').classList.remove('hidden');
+      const d = document.getElementById('cart-drawer');
+      d.classList.remove('translate-x-full'); d.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+      document.getElementById('cart-overlay').classList.add('hidden');
+      const d = document.getElementById('cart-drawer');
+      d.classList.add('translate-x-full'); d.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+    function enviarPedido() {
+      if (!cart.length) return;
+      const { sub, desc, total } = totalCarrito();
+      const notas = document.getElementById('cart-notas').value.trim();
+      let msg = 'Hola! Quiero hacer el siguiente pedido:\n\n';
+      cart.forEach(i => { msg += `• ${i.qty} x ${i.nombre} — ${fmt(i.precio * i.qty)}\n`; });
+      msg += `\nSubtotal: ${fmt(sub)}`;
+      if (desc) msg += `\nCupón ${cupon}: -${fmt(desc)}`;
+      msg += `\n*Total: ${fmt(total)}*`;
+            if (notas) msg += `\n\nAclaraciones: ${notas}`;
+      window.open(wa(msg), '_blank', 'noopener');
+    }
+
+    renderCart();
+  </script>
 
 </body>
 </html>
