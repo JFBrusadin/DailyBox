@@ -224,8 +224,8 @@
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectEstacion('Familiar')" id="btn-est-Familiar" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Familiar</span>
+                <button type="button" onclick="selectEstacion('Mediana')" id="btn-est-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
                 </button>
@@ -324,7 +324,7 @@
             </div>
             <!-- ACLARACIÓN DE CANTIDADES -->
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
             </p>
           </div> <!-- ESTE DIV ES EL QUE MANTIENE LA ESTRUCTURA INTACTA -->
           
@@ -373,8 +373,8 @@
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectPremium('Familiar')" id="btn-gour-Familiar" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Familiar</span>
+                <button type="button" onclick="selectPremium('Mediana')" id="btn-gour-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
                 </button>
@@ -492,7 +492,7 @@
 </div>
             <!-- ACLARACIÓN DE CANTIDADES -->
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
             </p>
 
           </div> <!-- FIN DEL CONTENEDOR PRINCIPAL DE LA TARJETA -->
@@ -745,12 +745,12 @@
 
     function selectEstacion(tipo) {
       const btnChica = document.getElementById('btn-est-chica');
-      const btnFamiliar = document.getElementById('btn-est-Familiar');
+      const btnMediana = document.getElementById('btn-est-Mediana');
       const btnGrande = document.getElementById('btn-est-grande');
       const link = document.getElementById('link-estacion');
 
       if (tipo === 'chica') {
-        setActiveButton(btnChica, [btnFamiliar, btnGrande]);
+        setActiveButton(btnChica, [btnMediana, btnGrande]);
         document.getElementById('est-papa').innerText = '0,8 kg';
         document.getElementById('est-cebolla').innerText = '0,7 kg';
         document.getElementById('est-zanahoria').innerText = '0,6 kg';
@@ -761,8 +761,8 @@
         document.getElementById('est-limon').innerText = ' 0,2 kg (~1-2 u.) ';
         link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)';
         document.getElementById('precio-estacion').innerText = '$15.000';
-      } else if (tipo === 'Familiar') {
-        setActiveButton(btnFamiliar, [btnChica, btnGrande]);
+      } else if (tipo === 'Mediana') {
+        setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('est-papa').innerText = '1,5 kg';
         document.getElementById('est-cebolla').innerText = '1 kg';
         document.getElementById('est-zanahoria').innerText = '1 kg';
@@ -771,10 +771,10 @@
         document.getElementById('est-banana').innerText = ' 0,8 kg (~4-5 u.)';
         document.getElementById('est-naranja').innerText = ' 1 kg (~5-6 u.)';
         document.getElementById('est-limon').innerText = '~ 0,4 kg (3 u.) ';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Familiar%20(~7,5%20kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Mediana%20(~7,5%20kg)';
         document.getElementById('precio-estacion').innerText = '$23.000';
       } else if (tipo === 'grande') {
-        setActiveButton(btnGrande, [btnChica, btnFamiliar]);
+        setActiveButton(btnGrande, [btnChica, btnMediana]);
         // EDITÁ ACÁ TUS CANTIDADES PARA ESTACIÓN GRANDE:
         document.getElementById('est-papa').innerText = '3 kg';
         document.getElementById('est-cebolla').innerText = '2 kg';
@@ -791,12 +791,12 @@
 
     function selectPremium(tipo) {
       const btnChica = document.getElementById('btn-gour-chica');
-      const btnFamiliar = document.getElementById('btn-gour-Familiar');
+      const btnMediana = document.getElementById('btn-gour-Mediana');
       const btnGrande = document.getElementById('btn-gour-grande');
       const link = document.getElementById('link-Premium');
 
       if (tipo === 'chica') {
-        setActiveButton(btnChica, [btnFamiliar, btnGrande]);
+        setActiveButton(btnChica, [btnMediana, btnGrande]);
         document.getElementById('gour-papa').innerText = '0,8 kg';
         document.getElementById('gour-cebolla').innerText = '0,6 kg';
         document.getElementById('gour-zanahoria').innerText = '0,5 kg';
@@ -810,8 +810,8 @@
         document.getElementById('gour-banana').innerText = ' 0,4 kg (~2-3 u.)';
         link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)';
         document.getElementById('precio-premium').innerText = '$19.000';
-      } else if (tipo === 'Familiar') {
-        setActiveButton(btnFamiliar, [btnChica, btnGrande]);
+      } else if (tipo === 'Mediana') {
+        setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('gour-papa').innerText = '1,2 kg';
         document.getElementById('gour-cebolla').innerText = '1 kg';
         document.getElementById('gour-zanahoria').innerText = '0,8 kg';
@@ -823,10 +823,10 @@
         document.getElementById('gour-limon').innerText = '0,4 kg (~2 u.)';
         document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-5 u.)';
         document.getElementById('gour-banana').innerText = ' 0,6 kg (~4-5 u.)';
-        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Familiar%20(~7,5%20kg)';
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Mediana%20(~7,5%20kg)';
         document.getElementById('precio-premium').innerText = '$28.000';
       } else if (tipo === 'grande') {
-        setActiveButton(btnGrande, [btnChica, btnFamiliar]);
+        setActiveButton(btnGrande, [btnChica, btnMediana]);
         // EDITÁ ACÁ TUS CANTIDADES PARA PREMIUM GRANDE:
         document.getElementById('gour-papa').innerText = '2,5 kg';
         document.getElementById('gour-cebolla').innerText = '2 kg';
@@ -867,7 +867,7 @@
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
           <span class="text-3xl font-extrabold text-brand-700">Paso 1</span>
           <h3 class="text-lg font-bold text-stone-900 mt-4">Elegís tu Caja</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica o Familiar). Recibilo martes o viernes </p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica, Mediana o Grande). Recibilo martes o viernes </p>
         </div>
 
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
