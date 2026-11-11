@@ -1,1365 +1,2483 @@
 <!DOCTYPE html>
+
 <html lang="es" class="scroll-smooth">
+
 <head>
+
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+
   <title>Daily Box | Frutas y Verduras Seleccionadas a Domicilio.</title>
+
   <meta name="description" content="Servicio de entrega programada de frutas y verduras seleccionadas en Mendoza, Argentina." />
 
+
+
   <!-- Google Fonts -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
+
+
  <!-- Tailwind CSS CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
+
    tailwind.config = {
+
   theme: {
+
     extend: {
+
       fontFamily: {
+
         sans: ['"Fredoka"', 'sans-serif'], // <--- Nueva fuente por defecto
+
         serif: ['"Playfair Display"', 'serif'],
+
       },
+
           colors: {
+
             brand: {
+
               50: '#f0f7f3',
+
               100: '#dbeee0',
+
               200: '#b8dec5',
+
               600: '#2b784a',
+
               700: '#215f3a',
+
               800: '#1a4b2e',
+
               900: '#11331f',
+
             },
+
             accent: {
+
               citrus: '#e07a2c',
+
               gold: '#c29236',
+
             }
+
           }
+
         }
+
       }
+
     }
+
   </script>
+
   <style>
+
     /* Carga el archivo de fuente local descargado */
+
   
+
     details summary::-webkit-details-marker { display: none; }
+
     details[open] summary svg { transform: rotate(180deg); }
+
   </style>
+
   </script>
+
   <style>
+
     details summary::-webkit-details-marker { display: none; }
+
     details[open] summary svg { transform: rotate(180deg); }
+
   </style>
+
 </head>
+
 <body class="bg-stone-100 text-stone-800 antialiased font-sans selection:bg-brand-100 selection:text-brand-900">
 
+
+
   <!-- TOP ANNOUNCEMENT BAR -->
+
   <div class="bg-brand-900 text-brand-100 text-xs py-2 px-6 text-center font-medium tracking-wide z-50 relative">
+
     🌿 Repartos programados los <strong>martes y viernes</strong> en Maipú, Guaymallén, Chacras de Coria, Palmares, Dalvian, Vistalba y La Puntilla.
+
   </div>
 
+
+
   <!-- NAVBAR -->
+
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm">
+
     <div class="max-w-7xl mx-auto px-6 py-3 min-h-[105px] flex items-center justify-between">
+
       
+
       <!-- LOGO Y NOMBRE BIEN GRANDES -->
+
       <a href="#" class="flex items-center gap-4 group">
+
         <img src="logo.jpg" 
+
              alt="Daily Box" 
+
              onerror="this.onerror=null; this.src='https://placehold.co/150x150/1a4b2e/ffffff?text=Daily+Box'" 
+
              class="h-20 w-20 md:h-24 md:w-24 rounded-2xl object-cover border-2 border-stone-200 shadow-md group-hover:scale-105 transition-transform duration-200" />
+
         <span class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-stone-900 leading-none">
+
   Daily<span class="text-brand-600">Box</span>
+
 </span>
+
       </a>
+
       
+
       <!-- NAVEGACIÓN -->
+
       <nav class="hidden lg:flex items-center gap-8 text-base font-semibold text-stone-700">
+
         <a href="#propuesta" class="hover:text-brand-600 transition-colors">Propuesta</a>
+
         <a href="#como-funciona" class="hover:text-brand-600 transition-colors">Cómo Funciona</a>
+
         <a href="#cajas" class="hover:text-brand-600 transition-colors">Nuestras Cajas</a>
+
         <a href="#nosotros" class="hover:text-brand-600 transition-colors">Quiénes Somos</a>
+
         <a href="#faq" class="hover:text-brand-600 transition-colors">Preguntas Frecuentes</a>
+
       </nav>
 
+
+
       <!-- REDES Y BOTÓN CONTACTAR -->
+
       <div class="flex items-center gap-4">
+
         <!-- INSTAGRAM -->
+
         <a href="https://www.instagram.com/dailyboxarg/" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-brand-600 transition-colors" aria-label="Instagram">
+
           <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+
         </a>
+
         
+
         <!-- BOTÓN CONTACTAR -->
+
         <a href="https://wa.me/5492612745891?text=Hola!%20Quiero%20conocer%20m%C3%A1s%20sobre%20Daily%20Box" target="_blank" rel="noopener noreferrer" 
+
            class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white text-sm md:text-base font-semibold px-6 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg">
+
           <span>Contactar</span>
+
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+
         </a>
+
       </div>
 
+
+
     </div>
+
   </header>
 
+
+
   <!-- SECCIÓN 1: HERO (Nueva imagen HD de huerta orgánica luminosa) -->
+
   <section id="propuesta" class="relative pt-16 pb-20 md:pt-28 md:pb-36 bg-fixed bg-cover bg-center bg-emerald-950" style="background-image: url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=2000&q=90');">
+
     <!-- Overlay sutil con tinte verde bosque para armonizar con el paisaje -->
+
     <div class="absolute inset-0 bg-brand-900/35 backdrop-brightness-95"></div>
 
+
+
     <div class="relative z-10 max-w-7xl mx-auto px-6">
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
         
+
         <!-- Tarjeta de cristal para el texto -->
+
         <div class="lg:col-span-7 bg-white/95 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/80 shadow-2xl">
+
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase bg-brand-100 text-brand-900 border border-brand-200">
+
             Estándar de selección
+
           </div>
+
           <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
+
             Tu solución de la semana en <span class="font-serif italic font-normal text-brand-600">frutas y verduras</span>, con máxima calidad garantizada.
+
           </h1>
+
           <p class="mt-6 text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
+
             Llevamos a la puerta de tu casa productos de primera selección, frescos y envasados con cuidado riguroso. Eliminamos traslados y compras apresuradas en tu hogar.
+
           </p>
+
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
+
             <a href="#cajas" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md hover:shadow-lg">
+
               Explorar Cajas y Formatos
+
             </a>
+
             <a href="#como-funciona" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-stone-100 border border-stone-300 text-stone-800 hover:bg-white font-semibold transition-all">
+
               Cómo trabajamos
+
             </a>
+
           </div>
+
+
 
           <div class="mt-10 flex flex-wrap items-center gap-6 text-xs text-stone-600 font-semibold border-t border-stone-200/80 pt-6">
+
             <div class="flex items-center gap-2">
+
               <span class="w-2.5 h-2.5 rounded-full bg-brand-600"></span>
+
               Suscripción semanal, mensual o pedido único
+
             </div>
+
             <div class="flex items-center gap-2">
+
               <span class="w-2.5 h-2.5 rounded-full bg-brand-600"></span>
+
               Hasta 3 reemplazos por caja
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- Imagen destacada de la caja -->
+
         <div class="lg:col-span-5">
+
           <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-stone-100 aspect-[4/3] sm:aspect-square">
+
             <img src="caja-abierta.jpeg" alt="Caja abierta Daily Box con frutas y verduras seleccionadas" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1200&q=90'" class="w-full h-full object-cover object-center" />
+
             <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-stone-200/80 shadow-md text-xs flex justify-between items-center">
+
               <span class="font-bold text-brand-900 bg-brand-200 px-3 py-1 rounded-xl">0 hs en filas y traslados</span>
+
               <span class="font-bold text-brand-900 bg-brand-200 px-3 py-1 rounded-xl">100% Fresco</span>
+
             </div>
+
           </div>
+
         </div>
 
+
+
       </div>
+
     </div>
+
   </section>
+
+
+
 
 
 <!-- SECCIÓN 2: CATÁLOGO DE CAJAS -->
+
   <section id="cajas" class="py-24 md:py-32 bg-stone-100">
+
     <div class="max-w-7xl mx-auto px-6">
+
       
+
       <!-- ENCABEZADO CON BADGE / STICKER PROMOCIONAL SUPERPUESTO -->
+
       <div class="relative max-w-3xl mx-auto mb-16 text-center">
+
         
+
         <!-- BADGE FLOTANTE DESORDENADO (STICKER BIENVENIDA) -->
+
         <div class="inline-block mb-6 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+
           <div class="relative bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 text-stone-900 p-[2px] rounded-3xl shadow-xl shadow-amber-500/10">
+
             <div class="bg-white/95 backdrop-blur-sm px-5 py-3 sm:px-6 sm:py-3.5 rounded-[1.35rem] border border-amber-200 flex items-center gap-3.5">
+
               
+
               <!-- Ícono de regalo / sticker -->
+
               <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center shrink-0 shadow-md rotate-3 text-xl">
+
                 🎁
+
               </div>
+
+
 
               <!-- Texto del beneficio -->
+
               <div class="text-left leading-tight">
+
                 <span class="inline-block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-md mb-0.5">
+
                   Beneficio Bienvenida
+
                 </span>
+
                 <p class="text-base sm:text-lg font-black text-stone-900 tracking-tight">
+
                   Tenés <span class="text-brand-700 underline decoration-amber-400 decoration-2 underline-offset-2">$5.000 OFF</span> en tu primer pedido
+
                 </p>
+
                 <p class="text-[11px] sm:text-xs text-stone-500 font-medium">
+
                   Se aplica de forma automática al coordinar tu entrega por WhatsApp.
+
                 </p>
+
               </div>
 
+
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <span class="block text-xs font-bold tracking-widest text-brand-700 uppercase">Catálogo Semanal Estandarizado</span>
+
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Nuestras Cajas</h2>
+
         <p class="text-stone-600 mt-3 text-base">Composición balanceada para optimizar el menú semanal sin generar desperdicios.</p>
+
       </div>
 
+
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
         
+
         <!-- CARD 1: CAJA ESTACIÓN -->
+
         <div class="bg-white rounded-[2.5rem] p-8 sm:p-10 border border-stone-200/90 flex flex-col justify-between hover:border-brand-600 transition-all shadow-md">
+
           <div>
+
             <!-- ENCABEZADO -->
+
             <div class="flex justify-between items-start gap-4">
+
               <div>
+
                 <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">Línea Clásica Balanceada</span>
+
                 <h3 class="text-3xl font-extrabold text-stone-900 mt-1">Caja Estación</h3>
+
               </div>
+
               <span class="px-3.5 py-1 bg-stone-100 border border-stone-200 text-stone-700 text-xs font-bold rounded-full">Esencial</span>
+
             </div>
+
             <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+
               Combinación noble de verdulería tradicional de primera calidad y frutas para resolver almuerzos y cenas cotidianas.
+
             </p>
 
-            <!-- REEMPLAZAR POR ESTO: -->
+
+
             <!-- ELEGÍ EL FORMATO -->
+
             <div class="mt-8">
+
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3">Elegí el formato</span>
-              <div class="grid grid-cols-3 gap-2 sm:gap-3.5">
-                <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Chica</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+
+              <div class="grid grid-cols-2 gap-3.5">
+
+                <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
+
+                  <span class="block text-base font-semibold text-stone-700">Chica</span>
+
+                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
+
+                  <span class="block text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+
                 </button>
-                <button type="button" onclick="selectEstacion('Mediana')" id="btn-est-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+
+                <button type="button" onclick="selectEstacion('Familiar')" id="btn-est-Familiar" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+
+                  <span class="block text-base font-semibold text-stone-700">Familiar</span>
+
+                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
+
+                  <span class="block text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+
                 </button>
-                <button type="button" onclick="selectEstacion('grande')" id="btn-est-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Grande</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">5+ pers.</span>
-                </button>
+
               </div>
+
             </div>
+
+
 
             <!-- CONTENIDO DE LA CAJA (EN 2 COLUMNAS DE PASTILLAS) -->
+
             <div class="mt-8">
+
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3.5">Contenido de la caja</span>
+
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+
                 
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥔</span> Papa</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="est-papa"> 0,8 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🧅</span> Cebolla</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="est-cebolla"> 0,7 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥕</span> Zanahoria</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="est-zanahoria"> 0,6 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍅</span> Tomate Perita</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="est-tomate"> 0,6 kg </span>
-                </div>
 
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥔</span> Papa</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="est-papa"> 0,8 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🧅</span> Cebolla</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="est-cebolla"> 0,7 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥕</span> Zanahoria</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="est-zanahoria"> 0,6 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍅</span> Tomate Perita</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="est-tomate"> 0,6 kg </span>
+
+                </div>
+
+
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥬</span> Lechuga Repollada</span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="est-lechuga"> 0,5 kg (1 pl.) </span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍋</span> Limón</span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="est-limon"> 0,2 kg (~1-2 u.) </span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍌</span> Banana </span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="est-banana"> 0,5 kg (~3-4 u.) </span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍊</span> Naranja Jugo</span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="est-naranja"> 0,6 kg (~3-4 u.) </span>
+
                 </div>
+
                 
+
                 <div class="sm:col-span-2 flex items-center justify-center bg-stone-50 border border-dashed border-stone-200 px-3.5 py-2.5 rounded-2xl text-[11px] text-stone-400 font-medium">
+
                   <span>100% Cosecha fresca</span>
+
                 </div>
+
+
 
               </div>
+
             </div>
 
+
+
             <!-- POLÍTICA DE CAMBIO -->
+
             <div class="mt-6 p-4 bg-teal-50/60 border border-teal-200/70 rounded-2xl text-xs text-teal-950 flex items-center gap-3">
+
               <svg class="w-4 h-4 text-teal-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+
               <span><strong> ¿Querés cambiar algo? </strong> Podés cambiar hasta 3 productos de la lista por artículos de tu caja o por cualquiera de las opciones disponibles abajo.</span>
+
             </div>
+
+
 
             <!-- OPCIONES DE CAMBIO -->
+
             <div class="mt-3 grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🍎</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Manzana</span>
+
               </div>
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🫑</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Pimiento</span>
+
               </div>
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🧄</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Ajo</span>
+
               </div>
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🌱</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Verdeo</span>
+
               </div>
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🎃</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Zapallo</span>
+
               </div>
+
               <div class="bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
                 <span class="text-sm sm:text-base mb-0.5">🍠</span>
+
                 <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Camote</span>
+
               </div>
+
             </div>
+
             <!-- ACLARACIÓN DE CANTIDADES -->
+
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+
             </p>
+
           </div> <!-- ESTE DIV ES EL QUE MANTIENE LA ESTRUCTURA INTACTA -->
+
           
+
           <!-- AGREGAR EL BLOQUE DE PRECIO AQUÍ -->
+
           <!-- BLOQUE DE PRECIO (ESTACIÓN) -->
+
           <div class="mt-5 flex items-center justify-between border-t border-stone-200 pt-4 px-1">
+
             <span class="text-xs font-bold text-stone-800 uppercase tracking-wider">Precio de la caja</span>
+
             <span class="text-2xl font-extrabold text-stone-900 tracking-tight" id="precio-estacion">$15.000</span>
+
           </div>
+
+
 
           <div class="mt-8">
-            <button type="button" onclick="addCaja('estacion', this)" class="btn-add w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">🛒 Agregar Caja Estación al carrito</button>
+
+            <a id="link-estacion" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
+
+   class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
+
+  Pedir Caja Estación por WhatsApp
+
+</a>
+
           </div>
+
         </div>
+
         <!-- FIN CARD 1: CAJA ESTACIÓN -->
 
+
+
         <!-- CARD 2: CAJA Premium -->
+
         <div class="bg-white rounded-[2.5rem] p-8 sm:p-10 border-2 border-brand-600 flex flex-col justify-between relative shadow-xl">
+
           <div class="absolute -top-3.5 right-8 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+
             Línea Recomendada
+
           </div>
 
+
+
           <div>
+
             <!-- ENCABEZADO -->
+
             <div class="flex justify-between items-start gap-4">
+
               <div>
+
                 <span class="text-xs font-bold text-accent-citrus uppercase tracking-wider">Línea Selección Especial</span>
+
                 <h3 class="text-3xl font-extrabold text-stone-900 mt-1">Caja Premium</h3>
+
               </div>
+
             </div>
+
             <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+
               El toque distintivo de la palta, combinado con frescos de huerta y frutas seleccionadas para llenar tus platos de color y llevar tu cocina diaria a otro nivel.
+
             </p>
 
+
+
             <!-- ELEGÍ EL FORMATO -->
-            <!-- REEMPLAZAR POR ESTO: -->
-            <!-- ELEGÍ EL FORMATO -->
+
             <div class="mt-8">
+
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3">Elegí el formato</span>
-              <div class="grid grid-cols-3 gap-2 sm:gap-3.5">
-                <button type="button" onclick="selectPremium('chica')" id="btn-gour-chica" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Chica</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+
+              <div class="grid grid-cols-2 gap-3.5">
+
+                <button type="button" onclick="selectPremium('chica')" id="btn-gour-chica" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
+
+                  <span class="block text-base font-semibold text-stone-700">Chica</span>
+
+                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
+
+                  <span class="block text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
+
                 </button>
-                <button type="button" onclick="selectPremium('Mediana')" id="btn-gour-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+
+                <button type="button" onclick="selectPremium('Familiar')" id="btn-gour-Familiar" class="py-3 px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+
+                  <span class="block text-base font-semibold text-stone-700">Familiar</span>
+
+                  <span class="block text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
+
+                  <span class="block text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
+
                 </button>
-                <button type="button" onclick="selectPremium('grande')" id="btn-gour-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
-                  <span class="block text-sm sm:text-base font-semibold text-stone-700">Grande</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14,5 kg</span>
-                  <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">5+ pers.</span>
-                </button>
+
               </div>
+
             </div>
+
+
 
             <!-- CONTENIDO DE LA CAJA (EN 2 COLUMNAS DE PASTILLAS) -->
+
             <div class="mt-8">
+
               <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block mb-3.5">Contenido de la caja</span>
+
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+
                 
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥔</span> Papa</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-papa"> 0,8 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🧅</span> Cebolla</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-cebolla"> 0,6 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥕</span> Zanahoria</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-zanahoria"> 0,5 kg </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍅</span> Tomate Perita</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-tomate">0,6 kg</span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥬</span> Lechuga Repollada</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-lechuga"> 0,4 kg (1 pl.) </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🫑</span> Pimiento Verde</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-pimiento"> 0,2 kg (~1 u.) </span>
-                </div>
-                
-                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
-                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🌱</span> Cebolla de verdeo</span>
-                  <span class="font-medium text-teal-800 shrink-0" id="gour-verdeo"> 0,2 kg (1 atado) </span>
-                </div>
 
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥔</span> Papa</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-papa"> 0,8 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🧅</span> Cebolla</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-cebolla"> 0,6 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥕</span> Zanahoria</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-zanahoria"> 0,5 kg </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍅</span> Tomate Perita</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-tomate">0,6 kg</span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥬</span> Lechuga Repollada</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-lechuga"> 0,4 kg (1 pl.) </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🫑</span> Pimiento Verde</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-pimiento"> 0,2 kg (~1 u.) </span>
+
+                </div>
+
+                
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
+                  <span class="flex items-center gap-2 font-medium text-stone-800"><span>🌱</span> Cebolla de verdeo</span>
+
+                  <span class="font-medium text-teal-800 shrink-0" id="gour-verdeo"> 0,2 kg (1 atado) </span>
+
+                </div>
+
+
+
+                <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🥑</span> Palta </span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="gour-palta"> 0,4 kg (~2-3 u.) </span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍋</span> Limón</span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="gour-limon"> 0,2 kg (~1-2 u.) </span>
+
                 </div>  
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍎</span> Manzana</span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="gour-manzana">  0,3 kg (~2 u.)</span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-between bg-stone-100/90 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base">
+
                   <span class="flex items-center gap-2 font-medium text-stone-800"><span>🍌</span> Banana </span>
+
                   <span class="font-medium text-teal-800 shrink-0" id="gour-banana"> 0,4 kg (~2-3 u.) </span>
+
                 </div>
+
                 
+
                 <div class="flex items-center justify-center bg-stone-50 border border-dashed border-stone-200 px-3.5 py-2.5 rounded-2xl text-[11px] text-stone-400 font-medium">
+
                   <span>100% Cosecha fresca</span>
+
                 </div>
+
+
 
               </div>
+
             </div>
+
+
 
             <!-- POLÍTICA DE CAMBIO -->
+
             <div class="mt-6 p-4 bg-teal-50/60 border border-teal-200/70 rounded-2xl text-xs text-teal-950 flex items-center gap-3">
+
               <svg class="w-4 h-4 text-teal-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+
               <span><strong>¿Querés cambiar algo?</strong> Podés cambiar hasta 3 productos de la lista por artículos de tu caja o por cualquiera de las opciones disponibles abajo.</span>
+
             </div>
 
+
+
             <!-- OPCIONES DE CAMBIO Premium -->
+
 <div class="mt-3 flex flex-wrap justify-center gap-1.5 sm:gap-2">
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🧄</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Ajo</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🎃</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Zapallo</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🍆</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Berenjena</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🌽</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Choclo</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🍊</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Naranja</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🍓</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Frutilla</span>
+
   </div>
+
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
+
     <span class="text-sm sm:text-base mb-0.5">🍠</span>
+
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Camote</span>
+
   </div>
+
 </div>
+
             <!-- ACLARACIÓN DE CANTIDADES -->
+
             <p class="mt-3.5 text-[10px] text-stone-500 leading-snug text-center px-2">
-              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica, Mediana o Grande).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+
+              * Calculamos los cambios según el valor del producto y el tamaño de tu caja (Chica o Familiar).  (Ejemplo: si cambiás un producto caro, te rinde por más unidades de uno económico).
+
             </p>
+
+
 
           </div> <!-- FIN DEL CONTENEDOR PRINCIPAL DE LA TARJETA -->
 
+
+
           <!-- BLOQUE DE PRECIO (PREMIUM) -->
+
           <div class="mt-5 flex items-center justify-between border-t border-stone-200 pt-4 px-1">
+
             <span class="text-xs font-bold text-stone-800 uppercase tracking-wider">Precio de la caja</span>
+
             <span class="text-2xl font-extrabold text-stone-900 tracking-tight" id="precio-premium">$19.000</span>
+
           </div>
+
+
 
           <div class="mt-8">
-            <button type="button" onclick="addCaja('premium', this)" class="btn-add w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">🛒 Agregar Caja Premium al carrito</button>
+
+            <a id="link-Premium" href="https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)" target="_blank" rel="noopener noreferrer" 
+
+               class="w-full inline-flex justify-center items-center py-4 px-6 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-semibold transition-all shadow-md">
+
+              Pedir Caja Premium por WhatsApp
+
+            </a>
+
           </div>
+
         </div>
 
+
+
       </div>
+
+
 
 <!-- SECCIÓN DE ADICIONALES -->
+
 <div class="flex flex-col gap-10 mt-10">
 
+
+
   <!-- 1. BLOQUE DE HUEVOS (franja horizontal) -->
+
   <div class="bg-gradient-to-br from-amber-50/70 via-white to-amber-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-amber-200/80 shadow-md relative overflow-hidden">
+
     <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
 
+
+
       <!-- Info izquierda -->
+
       <div class="flex items-center gap-5 w-full lg:w-auto">
+
         <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-amber-300 overflow-hidden shrink-0 shadow-sm">
+
           <img src="huevo-blanco.jpg" alt="Huevos frescos seleccionados" class="w-full h-full object-cover" />
+
         </div>
+
         <div>
+
           <span class="text-xs font-bold tracking-widest text-amber-700 uppercase">Adicional Opcional</span>
+
           <h4 class="text-xl sm:text-2xl font-extrabold text-stone-900 mt-1 tracking-tight">Sumá huevos grandes</h4>
+
           <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed">
+
             Elegí el formato que prefieras para complementar tu pedido semanal.
+
           </p>
+
         </div>
+
       </div>
+
+
 
       <!-- Formatos + botón derecha -->
-<div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-  <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
-    <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
-      <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
-      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
-    </button>
-    <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
-      <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
-      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
-    </button>
-    <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center bg-white border-amber-200 text-stone-700 hover:border-amber-300">
-      <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
-      <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
-    </button>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
+
+        <div class="grid grid-cols-3 gap-2 sm:gap-2.5 w-full sm:w-auto">
+
+          <button type="button" data-huevos="maple" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
+
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Maple (30u)</span>
+
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-maple"></span>
+
+          </button>
+
+          <button type="button" data-huevos="docena" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
+
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Docena (12u)</span>
+
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-docena"></span>
+
+          </button>
+
+          <button type="button" data-huevos="media" class="btn-huevos py-3 px-3 sm:px-4 rounded-xl border-2 transition-all text-center">
+
+            <span class="block text-sm font-semibold opacity-80 mb-0.5">Media (6u)</span>
+
+            <span class="block text-lg sm:text-xl font-extrabold" id="precio-huevos-media"></span>
+
+          </button>
+
+        </div>
+
+
+
+        <a id="link-huevos" href="#" target="_blank" rel="noopener noreferrer"
+
+           class="w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">
+
+          Agregar al pedido
+
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <button type="button" id="btn-add-huevos" class="btn-add w-full sm:w-auto inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-xs sm:text-sm whitespace-nowrap">🛒 Agregar al carrito</button>
-</div>
-    </div>
-  </div>
+
 
   <!-- 2. FRUTOS SECOS (3 tarjetas) -->
+
   <div>
+
     <div class="text-center mb-6">
+
       <h4 class="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">Sumá frutos secos</h4>
+
       <p class="text-sm sm:text-base text-stone-600 mt-1 font-medium">Elegí el mix que más te guste</p>
+
     </div>
+
+
 
     <!-- mt-16 / gap-y-16: dejan lugar para que la imagen sobresalga por arriba de cada tarjeta -->
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
 
+
+
       <!-- Mix tradicional -->
+
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="tradicional">
+
         <img src="mix-frutas-secas.png" alt="Mix de frutas secas" class="h-36 sm:h-40 w-auto mx-auto drop-shadow-md"/>
+
         <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix de frutas secas</h5>
+
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
+
           Almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.
+
         </p>
+
         <div class="grid grid-cols-2 gap-2 mt-5">
+
           <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
+
           </button>
+
           <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
+
           </button>
+
         </div>
-        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
+
+        <a href="#" target="_blank" rel="noopener noreferrer"
+
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
+
+          Agregar al pedido
+
+        </a>
+
       </div>
+
+
 
       <!-- Mix cervecero -->
+
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="cervecero">
+
         <img src="mix-cervecero.png" alt="Mix cervecero" class="h-36 sm:h-40 w-auto mx-auto drop-shadow-md" />
+
         <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix cervecero</h5>
+
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
+
           Maíz frito, maní tostado y maní japonés.
+
         </p>
+
         <div class="grid grid-cols-2 gap-2 mt-5">
+
           <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
+
           </button>
+
           <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
+
           </button>
+
         </div>
-        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
+
+        <a href="#" target="_blank" rel="noopener noreferrer"
+
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
+
+          Agregar al pedido
+
+        </a>
+
       </div>
+
+
 
       <!-- Mix sin pasas -->
+
       <div class="card-mix bg-gradient-to-br from-green-50/70 via-white to-green-50/40 rounded-[2rem] p-5 sm:p-6 border-2 border-green-200/80 shadow-md flex flex-col text-center" data-mix="sin_pasas">
+
         <img src="mix-sin-pasas.png" alt="Mix de frutas secas sin pasas" class="h-36 sm:h-40 w-auto mx-auto drop-shadow-md" />
+
         <h5 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-3 tracking-tight">Mix de frutas secas (sin pasas)</h5>
+
         <p class="text-sm text-stone-600 mt-1 font-medium leading-relaxed flex-1">
+
           Almendras, nueces, castañas de cajú y maní tostado.
+
         </p>
+
         <div class="grid grid-cols-2 gap-2 mt-5">
+
           <button type="button" data-size="250" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">250g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-250"></span>
+
           </button>
+
           <button type="button" data-size="500" class="btn-size py-2.5 px-3 rounded-xl border-2 transition-all text-center">
+
             <span class="block text-sm sm:text-base font-semibold opacity-80 mb-0.5">500g</span>
+
             <span class="block text-lg sm:text-xl font-extrabold precio-500"></span>
+
           </button>
+
         </div>
-        <button type="button" class="link-mix btn-add mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">🛒 Agregar al carrito</button>
+
+        <a href="#" target="_blank" rel="noopener noreferrer"
+
+           class="link-mix mt-3 w-full inline-flex justify-center items-center py-3.5 px-6 rounded-xl bg-green-800 hover:bg-green-900 text-white font-semibold transition-all shadow-sm text-sm">
+
+          Agregar al pedido
+
+        </a>
+
       </div>
 
+
+
     </div>
+
   </div>
+
 </div>
+
+
 
 <script>
+
   // ====== CONFIGURACIÓN (editá acá precios y número) ======
+
   const WA_NUMERO = '5492612745891';
 
+
+
   const HUEVOS = {
-    maple:  { precio: 7500, nombre: 'Maple de huevos (30 u.)' },
-    docena: { precio: 3500, nombre: 'Docena de huevos (12 u.)' },
-    media:  { precio: 1800, nombre: 'Media docena de huevos (6 u.)' }
+
+    maple:  { precio: 7500, texto: 'un maple de huevos (30 unidades)' },
+
+    docena: { precio: 3500, texto: 'una docena de huevos' },
+
+    media:  { precio: 1800, texto: 'media docena de huevos' }
+
   };
+
+
 
   const MIXES = {
+
     tradicional: { nombre: 'Mix de frutas secas',             250: 3800, 500: 7500 },
+
     cervecero:   { nombre: 'Mix cervecero',                   250: 2000, 500: 3900 },
+
     sin_pasas:   { nombre: 'Mix de frutas secas (sin pasas)', 250: 4300, 500: 8500 }
+
   };
+
   // ========================================================
 
+
+
   const fmt = n => '$' + n.toLocaleString('es-AR');
+
   const wa = msg => `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(msg)}`;
 
+
+
   const ACTIVO_HUEVOS = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
+
   const INACTIVO_HUEVOS = ['bg-white', 'border-amber-200', 'text-stone-700', 'hover:border-amber-300'];
+
   const ACTIVO_MIX = ['bg-green-500', 'border-green-600', 'text-white', 'shadow-sm'];
+
   const INACTIVO_MIX = ['bg-white', 'border-green-200', 'text-stone-700', 'hover:border-green-300'];
 
+
+
   function pintar(btn, activo, on, off) {
+
     btn.classList.remove(...(activo ? off : on));
+
     btn.classList.add(...(activo ? on : off));
+
   }
+
+
 
   // ---- Huevos ----
-  let huevosSel = 'docena';
+
   function selectHuevos(key) {
-    huevosSel = key;
+
     document.querySelectorAll('.btn-huevos').forEach(b =>
+
       pintar(b, b.dataset.huevos === key, ACTIVO_HUEVOS, INACTIVO_HUEVOS));
+
+    document.getElementById('link-huevos').href =
+
+      wa(`Hola! Quiero agregar ${HUEVOS[key].texto} a mi pedido`);
+
   }
 
+
+
   Object.keys(HUEVOS).forEach(k => {
+
     document.getElementById('precio-huevos-' + k).textContent = fmt(HUEVOS[k].precio);
+
   });
+
   document.querySelectorAll('.btn-huevos').forEach(b =>
+
     b.addEventListener('click', () => selectHuevos(b.dataset.huevos)));
+
   selectHuevos('docena');
 
-  document.getElementById('btn-add-huevos').addEventListener('click', e =>
-    addToCart({ id: 'huevos-' + huevosSel, nombre: HUEVOS[huevosSel].nombre, precio: HUEVOS[huevosSel].precio }, e.currentTarget));
+
 
   // ---- Frutos secos (cada tarjeta guarda su propio tamaño) ----
+
   document.querySelectorAll('.card-mix').forEach(card => {
+
     const mix = MIXES[card.dataset.mix];
+
     let tamano = '250';
 
+
+
     card.querySelector('.precio-250').textContent = fmt(mix[250]);
+
     card.querySelector('.precio-500').textContent = fmt(mix[500]);
 
+
+
     function render() {
+
       card.querySelectorAll('.btn-size').forEach(b =>
+
         pintar(b, b.dataset.size === tamano, ACTIVO_MIX, INACTIVO_MIX));
+
+      card.querySelector('.link-mix').href =
+
+        wa(`Hola! Quiero agregar ${mix.nombre} de ${tamano}g a mi pedido`);
+
     }
 
+
+
     card.querySelectorAll('.btn-size').forEach(b =>
+
       b.addEventListener('click', () => { tamano = b.dataset.size; render(); }));
-    card.querySelector('.link-mix').addEventListener('click', e =>
-      addToCart({ id: 'mix-' + card.dataset.mix + '-' + tamano, nombre: `${mix.nombre} ${tamano}g`, precio: mix[tamano] }, e.currentTarget));
+
     render();
+
   });
+
 </script>
+
   
+
   <!-- 3. BANNER DE GARANTÍA -->
+
   <div class="mt-10 bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+
     <div class="flex items-center gap-4">
+
       <div class="w-12 h-12 rounded-2xl bg-brand-700 text-white flex items-center justify-center shrink-0">
+
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+
       </div>
+
       <div>
+
         <h4 class="text-base font-bold text-stone-900">Garantía de Satisfacción Total</h4>
+
         <p class="text-sm text-stone-600">Si un producto llega con algún defecto de maduración o traslado, te lo reponemos la semana siguiente.</p>
+
       </div>
+
     </div>
+
     <div class="text-xs font-bold uppercase tracking-wider text-brand-800 whitespace-nowrap bg-brand-50 px-4 py-2 rounded-xl border border-brand-200">
+
       Cero Riesgo
+
     </div>
+
   </div>
 
+
+
 </div>
+
 </section>
 
 
+
+<!-- 4. SCRIPT UNIFICADO (HUEVOS Y FRUTOS SECOS) -->
+
+<script>
+
+  // --- LÓGICA DE HUEVOS ---
+
+  const opcionesHuevos = {
+
+    maple: { btnId: 'btn-huevos-maple', textoMsg: 'un%20maple%20de%20huevos' },
+
+    docena: { btnId: 'btn-huevos-docena', textoMsg: 'una%20docena%20de%20huevos' },
+
+    media: { btnId: 'btn-huevos-media', textoMsg: 'media%20docena%20de%20huevos' }
+
+  };
+
+
+
+  function selectHuevos(tipoSeleccionado) {
+
+    const linkHuevos = document.getElementById('link-huevos');
+
+    const activeClasses = ['bg-amber-500', 'border-amber-600', 'text-white', 'shadow-sm'];
+
+    const inactiveClasses = ['bg-white', 'border-amber-200', 'text-stone-700'];
+
+
+
+    Object.keys(opcionesHuevos).forEach((tipo) => {
+
+      const btn = document.getElementById(opcionesHuevos[tipo].btnId);
+
+      const spanTitulo = btn.querySelector('span:first-child');
+
+      const spanPrecio = btn.querySelector('span:last-child');
+
+
+
+      if (tipo === tipoSeleccionado) {
+
+        btn.classList.add(...activeClasses);
+
+        btn.classList.remove(...inactiveClasses);
+
+        spanTitulo.className = 'block text-xs font-semibold opacity-90 mb-0.5';
+
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold';
+
+        linkHuevos.href = `https://wa.me/5492612745891?text=Hola!%20Quiero%20agregar%20${opcionesHuevos[tipo].textoMsg}%20a%20mi%20pedido`;
+
+      } else {
+
+        btn.classList.add(...inactiveClasses);
+
+        btn.classList.remove(...activeClasses);
+
+        spanTitulo.className = 'block text-xs font-semibold text-stone-500 mb-0.5';
+
+        spanPrecio.className = 'block text-base sm:text-lg font-extrabold text-stone-900';
+
+      }
+
+    });
+
+  }
+
+
+
+  // --- LÓGICA DE FRUTOS SECOS ---
+
+  const opcionesMix = {
+
+    tradicional: {
+
+      nombre: 'Mix de frutas secas',
+
+      desc: 'Contiene: almendras, nueces, castañas de cajú, pasas de uva negras sin semilla y maní tostado.',
+
+      precio250: '$3.800',
+
+      precio500: '$7.500'
+
+    },
+
+    cervecero: {
+
+      nombre: 'Mix cervecero',
+
+      desc: 'Contiene: maíz frito salado, maní tostado salado y maní japonés saborizado.',
+
+      precio250: '$2.000',
+
+      precio500: '$3.900'
+
+    },
+
+    sin_pasas: {
+
+      nombre: 'Mix de frutas secas sin pasas',
+
+      desc: 'Contiene: almendras, nueces, castañas de cajú y maní tostado.',
+
+      precio250: '$4.300',
+
+      precio500: '$8.500'
+
+    }
+
+  };
+
+
+
+  let mixSeleccionado = 'tradicional';
+
+  let tamanoSeleccionado = '250';
+
+
+
+  function actualizarMix() {
+
+    mixSeleccionado = document.getElementById('select-mix').value;
+
+    const data = opcionesMix[mixSeleccionado];
+
+    
+
+    // Actualizar textos y precios en la UI
+
+    document.getElementById('desc-frutos').innerText = data.desc;
+
+    document.getElementById('precio-250').innerText = data.precio250;
+
+    document.getElementById('precio-500').innerText = data.precio500;
+
+    
+
+    actualizarBotonFrutos();
+
+  }
+
+
+
+  function selectTamano(tamano) {
+
+    tamanoSeleccionado = tamano;
+
+    const btn250 = document.getElementById('btn-fs-250');
+
+    const btn500 = document.getElementById('btn-fs-500');
+
+    
+
+    const activeClasses = ['bg-green-500', 'border-green-600', 'text-white', 'shadow-sm'];
+
+    const inactiveClasses = ['bg-white', 'border-green-200', 'text-stone-700'];
+
+
+
+    if (tamano === '250') {
+
+      btn250.classList.add(...activeClasses);
+
+      btn250.classList.remove(...inactiveClasses);
+
+      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
+
+      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
+
+      
+
+      btn500.classList.add(...inactiveClasses);
+
+      btn500.classList.remove(...activeClasses);
+
+      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
+
+      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
+
+    } else {
+
+      btn500.classList.add(...activeClasses);
+
+      btn500.classList.remove(...inactiveClasses);
+
+      btn500.querySelector('span:first-child').className = 'block text-xs font-semibold opacity-90 mb-0.5';
+
+      btn500.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold';
+
+      
+
+      btn250.classList.add(...inactiveClasses);
+
+      btn250.classList.remove(...activeClasses);
+
+      btn250.querySelector('span:first-child').className = 'block text-xs font-semibold text-stone-500 mb-0.5';
+
+      btn250.querySelector('span:last-child').className = 'block text-sm sm:text-base font-extrabold text-stone-900';
+
+    }
+
+    actualizarBotonFrutos();
+
+  }
+
+
+
+  function actualizarBotonFrutos() {
+
+    const link = document.getElementById('link-frutos');
+
+    const nombreMix = opcionesMix[mixSeleccionado].nombre;
+
+    const msg = `Hola! Quiero agregar un ${nombreMix} de ${tamanoSeleccionado}g a mi pedido`;
+
+    link.href = `https://wa.me/5492612745891?text=${encodeURIComponent(msg)}`;
+
+  }
+
+
+
+  // Inicializar el botón de frutos secos al cargar
+
+  actualizarBotonFrutos();
+
+</script>
+
   <!-- SCRIPT PARA INTERACTIVIDAD DE FORMATOS -->
+
   <script>
+
     const activeBtnClasses = ['bg-teal-50/50', 'border-teal-600/70', 'shadow-sm'];
+
     const inactiveBtnClasses = ['bg-white', 'border-stone-200', 'text-stone-600'];
 
-    // Ahora acepta el botón activo y una lista con los otros dos botones inactivos
-    function setActiveButton(activeBtn, inactiveBtns) {
+
+
+    function toggleButtons(activeBtn, inactiveBtn) {
+
       activeBtn.classList.add(...activeBtnClasses);
+
       activeBtn.classList.remove(...inactiveBtnClasses);
-      inactiveBtns.forEach(btn => {
-        btn.classList.add(...inactiveBtnClasses);
-        btn.classList.remove(...activeBtnClasses);
-      });
+
+      inactiveBtn.classList.add(...inactiveBtnClasses);
+
+      inactiveBtn.classList.remove(...activeBtnClasses);
+
     }
+
+
 
     function selectEstacion(tipo) {
-      estSel = tipo;
+
       const btnChica = document.getElementById('btn-est-chica');
-      const btnMediana = document.getElementById('btn-est-Mediana');
-      const btnGrande = document.getElementById('btn-est-grande');
+
+      const btnFamiliar = document.getElementById('btn-est-Familiar');
+
+      const link = document.getElementById('link-estacion');
+
+
 
       if (tipo === 'chica') {
-        setActiveButton(btnChica, [btnMediana, btnGrande]);
+
+        toggleButtons(btnChica, btnFamiliar);
+
         document.getElementById('est-papa').innerText = '0,8 kg';
+
         document.getElementById('est-cebolla').innerText = '0,7 kg';
+
         document.getElementById('est-zanahoria').innerText = '0,6 kg';
-        document.getElementById('est-tomate').innerText = '0,6 kg';
+
+         document.getElementById('est-tomate').innerText = '0,6 kg';
+
         document.getElementById('est-lechuga').innerText = ' 0,5 kg (1 pl.)';
+
         document.getElementById('est-banana').innerText = ' 0,5 kg ~2-3 u. ';
+
         document.getElementById('est-naranja').innerText = ' 0,6 kg (~3-4 u.) ';
+
         document.getElementById('est-limon').innerText = ' 0,2 kg (~1-2 u.) ';
+
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Chica%20(~4,5%20kg)';
+
         document.getElementById('precio-estacion').innerText = '$15.000';
-      } else if (tipo === 'Mediana') {
-        setActiveButton(btnMediana, [btnChica, btnGrande]);
+
+      } else {
+
+        toggleButtons(btnFamiliar, btnChica);
+
         document.getElementById('est-papa').innerText = '1,5 kg';
+
         document.getElementById('est-cebolla').innerText = '1 kg';
+
         document.getElementById('est-zanahoria').innerText = '1 kg';
+
         document.getElementById('est-tomate').innerText = '1 kg';
+
         document.getElementById('est-lechuga').innerText = '0,8 kg (2 pl.)';
+
         document.getElementById('est-banana').innerText = ' 0,8 kg (~4-5 u.)';
+
         document.getElementById('est-naranja').innerText = ' 1 kg (~5-6 u.)';
+
         document.getElementById('est-limon').innerText = '~ 0,4 kg (3 u.) ';
+
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Estaci%C3%B3n%20Familiar%20(~7,5%20kg)';
+
         document.getElementById('precio-estacion').innerText = '$23.000';
-      } else if (tipo === 'grande') {
-        setActiveButton(btnGrande, [btnChica, btnMediana]);
-        // EDITÁ ACÁ TUS CANTIDADES PARA ESTACIÓN GRANDE:
-        document.getElementById('est-papa').innerText = '3 kg';
-        document.getElementById('est-cebolla').innerText = '2 kg';
-        document.getElementById('est-zanahoria').innerText = '2 kg';
-        document.getElementById('est-tomate').innerText = '2 kg';
-        document.getElementById('est-lechuga').innerText = '1,5 kg (3 pl.)';
-        document.getElementById('est-banana').innerText = '1,5 kg (~9-12 u.)';
-        document.getElementById('est-naranja').innerText = '2 kg';
-        document.getElementById('est-limon').innerText = '0,6 kg (~3 u.)';
-        document.getElementById('precio-estacion').innerText = '$42.000'; // Editá acá el precio
+
       }
+
     }
+
+
 
     function selectPremium(tipo) {
-      premSel = tipo;
+
       const btnChica = document.getElementById('btn-gour-chica');
-      const btnMediana = document.getElementById('btn-gour-Mediana');
-      const btnGrande = document.getElementById('btn-gour-grande');
+
+      const btnFamiliar = document.getElementById('btn-gour-Familiar');
+
+      const link = document.getElementById('link-Premium');
+
+
 
       if (tipo === 'chica') {
-        setActiveButton(btnChica, [btnMediana, btnGrande]);
+
+        toggleButtons(btnChica, btnFamiliar);
+
         document.getElementById('gour-papa').innerText = '0,8 kg';
+
         document.getElementById('gour-cebolla').innerText = '0,6 kg';
+
         document.getElementById('gour-zanahoria').innerText = '0,5 kg';
+
         document.getElementById('gour-tomate').innerText = '0,6 kg';
-        document.getElementById('gour-lechuga').innerText = '0,4 kg (1 pl.) ';
-        document.getElementById('gour-pimiento').innerText = '0,2 kg ~1-2 u. ';
+
+        document.getElementById('gour-lechuga').innerText = '0,4 kg (1 pl.) '
+
+        document.getElementById('gour-pimiento').innerText = '0,2 kg ~1 u. ';
+
         document.getElementById('gour-verdeo').innerText = '0,2 kg (1 atado)';
+
         document.getElementById('gour-palta').innerText = '0,4 kg (~2-3 u.) ';
-        document.getElementById('gour-limon').innerText = ' 0,2 kg (~1 u.)';
+
+        document.getElementById('gour-limon').innerText = ' 0,2 kg (~1-2 u.)';
+
         document.getElementById('gour-manzana').innerText = ' 0,3 kg (~2 u.) ';
+
         document.getElementById('gour-banana').innerText = ' 0,4 kg (~2-3 u.)';
+
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Chica%20(~4,5%20kg)';
+
         document.getElementById('precio-premium').innerText = '$19.000';
-      } else if (tipo === 'Mediana') {
-        setActiveButton(btnMediana, [btnChica, btnGrande]);
+
+      } else {
+
+        toggleButtons(btnFamiliar, btnChica);
+
         document.getElementById('gour-papa').innerText = '1,2 kg';
+
         document.getElementById('gour-cebolla').innerText = '1 kg';
+
         document.getElementById('gour-zanahoria').innerText = '0,8 kg';
+
         document.getElementById('gour-tomate').innerText = '1 kg';
+
         document.getElementById('gour-lechuga').innerText = ' 0,7 kg (1-2 pl.)';
+
         document.getElementById('gour-pimiento').innerText = ' 0,4 kg (~2 u.)';
+
         document.getElementById('gour-verdeo').innerText = '0,2 kg (1 atado)';
+
         document.getElementById('gour-palta').innerText = '0,6 kg (~4-5 u.)'; 
-        document.getElementById('gour-limon').innerText = '0,4 kg (~2 u.)';
-        document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-5 u.)';
-        document.getElementById('gour-banana').innerText = ' 0,6 kg (~4-5 u.)';
+
+        document.getElementById('gour-limon').innerText = '0,4 kg (~2-3 u.)';
+
+        document.getElementById('gour-manzana').innerText = ' 0,5 kg (~3-4 u.)';
+
+        document.getElementById('gour-banana').innerText = ' 0,6 kg (~3-4 u.)';
+
+        link.href = 'https://wa.me/5492612745891?text=Hola!%20Quiero%20pedir%20la%20Caja%20Premium%20Familiar%20(~7,5%20kg)';
+
         document.getElementById('precio-premium').innerText = '$28.000';
-      } else if (tipo === 'grande') {
-        setActiveButton(btnGrande, [btnChica, btnMediana]);
-        // EDITÁ ACÁ TUS CANTIDADES PARA PREMIUM GRANDE:
-        document.getElementById('gour-papa').innerText = '2,5 kg';
-        document.getElementById('gour-cebolla').innerText = '2 kg';
-        document.getElementById('gour-zanahoria').innerText = '2 kg';
-        document.getElementById('gour-tomate').innerText = '2 kg';
-        document.getElementById('gour-lechuga').innerText = '1,5 kg (3 pl.)';
-        document.getElementById('gour-pimiento').innerText = '0,6 kg (~4 u.)';
-        document.getElementById('gour-verdeo').innerText = '0,4 kg (2 atados)';
-        document.getElementById('gour-palta').innerText = '0.8 kg (~8-10 u.)';
-        document.getElementById('gour-limon').innerText = '0,6 kg (~3 u.)';
-        document.getElementById('gour-manzana').innerText = '1 kg (~6-8 u.)';
-        document.getElementById('gour-banana').innerText = '1,2 kg (~8-10 u.)';
-        document.getElementById('precio-premium').innerText = '$52.000'; // Editá acá el precio
+
       }
+
     }
+
   </script>
+
   
-  <!-- PILARES DE VALOR -->
+
+  <!-- PILARES DE VALOR -->
+
   <section class="py-14 bg-white/95 border-y border-stone-200">
+
     <div class="max-w-7xl mx-auto px-6">
+
       
+
      
+
   <!-- SECCIÓN 3: CÓMO FUNCIONA (Fondo: Mercado Premium Boutique HD) -->
+
   <section id="como-funciona" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center bg-stone-900" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=2000&q=90');">
+
     <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px]"></div>
 
+
+
     <div class="relative z-10 max-w-7xl mx-auto px-6">
+
       
+
       <div class="text-center max-w-2xl mx-auto mb-16 bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/60">
+
         <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Logística & Proceso</span>
+
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Cómo funciona Daily Box</h2>
+
         <p class="text-stone-600 mt-3 text-base">Un circuito ordenado para garantizar previsibilidad y frescura en tu cocina.</p>
+
       </div>
+
+
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
         
+
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+
           <span class="text-3xl font-extrabold text-brand-700">Paso 1</span>
+
           <h3 class="text-lg font-bold text-stone-900 mt-4">Elegís tu Caja</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica, Mediana o Grande). Recibilo martes o viernes </p>
+
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed"> Elegí tu línea (Estación o Premium) y el tamaño ideal para tu hogar (Chica o Familiar). Recibilo martes o viernes </p>
+
         </div>
 
+
+
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+
           <span class="text-3xl font-extrabold text-brand-700">Paso 2</span>
+
           <h3 class="text-lg font-bold text-stone-900 mt-4">Selección y armado</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Elegimos los mejores productos y armamos las cajas bajo demanda para asegurar frescura de huerta.</p>
+
         </div>
 
+
+
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+
           <span class="text-3xl font-extrabold text-brand-700">Paso 3</span>
+
           <h3 class="text-lg font-bold text-stone-900 mt-4">Entrega en tu Puerta o en la guardia de tu barrio</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Llega a tu domicilio en empaque kraft y rotulado.</p>
+
         </div>
 
+
+
         <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/70 shadow-lg">
+
           <span class="text-3xl font-extrabold text-brand-700">Paso 4</span>
+
           <h3 class="text-lg font-bold text-stone-900 mt-4">Si te gustó el producto, suscribite!</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Optá por compra única o suscripción recurrente semanal/mensual sin contratos forzados. </p>
+
         </div>
+
+
 
       </div>
+
+
 
 <!-- SPOTLIGHT PACKAGING (PARA CUANDO TENGAMOS BOLSAS MICROPERFORADAS) -->
+
       <strong><!--</strong>
+
       <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/70 shadow-xl">
+
         <div class="rounded-2xl overflow-hidden aspect-[16/10] border border-stone-200 bg-stone-100">
+
           <img src="verduras_bolsa.jpeg" alt="Caja de cartón con bolsas kraft y microperforadas Daily Box" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=90'" class="w-full h-full object-cover" />
+
         </div>
+
         <div class="space-y-4">
+
           <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">Higiene & Presentación</span>
+
           <h3 class="text-2xl font-bold text-stone-900 tracking-tight">Empaque Kraft con ventilación perimetral</h3>
+
           <p class="text-sm text-stone-600 leading-relaxed">
+
             Nuestras cajas de cartón corrugado kraft protegen los productos durante el traslado y evitan la condensación interna. Las hojas y productos delicados van acondicionados en bolsas microperforadas para mantener textura crocante y frescura.
+
           </p>
+
           <div class="text-xs font-semibold text-stone-500 flex flex-wrap gap-4 pt-2">
+
             <span>✓ 100% Reciclable</span>
+
             <span>✓ Apto ingreso en guardias</span>
+
             <span>✓ Sin contacto con el exterior</span>
+
           </div>
+
         </div>
+
       </div>
+
       <strong>--></strong>
 
+
+
     </div>
+
   </section>
+
+
 
 <!-- SECCIÓN BENEFICIOS CLAVE -->
+
   <section class="pt-28 pb-20 bg-white border-y border-stone-200">
+
     <div class="max-w-7xl mx-auto px-6">
 
+
+
       <!-- ENCABEZADO DE SECCIÓN -->
+
       <div class="text-center max-w-2xl mx-auto mb-16">
+
         <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Beneficios Clave</span>
+
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Por qué te conviene</h2>
+
         <p class="text-stone-600 mt-3 text-base">Diseñado para simplificar tu rutina con la máxima calidad en tu mesa.</p>
+
       </div>
+
+
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
         
+
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
+
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">01</div>
+
           <h3 class="text-base font-bold text-stone-900">Calidad garantizada</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Las frutas y verduras son seleccionadas individualmente, pero si alguna unidad no cumple con tu estándar de calidad, nos avisás y la reponemos sin costo la siguiente semana.</p>
+
         </div>
 
+
+
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
+
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">02</div>
+
           <h3 class="text-base font-bold text-stone-900">Ahorro de Tiempo</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Resolvé las compras semanales sin desplazarte ni hacer filas en verdulerías.</p>
+
         </div>
 
+
+
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
+
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">03</div>
+
           <h3 class="text-base font-bold text-stone-900">Personalización</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">¿No consumís algún producto? Podés reemplazar hasta 3 productos por otros de esa misma caja u otros sugeridos.</p>
+
         </div>
 
+
+
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
+
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">04</div>
+
           <h3 class="text-base font-bold text-stone-900">Precio competitivo</h3>
+
           <p class="text-sm text-stone-600 mt-2 leading-relaxed">Al eliminar intermediarios y mermas, logramos calidad premium a precios iguales o mejores que la verdulería de tu barrio.</p>
+
         </div>
+
         
+
       </div>
+
     </div>
+
   </section>
 
+
+
         
+
   
+
   <!-- SECCIÓN 4: QUIÉNES SOMOS (Fondo: Huerta / Campo al atardecer HD) -->
+
   <section id="nosotros" class="relative py-24 md:py-32 bg-fixed bg-cover bg-center bg-stone-900" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000&q=90');">
+
     <div class="absolute inset-0 bg-stone-900/50 backdrop-blur-[2px]"></div>
 
+
+
     <div class="relative z-10 max-w-7xl mx-auto px-6">
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
         
+
         <!-- FOTO DE Los socios (Adaptada al formato vertical) -->
+
         <div class="lg:col-span-5">
+
   <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-[#f7f7f7] aspect-[4/5] h-full flex items-center justify-center">
+
     <img src="socios.jpeg"
+
          alt="Caja abierta Daily Box con frutas y verduras seleccionadas"
+
          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1200&q=90'"
+
          class="w-full h-full object-contain object-center scale-[1.35] -translate-y-8" />
+
     <div class="absolute bottom-4 left-4 right-4 bg-stone-900/85 backdrop-blur-md rounded-2xl p-4 text-white text-xs">
+
       <p class="font-bold text-sm">Tu pedido de la semana</p>
+
       <p class="text-stone-300 mt-0.5">Control de procesos directo desde Mendoza.</p>
+
     </div>
+
   </div>
+
 </div>
 
+
+
         <!-- TARJETA CRISTAL: HISTORIA Y VALOR -->
+
         <div class="lg:col-span-7 bg-white/95 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/80 shadow-2xl">
+
           <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Detrás de Daily Box</span>
+
           <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">
+
             Ingeniería aplicada a la calidad y previsibilidad de tu mesa.
+
           </h2>
+
           
+
           <div class="mt-6 space-y-4 text-stone-600 text-base leading-relaxed">
+
             <p>
+
               Somos dos <strong>jóvenes ingenieros industriales</strong> de Mendoza que analizamos la cadena de valor de las verdulerías convencionales: traslados desgastantes, calidad heterogénea según el día de la semana, productos golpeados y canales informales de pedido.
+
             </p>
+
             <p>
+
               Diseñamos <strong>Daily Box</strong> como un modelo de logística ajustada y aseguramiento de la calidad en origen. Compramos y seleccionamos bajo demanda la misma mañana de la entrega, lo que garantiza que las cajas se empaqueten horas antes de su destino final, sin mermas ni productos almacenados durante días.
+
             </p>
+
             <p class="font-medium text-stone-900">
+
               Más que una caja de verdura, entregamos tranquilidad: un sistema predecible y estandarizado para que te olvides de la compra semanal de frutas y verduras. Vos disfrutás de tu tiempo; nosotros garantizamos la frescura de tu mesa.
+
             </p>
+
           </div>
+
+
 
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-stone-200 pt-6">
+
             <div>
+
               <span class="block text-2xl font-extrabold text-brand-800">100%</span>
+
               <span class="text-xs text-stone-500 uppercase tracking-wide">Inspección de origen</span>
+
             </div>
+
             <div>
+
               <span class="block text-2xl font-extrabold text-brand-800">0 h</span>
+
               <span class="text-xs text-stone-500 uppercase tracking-wide">Filas y traslados</span>
+
             </div>
+
             <div>
+
               <span class="block text-2xl font-extrabold text-brand-800">3 cambios</span>
+
               <span class="text-xs text-stone-500 uppercase tracking-wide">Por caja sin cargo</span>
+
             </div>
+
           </div>
+
         </div>
 
+
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- SECCIÓN 5: FAQ (ACORDEÓN INTERACTIVO) -->
+
   <section id="faq" class="py-24 md:py-32 bg-white border-t border-stone-200">
+
     <div class="max-w-4xl mx-auto px-6">
+
       
+
       <div class="text-center mb-16">
+
         <span class="text-xs font-bold tracking-widest text-brand-700 uppercase">Resolución de Dudas</span>
+
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Preguntas Frecuentes</h2>
+
         <p class="text-stone-600 mt-3 text-base">Todo lo que necesitás saber sobre la dinámica del servicio.</p>
+
       </div>
+
+
 
       <div class="space-y-4">
+
         
+
         <!-- FAQ 1 -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Tengo que suscribirme obligatoriamente o puedo pedir de forma esporádica?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             Podés realizar <strong>pedidos esporádicamente</strong>, o bien suscribirte con frecuencia <strong>semanal o mensual</strong> para asegurar tu día de entrega automático. No hay permanencia mínima: podés pausar o cancelar cuando lo necesites.
+
           </p>
+
         </details>
+
+
 
         <!-- FAQ 2: Días de entrega -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Qué días se realizan las entregas?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             Realizamos repartos los días <strong>martes y viernes</strong>.
+
           </p>
+
         </details>
+
+
 
         <!-- FAQ 3 -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Puedo cambiar algún producto si en mi casa no lo consumimos?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             <strong>Sí.</strong> Entendemos que cada cocina tiene preferencias particulares. En cualquiera de las cajas tenés la posibilidad de reemplazar <strong>hasta 3 productos</strong> de la lista por otros de la misma caja, u otros sugeridos.
+
           </p>
+
         </details>
+
+
 
         <!-- FAQ 4 -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Cuáles son los medios de pago disponibles?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             Aceptamos <strong>transferencia bancaria</strong> (con comprobante) o <strong>efectivo</strong>.
+
           </p>
+
         </details>
+
+
 
         <!-- FAQ 5 -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Cómo se realiza la entrega en barrios privados si no estoy en casa?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             El empaque es completamente cerrado y rotulado. Si no te encontrás en el domicilio en la franja horaria programada, el chofer puede dejar la caja en la puerta de tu casa con tu previa autorización vía WhatsApp o en la guardia del barrio. Te mandamos foto del producto entregado!
+
           </p>
+
         </details>
+
+
 
         <!-- FAQ 6 -->
+
         <details class="group bg-stone-50 rounded-2xl border border-stone-200 p-6 [&_summary::-webkit-details-marker]:none">
+
           <summary class="flex items-center justify-between cursor-pointer font-bold text-stone-900 text-base">
+
             <span>¿Cómo funciona la garantía de reposición si un producto no llega bien?</span>
+
             <span class="ml-4 shrink-0 transition-transform duration-200 text-stone-400 group-open:rotate-180">
+
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
             </span>
+
           </summary>
+
           <p class="mt-4 text-sm text-stone-600 leading-relaxed border-t border-stone-200 pt-3">
+
             Si encontrás alguna unidad con defecto, nos avisás y te reponemos el producto sin cargo la semana siguiente.
+
           </p>
+
         </details>
 
+
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- SECCIÓN 6: CTA FINAL (Fondo: Selección de cítricos y verduras premium HD) -->
+
   <section class="relative py-28 bg-fixed bg-cover bg-center text-white bg-stone-950" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=2000&q=90');">
+
     <div class="absolute inset-0 bg-stone-950/75 backdrop-blur-[3px]"></div>
 
+
+
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+
       <div class="bg-stone-900/80 backdrop-blur-md p-10 sm:p-14 rounded-3xl border border-white/10 shadow-2xl">
+
         <span class="text-xs font-bold tracking-widest text-brand-200 uppercase">Coordinación Inmediata</span>
+
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-3 text-white">
+
           Comenzá a recibir fruta y verdura de selección en tu puerta.
+
         </h2>
+
         <p class="mt-4 text-base sm:text-lg text-stone-300 max-w-2xl mx-auto">
+
           Escribinos por WhatsApp para coordinar tu primera caja.
+
         </p>
+
+
 
         <div class="mt-8 flex justify-center">
+
           <a href="https://wa.me/5492612745891?text=Hola!%20Quiero%20coordinar%20mi%20primera%20entrega%20de%20Daily%20Box" target="_blank" rel="noopener noreferrer" 
+
              class="inline-flex items-center gap-3 bg-brand-600 hover:bg-white hover:text-brand-900 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-xl text-base">
+
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
+
             <span>Escribinos al WhatsApp (+54 9 261 274-5891)</span>
+
           </a>
+
         </div>
+
         <!-- BOTÓN INSTAGRAM CON DEGRADADO -->
+
         <div class="mt-8 flex flex-col items-center gap-3">
+
           <span class="text-sm font-medium text-stone-300">Seguinos en nuestras redes:</span>
+
           <a href="https://www.instagram.com/dailyboxarg/" target="_blank" rel="noopener noreferrer" 
+
              class="inline-flex items-center gap-2 bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-500 hover:opacity-90 text-white px-6 py-2.5 rounded-full transition-all duration-300 shadow-md text-sm font-semibold group">
+
             <svg class="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+
             <span>Instagram</span>
+
           </a>
+
         </div>
+
         <p class="text-xs text-stone-400 mt-5">
+
           Cobertura regular: Maipú,Guaymallén, Chacras de Coria, Palmares, Dalvian, Vistalba, La Puntilla y Gran Mendoza.
+
         </p>
+
       </div>
+
     </div>
+
   </section>
 
+
+
   <!-- FOOTER -->
+
   <footer class="bg-stone-950 text-stone-400 py-10 border-t border-stone-800 text-xs">
+
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
+
       <div class="flex items-center gap-3">
+
         <span class="text-base font-bold text-white tracking-tight">Daily<span class="text-brand-600">Box</span></span>
+
         <span class="text-stone-600">|</span>
+
         <p>© 2026 Daily Box Mendoza. Estándar de Selección y Logística de Frescos.</p>
+
       </div>
+
       <div class="flex items-center gap-4 sm:gap-6 flex-wrap justify-center sm:justify-end">
+
         <a href="#propuesta" class="hover:text-white transition-colors">Propuesta</a>
+
         <a href="#como-funciona" class="hover:text-white transition-colors">Cómo Funciona</a>
+
         <a href="#cajas" class="hover:text-white transition-colors">Cajas</a>
+
         <a href="#nosotros" class="hover:text-white transition-colors">Socios</a>
+
         <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
+
         
+
         <!-- SEPARADOR E INSTAGRAM -->
+
         <span class="text-stone-700 hidden sm:inline">|</span>
+
         <a href="https://www.instagram.com/dailyboxarg/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5 font-semibold text-stone-300">
+
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+
           Instagram
+
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 
-  <!-- ============ CARRITO ============ -->
-  <button id="cart-fab" type="button" onclick="openCart()" aria-label="Ver mi pedido"
-    class="hidden fixed bottom-5 right-5 z-[60] items-center gap-2.5 bg-brand-700 hover:bg-brand-800 text-white font-bold pl-5 pr-4 py-3.5 rounded-full shadow-2xl transition-all">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-    <span>Mi pedido</span>
-    <span id="cart-count" class="bg-white text-brand-800 text-xs font-extrabold min-w-[1.5rem] h-6 px-1.5 rounded-full flex items-center justify-center">0</span>
-  </button>
-
-  <div id="cart-overlay" onclick="closeCart()" class="hidden fixed inset-0 z-[70] bg-stone-900/50 backdrop-blur-[2px]"></div>
-
-  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[430px] z-[80] bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-hidden="true">
-    <div class="flex items-center justify-between px-6 py-5 border-b border-stone-200">
-      <h3 class="text-xl font-extrabold text-stone-900">🛒 Tu pedido</h3>
-      <button type="button" onclick="closeCart()" class="text-stone-500 hover:text-stone-900 text-3xl leading-none" aria-label="Cerrar">&times;</button>
-    </div>
-
-    <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-3"></div>
-
-    <div id="cart-footer" class="border-t border-stone-200 px-6 py-5 space-y-3 bg-stone-50">
-      <div>
-        <div class="flex gap-2">
-          <input type="text" id="cupon-input" placeholder="¿Tenés un cupón?" autocomplete="off" autocapitalize="characters"
-            class="flex-1 min-w-0 text-sm uppercase rounded-xl border border-stone-300 px-3 py-2.5 focus:outline-none focus:border-brand-600"
-            onkeydown="if(event.key==='Enter'){event.preventDefault();aplicarCupon();}">
-          <button type="button" id="cupon-btn" onclick="aplicarCupon()"
-            class="px-4 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-900 text-white text-sm font-semibold transition-all">Aplicar</button>
-        </div>
-        <p id="cupon-msg" class="text-xs mt-1.5 min-h-[1rem]"></p>
-      </div>
-      <textarea id="cart-notas" rows="2" placeholder="Aclaraciones: cambios de productos, barrio, día de entrega (martes/viernes)…"
-        class="w-full text-sm rounded-xl border border-stone-300 px-3 py-2 focus:outline-none focus:border-brand-600"></textarea>
-      <div id="cart-totales" class="space-y-1"></div>
-      <button type="button" onclick="enviarPedido()"
-        class="w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold transition-all shadow-md">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
-        Enviar pedido por WhatsApp
-      </button>
-      <button type="button" onclick="vaciarCarrito()" class="w-full text-xs text-stone-500 hover:text-red-600 underline">Vaciar pedido</button>
-    </div>
-  </aside>
-
-  <script>
-    // ====== CARRITO (precios de cajas: editalos acá) ======
-    const CAJAS = {
-      estacion: { nombre: 'Caja Estación', tam: {
-        chica:   { label: 'Chica (~4,5 kg)',    precio: 15000 },
-        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 23000 },
-        grande:  { label: 'Grande (~14,5 kg)',  precio: 42000 } } },
-      premium:  { nombre: 'Caja Premium', tam: {
-        chica:   { label: 'Chica (~4,5 kg)',    precio: 19000 },
-        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 28000 },
-        grande:  { label: 'Grande (~14,5 kg)',  precio: 52000 } } }
-    };
-    // ====== CUPONES (editá acá: código en MAYÚSCULAS) ======
-    // tipo 'fijo' = monto en pesos | tipo 'porcentaje' = % sobre el subtotal
-    const CUPONES = {
-      'VEROBOX': { tipo: 'fijo', valor: 5000 }
-      // 'OTROCUPON': { tipo: 'porcentaje', valor: 10 },
-    };
-    let cupon = null; // código aplicado
-    try { cupon = localStorage.getItem('dailybox_cupon') || null; if (cupon && !CUPONES[cupon]) cupon = null; } catch (e) {}
-
-    let estSel = 'chica', premSel = 'chica';
-    let cart = [];
-    try { cart = JSON.parse(localStorage.getItem('dailybox_cart') || '[]'); } catch (e) { cart = []; }
-
-    function saveCart() { try { localStorage.setItem('dailybox_cart', JSON.stringify(cart)); } catch (e) {} }
-
-    function addCaja(linea, btn) {
-      const t = CAJAS[linea].tam[linea === 'estacion' ? estSel : premSel];
-      addToCart({ id: linea + '-' + (linea === 'estacion' ? estSel : premSel),
-                  nombre: CAJAS[linea].nombre + ' ' + t.label, precio: t.precio }, btn);
-    }
-
-    function addToCart(item, btn) {
-      const ex = cart.find(i => i.id === item.id);
-      if (ex) ex.qty += 1; else cart.push({ ...item, qty: 1 });
-      saveCart(); renderCart();
-      if (btn) {
-        const orig = btn.innerHTML;
-        btn.innerHTML = '✓ Agregado';
-        btn.disabled = true;
-        setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 1100);
-      }
-      const fab = document.getElementById('cart-fab');
-      fab.classList.add('scale-110'); setTimeout(() => fab.classList.remove('scale-110'), 250);
-    }
-
-    function cambiarQty(id, delta) {
-      const it = cart.find(i => i.id === id); if (!it) return;
-      it.qty += delta;
-      if (it.qty <= 0) cart = cart.filter(i => i.id !== id);
-      saveCart(); renderCart();
-    }
-
-    function vaciarCarrito() { cart = []; saveCart(); quitarCupon(); closeCart(); }
-
-    function totalCarrito() {
-      const sub = cart.reduce((s, i) => s + i.precio * i.qty, 0);
-      let desc = 0;
-      if (cupon && CUPONES[cupon] && sub > 0) {
-        const c = CUPONES[cupon];
-        desc = c.tipo === 'porcentaje' ? Math.round(sub * c.valor / 100) : c.valor;
-        desc = Math.min(desc, sub);
-      }
-      return { sub, desc, total: sub - desc };
-    }
-
-    function aplicarCupon() {
-      const input = document.getElementById('cupon-input');
-      const msg = document.getElementById('cupon-msg');
-      const code = input.value.trim().toUpperCase();
-      if (!code) { msg.className = 'text-xs mt-1.5 text-stone-500'; msg.textContent = 'Escribí tu cupón primero.'; return; }
-      if (CUPONES[code]) {
-        cupon = code;
-        try { localStorage.setItem('dailybox_cupon', code); } catch (e) {}
-        renderCart();
-      } else {
-        msg.className = 'text-xs mt-1.5 text-red-600 font-semibold';
-        msg.textContent = 'Ese cupón no es válido.';
-      }
-    }
-
-    function quitarCupon() {
-      cupon = null;
-      try { localStorage.removeItem('dailybox_cupon'); } catch (e) {}
-      document.getElementById('cupon-input').value = '';
-      renderCart();
-    }
-
-    function pintarCupon() {
-      const msg = document.getElementById('cupon-msg');
-      const input = document.getElementById('cupon-input');
-      if (cupon) {
-        input.value = cupon;
-        msg.className = 'text-xs mt-1.5 text-brand-700 font-semibold';
-        msg.innerHTML = `✓ Cupón ${cupon} aplicado · <button type="button" onclick="quitarCupon()" class="underline text-stone-500 font-normal">quitar</button>`;
-      } else if (!msg.textContent.startsWith('Ese cupón') && !msg.textContent.startsWith('Escribí')) {
-        msg.textContent = '';
-      }
-    }
-
-    function renderCart() {
-      const count = cart.reduce((s, i) => s + i.qty, 0);
-      const fab = document.getElementById('cart-fab');
-      document.getElementById('cart-count').textContent = count;
-      pintarCupon();
-      if (count > 0) { fab.classList.remove('hidden'); fab.classList.add('inline-flex'); }
-      else { fab.classList.add('hidden'); fab.classList.remove('inline-flex'); }
-
-      const list = document.getElementById('cart-items');
-      const footer = document.getElementById('cart-footer');
-      if (count === 0) {
-        list.innerHTML = '<p class="text-center text-stone-500 text-sm py-16">Todavía no agregaste nada.<br>Elegí una caja, huevos o frutos secos 🥕</p>';
-        footer.classList.add('hidden');
-        return;
-      }
-      footer.classList.remove('hidden');
-      list.innerHTML = cart.map(i => `
-        <div class="flex items-center justify-between gap-3 bg-stone-100/80 rounded-2xl px-4 py-3">
-          <div class="min-w-0">
-            <p class="text-sm font-bold text-stone-900 leading-snug">${i.nombre}</p>
-            <p class="text-xs text-stone-500 mt-0.5">${fmt(i.precio)} c/u</p>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button type="button" onclick="cambiarQty('${i.id}', -1)" class="w-8 h-8 rounded-full bg-white border border-stone-300 font-bold hover:bg-stone-200" aria-label="Menos">−</button>
-            <span class="w-5 text-center font-bold text-sm">${i.qty}</span>
-            <button type="button" onclick="cambiarQty('${i.id}', 1)" class="w-8 h-8 rounded-full bg-white border border-stone-300 font-bold hover:bg-stone-200" aria-label="Más">+</button>
-          </div>
-        </div>`).join('');
-
-      const { sub, desc, total } = totalCarrito();
-      document.getElementById('cart-totales').innerHTML =
-        `<div class="flex justify-between text-sm text-stone-600"><span>Subtotal</span><span>${fmt(sub)}</span></div>` +
-        (desc ? `<div class="flex justify-between text-sm text-brand-700 font-semibold"><span>Cupón ${cupon}</span><span>−${fmt(desc)}</span></div>` : '') +
-        `<div class="flex justify-between text-lg font-extrabold text-stone-900 pt-1"><span>Total estimado</span><span>${fmt(total)}</span></div>`;
-    }
-
-    function openCart() {
-      document.getElementById('cart-overlay').classList.remove('hidden');
-      const d = document.getElementById('cart-drawer');
-      d.classList.remove('translate-x-full'); d.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCart() {
-      document.getElementById('cart-overlay').classList.add('hidden');
-      const d = document.getElementById('cart-drawer');
-      d.classList.add('translate-x-full'); d.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
-
-    function enviarPedido() {
-      if (!cart.length) return;
-      const { sub, desc, total } = totalCarrito();
-      const notas = document.getElementById('cart-notas').value.trim();
-      let msg = 'Hola! Quiero hacer el siguiente pedido:\n\n';
-      cart.forEach(i => { msg += `• ${i.qty} x ${i.nombre} — ${fmt(i.precio * i.qty)}\n`; });
-      msg += `\nSubtotal: ${fmt(sub)}`;
-      if (desc) msg += `\nCupón ${cupon}: -${fmt(desc)}`;
-      msg += `\n*Total: ${fmt(total)}*`;
-            if (notas) msg += `\n\nAclaraciones: ${notas}`;
-      window.open(wa(msg), '_blank', 'noopener');
-    }
-
-    renderCart();
-  </script>
 
 </body>
-</html>
+
+</html> 
