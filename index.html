@@ -165,33 +165,6 @@
       <!-- ENCABEZADO CON BADGE / STICKER PROMOCIONAL SUPERPUESTO -->
       <div class="relative max-w-3xl mx-auto mb-16 text-center">
         
-        <!-- BADGE FLOTANTE DESORDENADO (STICKER BIENVENIDA) -->
-        <div class="inline-block mb-6 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-          <div class="relative bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 text-stone-900 p-[2px] rounded-3xl shadow-xl shadow-amber-500/10">
-            <div class="bg-white/95 backdrop-blur-sm px-5 py-3 sm:px-6 sm:py-3.5 rounded-[1.35rem] border border-amber-200 flex items-center gap-3.5">
-              
-              <!-- Ícono de regalo / sticker -->
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center shrink-0 shadow-md rotate-3 text-xl">
-                🎁
-              </div>
-
-              <!-- Texto del beneficio -->
-              <div class="text-left leading-tight">
-                <span class="inline-block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-md mb-0.5">
-                  Beneficio Bienvenida
-                </span>
-                <p class="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-                  Tenés <span class="text-brand-700 underline decoration-amber-400 decoration-2 underline-offset-2">$5.000 OFF</span> en tu primer pedido
-                </p>
-                <p class="text-[11px] sm:text-xs text-stone-500 font-medium">
-                  Se aplica de forma automática al coordinar tu entrega por WhatsApp.
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
         <span class="block text-xs font-bold tracking-widest text-brand-700 uppercase">Catálogo Semanal Estandarizado</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">Nuestras Cajas</h2>
         <p class="text-stone-600 mt-3 text-base">Composición balanceada para optimizar el menú semanal sin generar desperdicios.</p>
@@ -224,7 +197,7 @@
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectEstacion('Mediana')" id="btn-est-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                <button type="button" onclick="selectEstacion('mediana')" id="btn-est-mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
                   <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
@@ -283,7 +256,7 @@
                 </div>
                 
                 <div class="sm:col-span-2 flex items-center justify-center bg-stone-50 border border-dashed border-stone-200 px-3.5 py-2.5 rounded-2xl text-[11px] text-stone-400 font-medium">
-                  <span>100% Cosecha fresca</span>
+                  <span>Seleccionado el mismo día de tu entrega</span>
                 </div>
 
               </div>
@@ -370,7 +343,7 @@
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
-                <button type="button" onclick="selectPremium('Mediana')" id="btn-gour-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
+                <button type="button" onclick="selectPremium('mediana')" id="btn-gour-mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
                   <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
                   <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~8 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
@@ -449,7 +422,7 @@
                 </div>
                 
                 <div class="sm:col-span-2 flex items-center justify-center bg-stone-50 border border-dashed border-stone-200 px-3.5 py-2.5 rounded-2xl text-[11px] text-stone-400 font-medium">
-                  <span>100% Cosecha fresca</span>
+                  <span>Seleccionado el mismo día de tu entrega</span>
                 </div>
 
               </div>
@@ -732,7 +705,7 @@
     function selectEstacion(tipo) {
       estSel = tipo;
       const btnChica = document.getElementById('btn-est-chica');
-      const btnMediana = document.getElementById('btn-est-Mediana');
+      const btnMediana = document.getElementById('btn-est-mediana');
       const btnGrande = document.getElementById('btn-est-grande');
 
       if (tipo === 'chica') {
@@ -746,7 +719,7 @@
         document.getElementById('est-banana').innerText = '0,5 kg (~3 u.)';
         document.getElementById('est-naranja').innerText = '0,5 kg (~3 u.)';
         document.getElementById('precio-estacion').innerText = '$15.000';
-      } else if (tipo === 'Mediana') {
+      } else if (tipo === 'mediana') {
         setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('est-papa').innerText = '1,5 kg';
         document.getElementById('est-cebolla').innerText = '1 kg';
@@ -774,7 +747,7 @@
     function selectPremium(tipo) {
       premSel = tipo;
       const btnChica = document.getElementById('btn-gour-chica');
-      const btnMediana = document.getElementById('btn-gour-Mediana');
+      const btnMediana = document.getElementById('btn-gour-mediana');
       const btnGrande = document.getElementById('btn-gour-grande');
 
       if (tipo === 'chica') {
@@ -792,7 +765,7 @@
         document.getElementById('gour-banana').innerText = '0,4 kg (~2-3 u.)';
         document.getElementById('gour-naranja').innerText = '0,3 kg (~2 u.)';
         document.getElementById('precio-premium').innerText = '$19.000';
-      } else if (tipo === 'Mediana') {
+      } else if (tipo === 'mediana') {
         setActiveButton(btnMediana, [btnChica, btnGrande]);
         document.getElementById('gour-papa').innerText = '1,2 kg';
         document.getElementById('gour-cebolla').innerText = '1 kg';
@@ -929,7 +902,7 @@
         <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm">
           <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center font-bold text-lg mb-4">04</div>
           <h3 class="text-base font-bold text-stone-900">Precio competitivo</h3>
-          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Al eliminar intermediarios y mermas, logramos calidad premium a precios iguales o mejores que la verdulería de tu barrio.</p>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">Al comprar bajo demanda y reducir mermas, logramos calidad premium a precios iguales o mejores que la verdulería de tu barrio.</p>
         </div>
         
       </div>
@@ -971,7 +944,7 @@
               Somos dos <strong>jóvenes ingenieros industriales</strong> de Mendoza que analizamos la cadena de valor de las verdulerías convencionales: traslados desgastantes, calidad heterogénea según el día de la semana, productos golpeados y canales informales de pedido.
             </p>
             <p>
-              Diseñamos <strong>Daily Box</strong> como un modelo de logística ajustada y aseguramiento de la calidad en origen. Compramos y seleccionamos bajo demanda la misma mañana de la entrega, lo que garantiza que las cajas se empaqueten horas antes de su destino final, sin mermas ni productos almacenados durante días.
+              Diseñamos <strong>Daily Box</strong> como un modelo de logística ajustada y aseguramiento de la calidad en cada pedido. Compramos y seleccionamos bajo demanda la misma mañana de la entrega, lo que garantiza que las cajas se empaqueten horas antes de su destino final, sin mermas ni productos almacenados durante días.
             </p>
             <p class="font-medium text-stone-900">
               Más que una caja de verdura, entregamos tranquilidad: un sistema predecible y estandarizado para que te olvides de la compra semanal de frutas y verduras. Vos disfrutás de tu tiempo; nosotros garantizamos la frescura de tu mesa.
@@ -980,8 +953,8 @@
 
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-stone-200 pt-6">
             <div>
-              <span class="block text-2xl font-extrabold text-brand-800">100%</span>
-              <span class="text-xs text-stone-500 uppercase tracking-wide">Inspección de origen</span>
+              <span class="block text-2xl font-extrabold text-brand-800">Mismo día</span>
+              <span class="text-xs text-stone-500 uppercase tracking-wide">Compra en la feria</span>
             </div>
             <div>
               <span class="block text-2xl font-extrabold text-brand-800">0 h</span>
@@ -1184,11 +1157,13 @@
         </div>
         <p id="cupon-msg" class="text-xs mt-1.5 min-h-[1rem]"></p>
       </div>
-      <textarea id="cart-notas" rows="2" placeholder="Aclaraciones: cambios de productos, barrio, día de entrega (martes/viernes)…"
+      <label for="cart-notas" class="block text-xs font-bold text-stone-700">Colocá tus cambios y aclaraciones</label>
+      <textarea id="cart-notas" rows="3" placeholder="Colocá acá tus cambios (hasta 3 productos por caja). También podés aclarar barrio y día de entrega (martes/viernes)…"
         class="w-full text-sm rounded-xl border border-stone-300 px-3 py-2 focus:outline-none focus:border-brand-600"></textarea>
       <div id="cart-totales" class="space-y-1"></div>
-      <button type="button" onclick="enviarPedido()"
-        class="w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold transition-all shadow-md">
+      <p id="cart-aviso" class="hidden text-xs text-amber-700 font-semibold">Para enviar el pedido tenés que agregar al menos una caja (Estación o Premium).</p>
+      <button type="button" id="btn-enviar" onclick="enviarPedido()"
+        class="w-full inline-flex justify-center items-center gap-2 py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-700 text-white font-bold transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-green-600">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.936 3.096.936h.005c3.181 0 5.768-2.586 5.768-5.766 0-3.18-2.587-5.765-5.768-5.765m0 12.569h-.004c-1.077 0-2.133-.29-3.052-.835l-.219-.13-2.27.595.606-2.213-.143-.227c-.6-.955-.916-2.062-.915-3.2 0-3.327 2.707-6.034 6.035-6.034 1.612 0 3.128.629 4.267 1.769 1.14 1.14 1.768 2.656 1.768 4.269 0 3.328-2.707 6.035-6.035 6.035"/></svg>
         Enviar pedido por WhatsApp
       </button>
@@ -1201,11 +1176,11 @@
     const CAJAS = {
       estacion: { nombre: 'Caja Estación', tam: {
         chica:   { label: 'Chica (~4,5 kg)',    precio: 15000 },
-        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 23000 },
+        mediana: { label: 'Mediana (~7,5 kg)',  precio: 23000 },
         grande:  { label: 'Grande (~14 kg)',  precio: 39000 } } },
       premium:  { nombre: 'Caja Premium', tam: {
         chica:   { label: 'Chica (~5 kg)',    precio: 19000 },
-        Mediana: { label: 'Mediana (~8 kg)',  precio: 28000 },
+        mediana: { label: 'Mediana (~8 kg)',  precio: 28000 },
         grande:  { label: 'Grande (~14,5 kg)',  precio: 47000 } } }
     };
     // ====== CUPONES (editá acá: código en MAYÚSCULAS) ======
@@ -1214,14 +1189,28 @@
       'VEROBOX': { tipo: 'fijo', valor: 5000 }
       // 'OTROCUPON': { tipo: 'porcentaje', valor: 10 },
     };
+    // Cupones de un solo uso (se recuerdan en este navegador)
+    function cuponUsado(code) {
+      try { return JSON.parse(localStorage.getItem('dailybox_cupones_usados') || '[]').includes(code); } catch (e) { return false; }
+    }
+    function marcarCuponUsado(code) {
+      try {
+        const u = JSON.parse(localStorage.getItem('dailybox_cupones_usados') || '[]');
+        if (!u.includes(code)) { u.push(code); localStorage.setItem('dailybox_cupones_usados', JSON.stringify(u)); }
+      } catch (e) {}
+    }
     let cupon = null; // código aplicado
-    try { cupon = localStorage.getItem('dailybox_cupon') || null; if (cupon && !CUPONES[cupon]) cupon = null; } catch (e) {}
+    try { cupon = localStorage.getItem('dailybox_cupon') || null; if (cupon && (!CUPONES[cupon] || cuponUsado(cupon))) cupon = null; } catch (e) {}
 
     let estSel = 'chica', premSel = 'chica';
     let cart = [];
     try { cart = JSON.parse(localStorage.getItem('dailybox_cart') || '[]'); } catch (e) { cart = []; }
 
     function saveCart() { try { localStorage.setItem('dailybox_cart', JSON.stringify(cart)); } catch (e) {} }
+
+    function cartTieneCaja() {
+      return cart.some(i => i.id.startsWith('estacion-') || i.id.startsWith('premium-'));
+    }
 
     function addCaja(linea, btn) {
       const t = CAJAS[linea].tam[linea === 'estacion' ? estSel : premSel];
@@ -1268,7 +1257,10 @@
       const msg = document.getElementById('cupon-msg');
       const code = input.value.trim().toUpperCase();
       if (!code) { msg.className = 'text-xs mt-1.5 text-stone-500'; msg.textContent = 'Escribí tu cupón primero.'; return; }
-      if (CUPONES[code]) {
+      if (CUPONES[code] && cuponUsado(code)) {
+        msg.className = 'text-xs mt-1.5 text-red-600 font-semibold';
+        msg.textContent = 'Ese cupón ya fue utilizado.';
+      } else if (CUPONES[code]) {
         cupon = code;
         try { localStorage.setItem('dailybox_cupon', code); } catch (e) {}
         renderCart();
@@ -1313,6 +1305,9 @@
         return;
       }
       footer.classList.remove('hidden');
+      const hayCaja = cartTieneCaja();
+      document.getElementById('btn-enviar').disabled = !hayCaja;
+      document.getElementById('cart-aviso').classList.toggle('hidden', hayCaja);
       list.innerHTML = cart.map(i => `
         <div class="flex items-center justify-between gap-3 bg-stone-100/80 rounded-2xl px-4 py-3">
           <div class="min-w-0">
@@ -1330,6 +1325,7 @@
       document.getElementById('cart-totales').innerHTML =
         `<div class="flex justify-between text-sm text-stone-600"><span>Subtotal</span><span>${fmt(sub)}</span></div>` +
         (desc ? `<div class="flex justify-between text-sm text-brand-700 font-semibold"><span>Cupón ${cupon}</span><span>−${fmt(desc)}</span></div>` : '') +
+        `<div class="flex justify-between text-sm text-stone-600"><span>Envío</span><span class="text-brand-700 font-semibold">Gratis</span></div>` +
         `<div class="flex justify-between text-lg font-extrabold text-stone-900 pt-1"><span>Total estimado</span><span>${fmt(total)}</span></div>`;
     }
 
@@ -1348,16 +1344,19 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
 
     function enviarPedido() {
-      if (!cart.length) return;
+      if (!cart.length || !cartTieneCaja()) return;
       const { sub, desc, total } = totalCarrito();
       const notas = document.getElementById('cart-notas').value.trim();
       let msg = 'Hola! Quiero hacer el siguiente pedido:\n\n';
       cart.forEach(i => { msg += `• ${i.qty} x ${i.nombre} — ${fmt(i.precio * i.qty)}\n`; });
       msg += `\nSubtotal: ${fmt(sub)}`;
       if (desc) msg += `\nCupón ${cupon}: -${fmt(desc)}`;
+      msg += '\nEnvío: Gratis';
       msg += `\n*Total: ${fmt(total)}*`;
-            if (notas) msg += `\n\nAclaraciones: ${notas}`;
+            if (notas) msg += `\n\nCambios y aclaraciones: ${notas}`;
+      if (desc && cupon) { marcarCuponUsado(cupon); }
       window.open(wa(msg), '_blank', 'noopener');
+      if (desc) quitarCupon();
     }
 
     renderCart();
