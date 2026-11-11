@@ -221,12 +221,12 @@
               <div class="grid grid-cols-3 gap-2 sm:gap-3.5">
                 <button type="button" onclick="selectEstacion('chica')" id="btn-est-chica" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-teal-50/50 border-teal-600/70 text-stone-900 shadow-sm">
                   <span class="block text-sm sm:text-base font-semibold text-stone-700">Chica</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~5 kg</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~4,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">1 a 2 pers.</span>
                 </button>
                 <button type="button" onclick="selectEstacion('Mediana')" id="btn-est-Mediana" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
                   <span class="block text-sm sm:text-base font-semibold text-stone-700">Mediana</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~8 kg</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~7,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">3 a 4 pers.</span>
                 </button>
                 <button type="button" onclick="selectEstacion('grande')" id="btn-est-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
@@ -377,7 +377,7 @@
                 </button>
                 <button type="button" onclick="selectPremium('grande')" id="btn-gour-grande" class="py-3 px-2 sm:px-4 rounded-2xl border-2 transition-all text-center bg-white border-stone-200 text-stone-600 hover:border-stone-300">
                   <span class="block text-sm sm:text-base font-semibold text-stone-700">Grande</span>
-                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14 kg</span>
+                  <span class="block text-lg sm:text-xl font-extrabold text-stone-900 leading-tight my-0.5">~14,5 kg</span>
                   <span class="block text-[10px] sm:text-[11px] text-stone-500 font-medium">5+ pers.</span>
                 </button>
               </div>
@@ -1200,13 +1200,13 @@
     // ====== CARRITO (precios de cajas: editalos acá) ======
     const CAJAS = {
       estacion: { nombre: 'Caja Estación', tam: {
-        chica:   { label: 'Chica (~5 kg)',    precio: 15000 },
-        Mediana: { label: 'Mediana (~8 kg)',  precio: 23000 },
+        chica:   { label: 'Chica (~4,5 kg)',    precio: 15000 },
+        Mediana: { label: 'Mediana (~7,5 kg)',  precio: 23000 },
         grande:  { label: 'Grande (~14 kg)',  precio: 39000 } } },
       premium:  { nombre: 'Caja Premium', tam: {
         chica:   { label: 'Chica (~5 kg)',    precio: 19000 },
         Mediana: { label: 'Mediana (~8 kg)',  precio: 28000 },
-        grande:  { label: 'Grande (~14 kg)',  precio: 47000 } } }
+        grande:  { label: 'Grande (~14,5 kg)',  precio: 47000 } } }
     };
     // ====== CUPONES (editá acá: código en MAYÚSCULAS) ======
     // tipo 'fijo' = monto en pesos | tipo 'porcentaje' = % sobre el subtotal
