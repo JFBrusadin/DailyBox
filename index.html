@@ -60,6 +60,8 @@
     .fila-sacada { background: #fef2f2 !important; box-shadow: inset 0 0 0 2px #f87171 !important; }
     .fila-sacada .nombre-fila { text-decoration: line-through; color: #991b1b; }
     .fila-sacada .nombre-fila::after { content: ' ✕ sacar'; display: inline-block; text-decoration: none; font-size: 11px; font-weight: 700; color: #dc2626; }
+    .fila-duplicada { background: #ecfdf5 !important; box-shadow: inset 0 0 0 2px #10b981 !important; }
+    .fila-duplicada .nombre-fila::after { content: ' ×2 doble'; display: inline-block; font-size: 11px; font-weight: 700; color: #059669; }
     .pill-cambio { cursor: pointer; user-select: none; position: relative; transition: box-shadow .15s, background .15s; }
     .pill-cambio:hover { box-shadow: inset 0 0 0 2px #6ee7b7; }
     .pill-agregada { background: #ecfdf5 !important; box-shadow: inset 0 0 0 2px #10b981 !important; }
@@ -1249,11 +1251,23 @@
       const t = CAJAS[linea].tam[linea === 'estacion' ? estSel : premSel];
       const sacar = [...cambios[linea].sacar].sort();
       const agregar = [...cambios[linea].agregar].sort();
+      // No se permite agregar/duplicar más productos de los que se sacan: se deriva a WhatsApp
+      const entran = agregar.length + cambios[linea].duplicar.length;
+      if (entran > sacar.length) {
+        const detalle = agregar.concat(cambios[linea].duplicar.map(n => n + ' (x2)')).join(', ');
+        const consulta = `Hola! Quiero consultar por una ${CAJAS[linea].nombre} ${t.label} agregando más productos de los que saco. Quiero agregar/duplicar: ${detalle}. Quiero sacar: ${sacar.length ? sacar.join(', ') : 'nada'}.`;
+        avisoCambios[linea] = `Tenés que sacar la misma cantidad de productos que agregás o duplicás (agregás/duplicás ${entran} y sacás ${sacar.length}). Si querés agregar más de lo que sacás, <a href="${wa(consulta)}" target="_blank" rel="noopener noreferrer" class="underline text-green-700">consultanos por WhatsApp</a>.`;
+        pintarCambios(linea);
+        const panel = document.querySelector(`[data-estado-cambios="${linea}"]`);
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      const duplicar = [...cambios[linea].duplicar].sort();
       const slug = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '_');
-      const firma = (sacar.length || agregar.length)
-        ? '--s_' + sacar.map(slug).join('_') + '--a_' + agregar.map(slug).join('_') : '';
+      const firma = (sacar.length || agregar.length || duplicar.length)
+        ? '--s_' + sacar.map(slug).join('_') + '--a_' + agregar.map(slug).join('_') + '--d_' + duplicar.map(slug).join('_') : '';
       addToCart({ id: linea + '-' + (linea === 'estacion' ? estSel : premSel) + firma,
-                  nombre: CAJAS[linea].nombre + ' ' + t.label, precio: t.precio, sacar, agregar }, btn);
+                  nombre: CAJAS[linea].nombre + ' ' + t.label, precio: t.precio, sacar, agregar, duplicar }, btn);
       limpiarCambios(linea);
     }
 
@@ -1354,6 +1368,7 @@
             <p class="text-xs text-stone-500 mt-0.5">${fmt(i.precio)} c/u</p>
             ${(i.sacar && i.sacar.length) ? `<p class="text-xs text-red-700 mt-1 leading-snug">➖ Sacar: ${i.sacar.join(', ')}</p>` : ''}
             ${(i.agregar && i.agregar.length) ? `<p class="text-xs text-green-700 mt-0.5 leading-snug">➕ Agregar: ${i.agregar.join(', ')}</p>` : ''}
+            ${(i.duplicar && i.duplicar.length) ? `<p class="text-xs text-green-700 mt-0.5 leading-snug">✖️2 Doble de: ${i.duplicar.join(', ')}</p>` : ''}
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <button type="button" onclick="cambiarQty('${i.id}', -1)" class="w-8 h-8 rounded-full bg-white border border-stone-300 font-bold hover:bg-stone-200" aria-label="Menos">−</button>
@@ -1394,6 +1409,7 @@
         const cadaCaja = i.qty > 1 ? ' (en cada caja)' : '';
         if (i.sacar && i.sacar.length) msg += `   ➖ Sacar${cadaCaja}: ${i.sacar.join(', ')}\n`;
         if (i.agregar && i.agregar.length) msg += `   ➕ Agregar${cadaCaja}: ${i.agregar.join(', ')}\n`;
+        if (i.duplicar && i.duplicar.length) msg += `   ✖️2 Doble de${cadaCaja}: ${i.duplicar.join(', ')}\n`;
       });
       msg += `\nSubtotal: ${fmt(sub)}`;
       if (desc) msg += `\nCupón ${cupon}: -${fmt(desc)}`;
@@ -1407,49 +1423,92 @@
 
     // ====== CAMBIOS EN LA CAJA: hasta 3 para sacar y hasta 3 para agregar ======
     const MAX_CAMBIOS = 3;
-    const cambios = { estacion: { sacar: [], agregar: [] }, premium: { sacar: [], agregar: [] } };
+    const cambios = { estacion: { sacar: [], agregar: [], duplicar: [] }, premium: { sacar: [], agregar: [], duplicar: [] } };
+    const NO_DUPLICABLES = ['palta']; // productos que NO se pueden duplicar
     const PREFIJO_LISTA = { estacion: 'est-', premium: 'gour-' };
     const avisoCambios = { estacion: '', premium: '' };
+    const pickerDuplicar = { estacion: false, premium: false }; // selector de "duplicar un producto" abierto
+
+    function togglePickerDuplicar(linea) {
+      pickerDuplicar[linea] = !pickerDuplicar[linea];
+      pintarCambios(linea);
+    }
+
+    function avisarCambios(linea, msg) {
+      avisoCambios[linea] = msg;
+      pintarCambios(linea);
+      setTimeout(() => { avisoCambios[linea] = ''; pintarCambios(linea); }, 2400);
+    }
 
     function toggleCambio(linea, tipo, nombre) {
-      const arr = cambios[linea][tipo];
-      const idx = arr.indexOf(nombre);
-      if (idx >= 0) arr.splice(idx, 1);
-      else if (arr.length >= MAX_CAMBIOS) {
-        avisoCambios[linea] = `Podés ${tipo === 'sacar' ? 'sacar' : 'agregar'} hasta ${MAX_CAMBIOS} productos.`;
-        pintarCambios(linea);
-        setTimeout(() => { avisoCambios[linea] = ''; pintarCambios(linea); }, 2200);
-        return;
-      } else arr.push(nombre);
+      const c = cambios[linea];
+      const quitar = arr => { const i = arr.indexOf(nombre); if (i >= 0) arr.splice(i, 1); return i >= 0; };
+      if (tipo === 'sacar') {
+        if (!quitar(c.sacar)) {
+          if (c.sacar.length >= MAX_CAMBIOS) return avisarCambios(linea, `Podés sacar hasta ${MAX_CAMBIOS} productos.`);
+          quitar(c.duplicar);          // no puede estar sacado y duplicado a la vez
+          c.sacar.push(nombre);
+        }
+      } else {
+        if (tipo === 'duplicar' && NO_DUPLICABLES.includes(nombre.toLowerCase()))
+          return avisarCambios(linea, `${nombre} no se puede duplicar.`);
+        if (!quitar(c[tipo])) {
+          if (c.agregar.length + c.duplicar.length >= MAX_CAMBIOS)
+            return avisarCambios(linea, `Entre productos agregados y duplicados podés elegir hasta ${MAX_CAMBIOS}.`);
+          c[tipo].push(nombre);
+          if (tipo === 'duplicar') quitar(c.sacar);
+        }
+      }
       avisoCambios[linea] = '';
       pintarCambios(linea);
     }
 
     function limpiarCambios(linea) {
-      cambios[linea].sacar = []; cambios[linea].agregar = [];
+      cambios[linea].sacar = []; cambios[linea].agregar = []; cambios[linea].duplicar = [];
       avisoCambios[linea] = '';
+      pickerDuplicar[linea] = false;
       pintarCambios(linea);
     }
 
     function pintarCambios(linea) {
       const c = cambios[linea];
       document.querySelectorAll(`[data-cambio-linea="${linea}"]`).forEach(el => {
-        const sel = c[el.dataset.cambioTipo].includes(el.dataset.cambioNombre);
-        el.classList.toggle(el.dataset.cambioTipo === 'sacar' ? 'fila-sacada' : 'pill-agregada', sel);
-        el.setAttribute('aria-pressed', sel ? 'true' : 'false');
+        const n = el.dataset.cambioNombre;
+        if (el.dataset.cambioTipo === 'sacar') {
+          el.classList.toggle('fila-sacada', c.sacar.includes(n));
+          el.classList.toggle('fila-duplicada', c.duplicar.includes(n));
+          el.setAttribute('aria-pressed', c.sacar.includes(n) ? 'true' : 'false');
+        } else {
+          el.classList.toggle('pill-agregada', c.agregar.includes(n));
+          el.setAttribute('aria-pressed', c.agregar.includes(n) ? 'true' : 'false');
+        }
       });
       const panel = document.querySelector(`[data-estado-cambios="${linea}"]`);
       if (!panel) return;
-      const hay = c.sacar.length || c.agregar.length;
+      const hay = c.sacar.length || c.agregar.length || c.duplicar.length;
+      const entran = c.agregar.concat(c.duplicar.map(n => n + ' (×2)'));
+      const abierto = pickerDuplicar[linea];
+      const nombres = [...document.querySelectorAll(`[data-cambio-linea="${linea}"][data-cambio-tipo="sacar"]`)]
+        .map(el => el.dataset.cambioNombre).filter(n => !NO_DUPLICABLES.includes(n.toLowerCase()));
+      const picker = abierto
+        ? `<div class="mt-2 p-2.5 bg-white border border-green-200 rounded-xl">
+             <p class="font-semibold text-stone-700 mb-2">Elegí el producto que querés que te venga duplicado:</p>
+             <div class="flex flex-wrap gap-1.5">${nombres.map(n => {
+               const on = c.duplicar.includes(n);
+               return `<button type="button" data-n="${n}" onclick="toggleCambio('${linea}', 'duplicar', this.dataset.n)" class="px-2.5 py-1.5 rounded-full border text-[11px] font-semibold ${on ? 'bg-green-500 border-green-600 text-white' : 'bg-white border-stone-300 text-stone-700 hover:border-green-400'}">${on ? '✓ ' : ''}${n}</button>`;
+             }).join('')}</div>
+           </div>` : '';
       panel.innerHTML =
         `<div class="flex items-start justify-between gap-3">
            <div class="space-y-0.5 min-w-0">
-             <p class="font-semibold text-stone-800">👆 Tocá un producto de la lista para <span class="text-red-700">sacarlo</span> y una opción de abajo para <span class="text-green-700">agregarla</span>.</p>
+             <p class="font-semibold text-stone-800">👆 Hacé clic para sacar o agregar productos.</p>
              <p class="text-red-700">➖ Sacás (${c.sacar.length}/${MAX_CAMBIOS}): ${c.sacar.length ? c.sacar.join(', ') : '—'}</p>
-             <p class="text-green-700">➕ Agregás (${c.agregar.length}/${MAX_CAMBIOS}): ${c.agregar.length ? c.agregar.join(', ') : '—'}</p>
+             <p class="text-green-700">➕ Agregás o duplicás (${entran.length}/${MAX_CAMBIOS}): ${entran.length ? entran.join(', ') : '—'}</p>
            </div>
            ${hay ? `<button type="button" onclick="limpiarCambios('${linea}')" class="shrink-0 underline text-stone-500 hover:text-red-600">Limpiar</button>` : ''}
-         </div>` +
+         </div>
+         <button type="button" onclick="togglePickerDuplicar('${linea}')" class="mt-2.5 w-full py-2 rounded-xl border-2 border-green-600/60 bg-green-50 text-green-800 font-bold hover:bg-green-100 transition-colors">✚ Duplicar un producto de la caja ${abierto ? '▴' : '▾'}</button>` +
+        picker +
         (avisoCambios[linea] ? `<p class="mt-1.5 font-bold text-amber-700">⚠️ ${avisoCambios[linea]}</p>` : '');
     }
 
