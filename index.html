@@ -334,7 +334,7 @@
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Repollo</span>
   </div>
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
-    <span class="text-sm sm:text-base mb-0.5">🪻</span>
+    <span class="text-sm sm:text-base mb-0.5">🟣</span>
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Repollo morado</span>
   </div>
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
@@ -524,7 +524,7 @@
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Repollo</span>
   </div>
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
-    <span class="text-sm sm:text-base mb-0.5">🪻</span>
+    <span class="text-sm sm:text-base mb-0.5">🟣</span>
     <span class="text-[9px] sm:text-[10px] font-medium text-stone-700 leading-tight text-center">Repollo morado</span>
   </div>
   <div class="w-[calc(25%-0.5rem)] sm:w-20 bg-stone-100/80 px-1 py-2 rounded-xl flex flex-col items-center justify-center hover:bg-stone-200 transition-colors">
@@ -560,7 +560,7 @@
 <div class="flex flex-col gap-10 mt-10">
 
   <!-- 1. BLOQUE DE HUEVOS (franja horizontal) -->
-  <div class="bg-gradient-to-br from-amber-50/70 via-white to-amber-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-amber-200/80 shadow-md relative overflow-hidden">
+  <div id="seccion-huevos" class="scroll-mt-32 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/40 rounded-[2.5rem] p-6 sm:p-8 border-2 border-amber-200/80 shadow-md relative overflow-hidden">
     <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
 
       <!-- Info izquierda -->
@@ -600,7 +600,7 @@
   </div>
 
   <!-- 2. FRUTOS SECOS (3 tarjetas) -->
-  <div>
+  <div id="seccion-frutos-secos" class="scroll-mt-32">
     <div class="text-center mb-6">
       <h4 class="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">Sumá frutos secos</h4>
       <p class="text-sm sm:text-base text-stone-600 mt-1 font-medium">Elegí el mix que más te guste</p>
@@ -874,7 +874,7 @@
     }
   </script>
   
-  <!-- PILARES DE VALOR -->
+  <!-- PILARES DE VALOR -->
   <section class="py-14 bg-white/95 border-y border-stone-200">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -1222,6 +1222,19 @@
     <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-3"></div>
 
     <div id="cart-footer" class="border-t border-stone-200 px-6 py-5 space-y-3 bg-stone-50">
+      <div id="cart-sugerencias" class="hidden rounded-2xl border border-amber-200 bg-amber-50/70 p-3.5">
+        <p class="text-sm font-bold text-stone-800 mb-2.5">¿Querés sumar algo más a tu pedido?</p>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button type="button" id="sug-huevos" onclick="irASeccion('seccion-huevos')"
+            class="flex-1 py-2.5 px-3 rounded-xl bg-white border-2 border-amber-300 hover:bg-amber-100 text-stone-800 text-sm font-semibold transition-all">
+            🥚 ¿Querés agregar huevos?
+          </button>
+          <button type="button" id="sug-frutos" onclick="irASeccion('seccion-frutos-secos')"
+            class="flex-1 py-2.5 px-3 rounded-xl bg-white border-2 border-green-300 hover:bg-green-100 text-stone-800 text-sm font-semibold transition-all">
+            🥜 ¿Querés agregar frutos secos?
+          </button>
+        </div>
+      </div>
       <div>
         <div class="flex gap-2">
           <input type="text" id="cupon-input" placeholder="¿Tenés un cupón?" autocomplete="off" autocapitalize="characters"
@@ -1382,6 +1395,22 @@
       }
     }
 
+    function irASeccion(id) {
+      closeCart();
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 320);
+    }
+
+    function pintarSugerencias() {
+      const tieneHuevos = cart.some(i => i.id.startsWith('huevos-'));
+      const tieneFrutos = cart.some(i => i.id.startsWith('mix-'));
+      document.getElementById('sug-huevos').classList.toggle('hidden', tieneHuevos);
+      document.getElementById('sug-frutos').classList.toggle('hidden', tieneFrutos);
+      document.getElementById('cart-sugerencias').classList.toggle('hidden', tieneHuevos && tieneFrutos);
+    }
+
     function renderCart() {
       const count = cart.reduce((s, i) => s + i.qty, 0);
       const fab = document.getElementById('cart-fab');
@@ -1398,6 +1427,7 @@
         return;
       }
       footer.classList.remove('hidden');
+      pintarSugerencias();
       const hayCaja = cartTieneCaja();
       document.getElementById('btn-enviar').disabled = !hayCaja;
       document.getElementById('cart-aviso').classList.toggle('hidden', hayCaja);
