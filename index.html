@@ -1274,9 +1274,12 @@
     // ====== CUPONES (editá acá: código en MAYÚSCULAS) ======
     // tipo 'fijo' = monto en pesos | tipo 'porcentaje' = % sobre el subtotal
     const CUPONES = {
-      'VEROBOX': { tipo: 'fijo', valor: 5000 }
-      // 'OTROCUPON': { tipo: 'porcentaje', valor: 10 },
-    };
+  'VEROBOX':  { tipo: 'fijo', valor: 3000 },
+  'CHUNIBOX': { tipo: 'fijo', valor: 3000 },
+  'LILYBOX':  { tipo: 'fijo', valor: 3000 },
+  'SOFIBOX':  { tipo: 'fijo', valor: 3000 }
+  // 'OTROCUPON': { tipo: 'porcentaje', valor: 10 },
+};
     // Cupones de un solo uso (se recuerdan en este navegador)
     function cuponUsado(code) {
       try { return JSON.parse(localStorage.getItem('dailybox_cupones_usados') || '[]').includes(code); } catch (e) { return false; }
